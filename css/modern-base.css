@@ -1,46 +1,95 @@
-/* =========================================================
-   Global Layout & Mobile Modernization
-   ========================================================= */
+/* ==========================================================================
+   Modern Base Stylesheet - KathySharp.info
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Reset & Base Variables
+   -------------------------------------------------------------------------- */
+:root {
+  --font-primary: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  --bg-color: #ffffff;
+  --text-color: #2d3748;
+  --text-muted: #718096;
+  
+  --link-color: #2b6cb0;
+  --link-hover: #1a365d;
+  --link-visited: #4a5568;
+  
+  --color-broken: #c0392b;
+  --bg-broken-tag: #7f8c8d;
+  
+  --border-color: #e2e8f0;
+  --max-width: 900px;
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+html {
+  font-family: var(--font-primary);
   line-height: 1.6;
-  color: #222222;
-  background-color: #fcfcfc;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
   margin: 0;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-/* Force vintage fixed tables into responsive containers */
-table {
-  max-width: 100% !important;
-  width: 100% !important;
-  height: auto !important;
-  border-collapse: collapse;
+/* --------------------------------------------------------------------------
+   2. Responsive Typography & Headings
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.25;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  color: #1a202c;
 }
 
-/* Scale photos/embeds to fit mobile screens */
-img, iframe, embed, object {
-  max-width: 100% !important;
-  height: auto !important;
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
+/* --------------------------------------------------------------------------
+   3. Links & Broken Link Handling
+   -------------------------------------------------------------------------- */
 a {
-  color: #0056b3;
+  color: var(--link-color);
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-a:hover {
-  color: #003366;
+a:visited {
+  color: var(--link-visited);
 }
 
-/* Styling for broken/archived links */
-a.link-broken {
-  color: #777777 !important;
+a:hover, a:focus {
+  color: var(--link-hover);
+  text-decoration: none;
+}
+
+/* Specificity overrides for broken/offline links across all states */
+a.link-broken,
+a.link-broken:link,
+a.link-broken:visited,
+a.link-broken:hover,
+a.link-broken:active {
+  color: var(--color-broken) !important;
   text-decoration: line-through !important;
   opacity: 0.8;
 }
@@ -48,7 +97,105 @@ a.link-broken {
 a.link-broken::after {
   content: " [offline]";
   font-size: 0.75em;
-  color: #b00000;
-  text-decoration: none;
-  font-style: italic;
+  font-weight: normal;
+  color: var(--bg-broken-tag);
+  text-decoration: none !important;
+  display: inline-block;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* --------------------------------------------------------------------------
+   4. Responsive Images, Media & Legacy HTML Cleaning
+   -------------------------------------------------------------------------- */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Neutralize old HTML alignment attributes (align="left", etc.) */
+img[align="left"] {
+  float: left;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+img[align="right"] {
+  float: right;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Clearfloats for content sections */
+.cf::after,
+article::after,
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* --------------------------------------------------------------------------
+   5. Tables, Code & Structure
+   -------------------------------------------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  display: block;
+  overflow-x: auto; /* Horizontal scroll on mobile if table is wide */
+}
+
+th, td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+th {
+  background-color: #f7fafc;
+  font-weight: 600;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background-color: #f7fafc;
+  border-radius: 4px;
+}
+
+code {
+  padding: 0.2em 0.4em;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 2rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   6. Mobile Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem 0.75rem;
+  }
+  
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.35rem; }
+  
+  img[align="left"],
+  img[align="right"] {
+    float: none;
+    margin: 0 auto 1rem auto;
+  }
 }
