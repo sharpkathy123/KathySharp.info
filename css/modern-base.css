@@ -1,0 +1,54 @@
+/* =========================================================
+   Global Layout & Mobile Modernization
+   ========================================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #222222;
+  background-color: #fcfcfc;
+  margin: 0;
+  padding: 1rem;
+}
+
+/* Force vintage fixed tables into responsive containers */
+table {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  border-collapse: collapse;
+}
+
+/* Scale photos/embeds to fit mobile screens */
+img, iframe, embed, object {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+a {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #003366;
+}
+
+/* Styling for broken/archived links */
+a.link-broken {
+  color: #777777 !important;
+  text-decoration: line-through !important;
+  opacity: 0.8;
+}
+
+a.link-broken::after {
+  content: " [offline]";
+  font-size: 0.75em;
+  color: #b00000;
+  text-decoration: none;
+  font-style: italic;
+}
