@@ -1,23 +1,55 @@
-/* modern-base.css - Minimal Neutral Reset */
+/* modern-base.css - Minimal Reset + Thumbnail Grid + Broken Link Utility */
 
-/* 1. Standardize box-sizing without altering layout spacing */
+/* 1. Box Sizing Reset (Prevents borders/padding from breaking layouts) */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* 2. Prevent images and media from overflowing their containers */
+/* 2. Image Responsiveness */
 img, svg, video {
   max-width: 100%;
   height: auto;
 }
 
-/* 3. Neutral link reset to defer color/decoration entirely to original CSS */
+/* 3. Link State Preservations (Defers colors to original stylesheets) */
 a {
   color: inherit;
 }
 
-/* 4. Optional utility for broken link flagging */
-a.broken-link {
-  text-decoration: line-through;
-  opacity: 0.7;
+/* 4. Broken Link Visual Indicator */
+a.broken-link,
+.broken-link {
+  text-decoration: line-through !important;
+  opacity: 0.65;
+}
+
+/* 5. Lightweight Responsive Thumbnail Grid & List Spacing */
+.thumbnail-grid,
+.gallery-grid,
+.thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;            /* Spacing between images/thumbnails */
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Ensures thumbnail items display nicely side-by-side with automatic wrapping */
+.thumbnail-grid > *,
+.gallery-grid > *,
+.thumbnails > * {
+  flex: 0 1 auto;
+  display: inline-block;
+}
+
+/* Standard thumbnail image styling helper */
+.thumbnail-grid img,
+.gallery-grid img,
+.thumbnails img,
+img.thumbnail {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;   /* Slight rounding for clean visual framing */
 }
