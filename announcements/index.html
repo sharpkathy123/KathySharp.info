@@ -158,18 +158,7 @@
     <hr/>
     <p>
      <small>
-      <script>
-       // Display last modified date
-document.addEventListener('DOMContentLoaded', function() {
-    var lastMod = new Date(document.lastModified);
-    var options = { year: 'numeric', month: 'long', day: 'numeric' };
-    var dateStr = lastMod.toLocaleDateString('en-US', options);
-    var p = document.querySelector('.last-modified');
-    if (p) {
-        p.textContent = 'Updated ' + dateStr;
-    }
-});
-      </script>
+      <span class="last-modified">Last updated: February 2, 2012</span>
      </small>
     </p></main>
  </body>
