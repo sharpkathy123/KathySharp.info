@@ -1,37 +1,43 @@
-/* modern-base.css */
+/* modern-base.css - Neutral Reset + Photo Gallery Grid + Broken Link Utility */
 
+/* 1. Box Sizing Reset */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+/* 2. Image Responsiveness */
 img, svg, video {
   max-width: 100%;
   height: auto;
 }
 
+/* 3. Neutral link reset to defer color/decoration entirely to original CSS */
 a {
   color: inherit;
 }
 
-/* Broken Links */
+/* 4. Broken Link Visual Indicator */
 a.broken-link,
 .broken-link {
   text-decoration: line-through !important;
   opacity: 0.65 !important;
 }
 
-/* Thumbnail Grid Layout */
+/* 5. Photo Gallery & Thumbnail Grid Layout */
+.photo-gallery,
 .thumbnail-grid,
 .gallery-grid,
 .thumbnails {
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 1rem !important;
+  gap: 1rem !important;          /* Spacing between gallery items */
   margin: 1rem 0;
   padding: 0;
   list-style: none;
 }
 
+/* Flex items layout inside the gallery */
+.photo-gallery > *,
 .thumbnail-grid > *,
 .gallery-grid > *,
 .thumbnails > * {
@@ -39,6 +45,8 @@ a.broken-link,
   display: inline-block;
 }
 
+/* Gallery image formatting */
+.photo-gallery img,
 .thumbnail-grid img,
 .gallery-grid img,
 .thumbnails img,
