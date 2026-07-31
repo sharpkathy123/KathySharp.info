@@ -13,72 +13,51 @@
   <link href="../../css/Kathy.css" rel="stylesheet"/>
   <link href="../../css/modern-base.css" rel="stylesheet"/>
   <style>
-    /* Responsive Gallery Grid Container */
+    /* Flexible Multi-Column Photo Grid */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      gap: 24px;
       margin: 2rem 0;
+      align-items: start;
     }
 
-    /* Individual Photo Card */
+    /* Individual Card for Photo + Caption Underneath */
     .gallery-card {
       margin: 0;
       background: #ffffff;
       border: 1px solid #e2e8f0;
       border-radius: 8px;
-      overflow: hidden;
+      padding: 12px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .gallery-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Image Wrapper for Consistent Aspect Ratios */
-    .gallery-card-img-wrap {
-      width: 100%;
-      height: 260px;
-      background-color: #f1f5f9;
-      display: flex;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
     }
 
+    /* Display full photo naturally without cropping or stretching */
     .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 100%;
+      height: auto;
       display: block;
+      border-radius: 4px;
     }
 
-    /* Caption Area */
+    /* Caption placed underneath the photo */
     .gallery-card figcaption {
-      padding: 16px;
+      margin-top: 12px;
+      width: 100%;
       font-size: 0.9rem;
       line-height: 1.5;
       color: #334155;
-      background: #ffffff;
-      flex-grow: 1;
+      text-align: left;
     }
 
-    /* Adjust viewport padding for mobile screens */
+    /* Single column layout for small screens */
     @media (max-width: 600px) {
       .gallery-grid {
         grid-template-columns: 1fr;
         gap: 16px;
-      }
-      .gallery-card-img-wrap {
-        height: auto;
-        max-height: 320px;
-      }
-      .gallery-card img {
-        object-fit: contain;
       }
     }
   </style>
@@ -104,162 +83,126 @@
    <div class="gallery-grid">
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="3web" decoding="async" loading="lazy" src="3WEB.jpg"/>
-     </div>
+     <img alt="3web" decoding="async" loading="lazy" src="3WEB.jpg"/>
      <figcaption>
       This photo shows the couple that was hiking the opposite direction from us and had missed the Middle Trail exit. At this point they’ve turned around and are hiking with us. So, hiking from Wire Pass, this is what the canyon looks like not too far from Middle Trail. Note how high the canyon walls are.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="1web" decoding="async" loading="lazy" src="1WEB.jpg"/>
-     </div>
+     <img alt="1web" decoding="async" loading="lazy" src="1WEB.jpg"/>
      <figcaption>
       I think this photo was taken from the bottom of the Middle Trail entry/exit <i>, facing the direction we came from</i> (Wire Pass). Someone (Sam?) is sitting in the shade just left of the "cliff" below the ramp below the Moqui steps.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="8web" decoding="async" loading="lazy" src="8WEB.jpg"/>
-     </div>
+     <img alt="8web" decoding="async" loading="lazy" src="8WEB.jpg"/>
      <figcaption>
       I think this is the Middle Trail entry/exit as seen when hiking from White House Ruins.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="4web" decoding="async" loading="lazy" src="4WEB.jpg"/>
-     </div>
+     <img alt="4web" decoding="async" loading="lazy" src="4WEB.jpg"/>
      <figcaption>
       Rick is standing at the bottom of the Middle Trail entry/exit. The top of the crack is at the lower right of the box of blue sky.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="5web" decoding="async" loading="lazy" src="5WEB.jpg"/>
-     </div>
+     <img alt="5web" decoding="async" loading="lazy" src="5WEB.jpg"/>
      <figcaption>
       That might be Jef climbing. I think either Jef was trying the crack, or it’s not Jef (I think the lost couple got sucked into the crack), or the photo makes it look harder than it is.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="9web" decoding="async" loading="lazy" src="9WEB.jpg"/>
-     </div>
+     <img alt="9web" decoding="async" loading="lazy" src="9WEB.jpg"/>
      <figcaption>
       I don’t remember noticing the petroglyphs Sam is pointing at till this trip. They were at the point where it’s best to switch between climbing in the crack (at the bottom) to the ledge (in the foreground) above which are the Moqui steps. Sam looks like he’s on the step below the ledge and is heading down into the slot.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="7web" decoding="async" loading="lazy" src="7WEB.jpg"/>
-     </div>
+     <img alt="7web" decoding="async" loading="lazy" src="7WEB.jpg"/>
      <figcaption>
       Sam is on the Moqui steps at the top of the Middle Trail entry/exit.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="13web" decoding="async" loading="lazy" src="13WEB.jpg"/>
-     </div>
+     <img alt="13web" decoding="async" loading="lazy" src="13WEB.jpg"/>
      <figcaption>
       After we got to the top, we hiked to Cobra Arch. Perhaps the scenery in the background of this photo might help you when you know you’re close.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="17web" decoding="async" loading="lazy" src="17WEB.jpg"/>
-     </div>
+     <img alt="17web" decoding="async" loading="lazy" src="17WEB.jpg"/>
      <figcaption>
       That’s Jef at Cobra Arch.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="16web" decoding="async" loading="lazy" src="16WEB.jpg"/>
-     </div>
+     <img alt="16web" decoding="async" loading="lazy" src="16WEB.jpg"/>
      <figcaption>
       I’m not positive, but I think this is a photo of the area near the Middle Trail entry/exit at the top. We were heading back into the canyon after camping at the Middle Trail campsite, which is quite a bit higher than this. I think we went to the edge of the slot here and then turned left.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="18web" decoding="async" loading="lazy" src="18WEB.jpg"/>
-     </div>
+     <img alt="18web" decoding="async" loading="lazy" src="18WEB.jpg"/>
      <figcaption>
       Jef is starting down the Middle Trail entry/exit. He was trying to make it look scary because I was calling it the "hazardous" entry/exit because I’d read that in a guide. I was taking plenty of photos so it couldn’t be too scary.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="19web" decoding="async" loading="lazy" src="19WEB.jpg"/>
-     </div>
+     <img alt="19web" decoding="async" loading="lazy" src="19WEB.jpg"/>
      <figcaption>
       Jef is walking at the edge of a darker area. The lighter area next to that and below (to the left) is where the Moqui steps are. You can see that on this trip there was a really dead piece of wood leaning up the ramp with steps. (You can see a bit of the wood in the photo of Sam on the Moqui steps.) The red area to the left of the sandstone Moqui step area is red sand on the ledge. The ledge is the top of the "cliff" I mentioned for a previous photo.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="11web" decoding="async" loading="lazy" src="11WEB.jpg"/>
-     </div>
+     <img alt="11web" decoding="async" loading="lazy" src="11WEB.jpg"/>
      <figcaption>
       Jef is walking on the ledge now. It’s early in the morning so the inside of the canyon is totally in shade.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="15web" decoding="async" loading="lazy" src="15WEB.jpg"/>
-     </div>
+     <img alt="15web" decoding="async" loading="lazy" src="15WEB.jpg"/>
      <figcaption>
       Here you can see the ramp (left edge of photo) and the ledge at the base of the ramp (with plants on it). Rick and Jef are on the easy step to convert from the ledge back to the crack.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="10web" decoding="async" loading="lazy" src="10WEB.jpg"/>
-     </div>
+     <img alt="10web" decoding="async" loading="lazy" src="10WEB.jpg"/>
      <figcaption>
       At the left at the bottom is Rick. Jef is in the middle. Sam is at the right and climbing down at Middle Trail.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="14web" decoding="async" loading="lazy" src="14WEB.jpg"/>
-     </div>
+     <img alt="14web" decoding="async" loading="lazy" src="14WEB.jpg"/>
      <figcaption>
       Sam is climbing down the last bit of the Middle Trail entry/exit. I think that’s Rick below and to the right.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="2web" decoding="async" loading="lazy" src="2WEB.jpg"/>
-     </div>
+     <img alt="2web" decoding="async" loading="lazy" src="2WEB.jpg"/>
      <figcaption>
       Jef, Sam, and Rick show off their shoes after walking through pancake batter mud.
      </figcaption>
     </figure>
 
     <figure class="gallery-card">
-     <div class="gallery-card-img-wrap">
-      <img alt="6web" decoding="async" loading="lazy" src="6WEB.jpg"/>
-     </div>
+     <img alt="6web" decoding="async" loading="lazy" src="6WEB.jpg"/>
      <figcaption>
       See the hole in the mud from Sam’s foot?
      </figcaption>
