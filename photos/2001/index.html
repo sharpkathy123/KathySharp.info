@@ -13,16 +13,16 @@
   <link href="../../css/Kathy.css" rel="stylesheet"/>
   <link href="../../css/modern-base.css" rel="stylesheet"/>
   <style>
-    /* Flexible Multi-Column Photo Grid */
+    /* Force Grid layout despite modern-base.css !important */
     .gallery-grid {
-      display: grid;
+      display: grid !important;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 24px;
       margin: 2rem 0;
       align-items: start;
     }
 
-    /* Individual Card - Shrink-wraps to the width of the image */
+    /* Individual Card - Shrink-wrap to image width */
     .gallery-card {
       margin: 0 auto;
       width: fit-content;
@@ -38,7 +38,7 @@
       box-sizing: border-box;
     }
 
-    /* Keep photo at original width, scaling down only if screen is narrower */
+    /* Image sizing */
     .gallery-card img {
       max-width: 100%;
       height: auto;
@@ -46,11 +46,10 @@
       border-radius: 4px;
     }
 
-    /* Caption constrained strictly to the photo width above it */
+    /* Caption strictly constrained to photo width */
     .gallery-card figcaption {
       margin-top: 10px;
       width: 100%;
-      max-width: 100%;
       font-size: 0.88rem;
       line-height: 1.45;
       color: #334155;
@@ -58,7 +57,7 @@
       box-sizing: border-box;
     }
 
-    /* Responsive adjustment for small mobile screens */
+    /* Mobile handling */
     @media (max-width: 600px) {
       .gallery-grid {
         grid-template-columns: 1fr;
