@@ -12,7 +12,7 @@ function jsonFlickrFeed(data) {
   title = title.replace(/^\d{4}-\d{2}-\d{2}\s+\d{2}-\d{2}-\d{2}\s*[-–:]*\s*/, '').trim();
   
   if (!title) {
-    title = "Kathy's Favorites";
+    title = "Kathy's Photos";
   }
 
   // Get image URL directly from Flickr's media object

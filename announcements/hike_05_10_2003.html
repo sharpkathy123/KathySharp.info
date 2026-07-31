@@ -2,17 +2,39 @@
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>
    Salome Creek - The Jug
   </title>
   <meta content="Kathy Sharp's Web Pages" name="description"/>
   <meta content="Kathy Sharp" name="author"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
   <link href="../css/style.css" rel="stylesheet"/>
   <link href="../css/Kathy.css" rel="stylesheet"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
   <link href="../css/modern-base.css" rel="stylesheet"/>
+  <style>
+    /* Float container for Flickr embed */
+    .flickr-embed-container {
+      float: right;
+      margin: 0 0 15px 15px;
+      max-width: 320px;
+    }
+
+    /* Clearfix for floating elements */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    @media (max-width: 600px) {
+      .flickr-embed-container {
+        float: none;
+        margin: 0 0 15px 0;
+        max-width: 100%;
+      }
+    }
+  </style>
  </head>
  <body>
   <nav class="site-nav">
@@ -27,96 +49,18 @@
    <a href="../schedules/index.html">schedules</a>
    <a href="../index.html">up</a>
   </nav>
-  <style type="text/css">
-   #flickr_badge_source_txt {
-	padding: 0;
-	font: 11px Arial, Helvetica, Sans serif;
-	color: #666666;
-}
 
-#flickr_badge_icon {
-	display: block!important;
-	margin: 0!important;
-	border: 1px solid rgb(0, 0, 0)!important;
-}
+  <main class="clearfix">
+   <!-- Embedded Flickr Photo Search -->
+   <div class="flickr-embed-container">
+    <a data-flickr-embed="true" data-context="true" href="https://www.flickr.com/search/?user_id=kathysharp&amp;tags=salome&amp;sort=relevance" title="Flickr Search"><img src="https://live.staticflickr.com/5229/5680569169_20c61b80d9_b.jpg" width="1600" height="1200" alt="Flickr Search"/></a>
+    <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+    <a href="https://www.flickr.com/search/?user_id=kathysharp&amp;tags=salome&amp;sort=relevance" title="View Salome Photos on Flickr">
+      <img src="https://live.staticflickr.com/5229/5680569169_20c61b80d9_b.jpg" alt="Salome Creek" width="1600" height="1200" />
+    < /a>
+    
+   </div>
 
-#flickr_icon_td {
-	padding: 0 5px 0 0!important;
-}.flickr_badge_image {
-	text-align: center!important;
-}.flickr_badge_image img {
-	border: 1px solid black!important;
-}
-
-#flickr_badge_uber_wrapper {
-	width: 150px;
-}
-
-#flickr_www {
-	display: block;
-	text-align: center;
-	padding: 0 10px 0 10px!important;
-	font: 11px Arial, Helvetica, Sans serif!important;
-	color: #3993ff!important;
-}
-
-#flickr_badge_uber_wrapper a:hover,#flickr_badge_uber_wrapper a:link,#flickr_badge_uber_wrapper a:active,#flickr_badge_uber_wrapper a:visited
-	{
-	text-decoration: none!important;
-	background: inherit!important;
-	color: #ff3300;
-}
-
-#flickr_badge_wrapper {
-	background-color: #FFFFFF;
-	border: solid 1px #ccddee
-}
-
-#flickr_badge_source {
-	padding: 0!important;
-	font: 11px Arial, Helvetica, Sans serif!important;
-	color: #666666!important;
-}
-  </style>
-  <table class="floatright" id="flickr_badge_uber_wrapper">
-   <tbody>
-    <tr>
-     <td>
-      <a href="https://www.flickr.com" id="flickr_www">www.
-       <strong style="color: #3993ff">flick
-        <span style="color: #ff1c92">r</span></strong>.com</a>
-      <table id="flickr_badge_wrapper">
-       <script data-note="Flickr badge - may be deprecated" src="https://www.flickr.com/badge_code_v2.gne?show_name=1&amp;count=3&amp;display=random&amp;size=m&amp;layout=v&amp;source=user_tag&amp;user=99505022%40N00&amp;tag=salome" type="text/javascript">
-       </script>
-       <tbody>
-        <tr>
-         <td class="align-center" id="flickr_badge_source">
-          <table>
-           <tbody>
-            <tr>
-             <td id="flickr_icon_td">
-              <a href="https://www.flickr.com/photos/kathysharp/tags/salome/"><img alt="kathysharp's
-                                items tagged with salome" class="align-left" height="48" id="flickr_badge_icon" src="https://farm4.staticflickr.com/3265/buddyicons/99505022@N00.jpg?1245025676#99505022@N00" width="48"/></a>
-             </td>
-             <td id="flickr_badge_source_txt">
-              <nobr>
-               More of
-              </nobr>
-              <a href="https://www.flickr.com/photos/kathysharp/tags/salome/">kathysharp's
-														stuff tagged with salome</a>
-             </td>
-            </tr>
-           </tbody>
-          </table>
-         </td>
-        </tr>
-       </tbody>
-      </table>
-     </td>
-    </tr>
-   </tbody>
-  </table>
-  <main>
    <h1>
     Salome Creek - The Jug
     <br/>
@@ -147,7 +91,7 @@
    <p>
     The VOA volunteers, possibly including Rogil and Kathy, will be
 		camping Saturday night at a group site reserved for VOA volunteers.</p>
-<h3>
+   <h3>
     Supplies
    </h3>
    <p>
@@ -303,7 +247,7 @@
     <a href="../checklists/index.html">checklists link</a>
     for
 		our full hiking and canyoneering supply checklists.</p>
-<h3>
+   <h3>
     Weather
    </h3>
    <p>
@@ -314,7 +258,7 @@
     We will have to cross Tonto Creek to get to the trailhead. Check
     <a href="https://web.archive.org/web/20030605011848/http://az.waterdata.usgs.gov:80/nwis/current/?type=flow">Real-Time
 			Data for Arizona Streamflow</a>.</p>
-<h3>
+   <h3>
     Saturday Meeting Place
    </h3>
    We will be meeting on Saturday morning in the parking lot near the
@@ -371,7 +315,7 @@
    <p>
     <b>     Don't</b>
     count on the return time!</p>
-<h3>
+   <h3>
     <a id="Trailhead"></a>
     Trailhead
    </h3>
@@ -472,18 +416,19 @@
    <hr/>
    <small>
     <nav class="site-nav">
-    <a href="hike_05_03_2003b.html">previous</a>
-    <a href="hike_10_12_2002.html">next</a>
-    <a href="../index.html">home</a>
-    <a href="index.html">announcements</a>
-    <a href="../checklists/index.html">checklists</a>
-    <a href="../links/index.html">links</a>
-    <a href="../photos/index.html">photos</a>
-    <a href="../reports/index.html">reports</a>
-    <a href="../schedules/index.html">schedules</a>
-    <a href="../index.html">up</a>
-    <a href="hike_05_10_2003.html#">top</a>
-   </nav>
+     <a href="hike_05_03_2003b.html">previous</a>
+     <a href="hike_10_12_2002.html">next</a>
+     <a href="../index.html">home</a>
+     <a href="index.html">announcements</a>
+     <a href="../checklists/index.html">checklists</a>
+     <a href="../links/index.html">links</a>
+     <a href="../photos/index.html">photos</a>
+     <a href="../reports/index.html">reports</a>
+     <a href="../schedules/index.html">schedules</a>
+     <a href="../index.html">up</a>
+     <a href="hike_05_10_2003.html#">top</a>
+    </nav>
+   </small>
    <hr/>
    <p>
     <small>
