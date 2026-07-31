@@ -17,8 +17,8 @@ a {
 }
 
 /* 4. Broken Link Visual Indicator */
-a.broken-link,
-.broken-link {
+a.link-broken,
+a.link-broken:visited {
   text-decoration: line-through !important;
   opacity: 0.65 !important;
 }
