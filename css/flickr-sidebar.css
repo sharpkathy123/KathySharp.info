@@ -1,0 +1,38 @@
+.flickr-sidebar {
+    float: right;
+    width: 320px;
+    margin: 0 0 1.5rem 1.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.flickr-sidebar img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.25);
+}
+
+.flickr-more {
+    margin-top: .5rem;
+}
+
+.flickr-more a {
+    color: #0063dc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.flickr-more a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width:700px) {
+    .flickr-sidebar {
+        float: none;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 1.5rem auto;
+    }
+}
