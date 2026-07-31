@@ -1,51 +1,53 @@
-/* 
- * Modern CSS Reset
- * Based on modern-normalize and updated best practices
- * Replaces the old HTML5 Boilerplate reset from 2012
- */
+/* Modern Reset & Accessibility Layer */
 
-/* Box sizing rules */
+/* Box Sizing & Fluid Media Defaults */
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
-/* Remove default margin */
-body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
-    margin: 0;
-}
-
-/* Remove list styles on ul, ol with a class */
-ul[class], ol[class] {
-    list-style: none;
-    padding: 0;
-}
-
-/* Set core root defaults */
-html:focus-within {
-    scroll-behavior: smooth;
-}
-
-/* Set core body defaults */
-body {
-    min-height: 100vh;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Make images easier to work with */
 img, picture, svg {
     max-width: 100%;
     display: block;
 }
 
-/* Inherit fonts for inputs and buttons */
+/* Global Root & Body Defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Element Resets */
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+    margin: 0;
+}
+
+ul[class], ol[class] {
+    list-style: none;
+    padding: 0;
+}
+
 input, button, textarea, select {
     font: inherit;
 }
 
-/* Remove all animations and transitions for people that prefer not to see them */
+/* Focus & Selection Styling */
+a:focus-visible, button:focus-visible {
+    outline: 2px solid #057;
+    outline-offset: 2px;
+}
+
+::selection {
+    background: #5577cc;
+    color: #fff;
+}
+
+/* Reduced Motion Preferences */
 @media (prefers-reduced-motion: reduce) {
     html:focus-within {
         scroll-behavior: auto;
@@ -57,13 +59,3 @@ input, button, textarea, select {
         scroll-behavior: auto !important;
     }
 }
-
-/* Accessibility: visible focus styles */
-a:focus-visible, button:focus-visible {
-    outline: 2px solid #057;
-    outline-offset: 2px;
-}
-
-/* Selection styling */
-::-moz-selection { background: #5577cc; color: #fff; }
-::selection { background: #5577cc; color: #fff; }
