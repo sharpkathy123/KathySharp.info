@@ -1,6 +1,11 @@
-/* modern-base.css - Utility Overrides & Gallery Layouts */
+/* ==========================================================================
+   modern-base.css - Utility Overrides, Gallery Layouts & Grid Systems
+   ========================================================================== */
 
-/* 1. Link Utilities */
+/* --------------------------------------------------------------------------
+   1. Link & Media Utilities
+   -------------------------------------------------------------------------- */
+
 /* Defer link color to earlier stylesheets, keeping custom states intact */
 a {
   color: inherit;
@@ -13,13 +18,16 @@ a.link-broken:visited {
   opacity: 0.65 !important;
 }
 
-/* 2. Responsive Video Media */
+/* Responsive Video Media */
 video {
   max-width: 100%;
   height: auto;
 }
 
-/* 3. Photo Gallery & Thumbnail Grid Layout */
+/* --------------------------------------------------------------------------
+   2. Photo Gallery & Thumbnail Grid Layout
+   -------------------------------------------------------------------------- */
+
 .photo-gallery,
 .thumbnail-grid,
 .gallery-grid,
@@ -46,4 +54,130 @@ video {
 .thumbnails img,
 img.thumbnail {
   border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Structural Layout & Main Containers
+   -------------------------------------------------------------------------- */
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Navigation Bar Layout */
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  padding: 0.75rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Checklist Index & Grid Layouts
+   -------------------------------------------------------------------------- */
+
+/* Checklist Index / Summary Top Box */
+.checklist-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.checklist-index > div {
+  flex: 1 1 250px;
+}
+
+.checklist-index h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.checklist-index ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+/* Individual Checklist Sections */
+.checklist-section {
+  margin-bottom: 2.5rem;
+}
+
+/* Responsive Grid Layout for Lists */
+.list-columns {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start; /* Keeps column tops aligned */
+}
+
+/* Default 3-column setup for standard desktop displays */
+.list-columns.col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Single & Double column utility variants */
+.list-columns.col-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.list-columns.col-1 {
+  grid-template-columns: 1fr;
+}
+
+/* Unordered List Clean Formatting */
+.list-columns ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.list-columns li {
+  margin-bottom: 0.35rem;
+}
+
+/* --------------------------------------------------------------------------
+   5. Media Queries & Responsiveness
+   -------------------------------------------------------------------------- */
+
+/* Extra Wide Monitors (1400px+): Full-width proportional grid spacing */
+@media (min-width: 1400px) {
+  .list-columns.col-3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Tablet Screens (800px and under): Scale down to 2 columns */
+@media (max-width: 800px) {
+  .list-columns.col-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile Screens (500px and under): Collapse to single column */
+@media (max-width: 500px) {
+  .list-columns.col-3,
+  .list-columns.col-2 {
+    grid-template-columns: 1fr;
+  }
+
+  main {
+    padding: 0.75rem 1rem;
+  }
 }
