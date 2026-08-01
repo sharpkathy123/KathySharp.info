@@ -12,29 +12,6 @@
   <link href="css/style.css" rel="stylesheet"/>
   <link href="css/Kathy.css" rel="stylesheet"/>
   <link href="css/modern-base.css" rel="stylesheet"/>
-  <style>
-    /* Float container for Flickr embed */
-    .flickr-embed-container {
-      float: right;
-      margin: 0 0 15px 15px;
-      max-width: 320px;
-    }
-
-    /* Clearfix for floating elements */
-    .clearfix::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-
-    @media (max-width: 600px) {
-      .flickr-embed-container {
-        float: none;
-        margin: 0 0 15px 0;
-        max-width: 100%;
-      }
-    }
-  </style>
  </head>
  <body>
   <nav>
@@ -64,7 +41,14 @@
    <div class="flickr-embed-container">
     <a data-flickr-embed="true" href="https://www.flickr.com/photos/kathysharp/albums/72157623193132607" title="Favorites - Random"><img src="https://live.staticflickr.com/1922/44617965465_e2864cba26_h.jpg" width="1600" height="1200" alt="Favorites - Random"/></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
    </div>
-
+   
+   <main class="clearfix">
+    <div class="flickr-sidebar"
+     data-topic="Hiking,Favorite"
+     data-photo="https://live.staticflickr.com/7134/7154808510_ced68606b0.jpg"
+     data-page="https://www.flickr.com/photos/kathysharp/tags/${encodeURIComponent(topic)}/"
+     data-alt="Hiking">
+    </div>
    <h1>
     Hiking, Canyoneering, Etc.
    </h1>
