@@ -28,11 +28,26 @@
     text-decoration: underline;
 }
 
-@media (max-width:700px) {
+/* Hide the mobile tip on desktop screens */
+.flickr-mobile-tip {
+    display: none;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.25rem;
+    font-style: italic;
+}
+
+/* Mobile responsive layout & tip reveal */
+@media (max-width: 700px) {
     .flickr-sidebar {
         float: none;
         width: 100%;
         max-width: 320px;
         margin: 0 auto 1.5rem auto;
+    }
+
+    /* Display tip on small screens */
+    .flickr-mobile-tip {
+        display: block;
     }
 }

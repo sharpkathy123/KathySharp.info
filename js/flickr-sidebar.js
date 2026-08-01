@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const alt = div.dataset.alt || topic;
 
         // Optional custom link text
-        const linkText = div.dataset.linkText || `More ${topic} photos →`;
+        const linkText = div.dataset.linkText || `More ${topic} photos`;
 
         div.innerHTML = `
             <a href="${page}"
@@ -20,11 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
             </a>
 
             <div class="flickr-more">
-                <a href="https://www.flickr.com/photos/YOUR_USERNAME/tags/${encodeURIComponent(topic)}+favorite/"
+                <a href="https://www.flickr.com/photos/kathysharp/tags/${encodeURIComponent(topic)}/"
                    target="_blank"
                    rel="noopener">
                     ${linkText}
                 </a>
+                <span class="flickr-mobile-tip">Tip: Press and hold to open in browser</span>
             </div>
         `;
 
