@@ -47,13 +47,18 @@
     up
    </a>
   </nav>
-  <main>
+  
+  <main class="clearfix">
+    <div class="flickr-sidebar"
+     data-topic="PicachoPeak"
+     data-photo="picacho.jpg"
+     data-page="https://www.flickr.com/photos/kathysharp/tags/${encodeURIComponent(topic)}/"
+     data-alt="Picacho Peak">
+    </div>
    <h1>
     Picacho Peak Links
    </h1>
-   <p>
-    <img alt="Picacho Peak" class="floatright align-right" hspace="5" src="picacho.jpg" style="border: 0px solid; width: 96px; height: 64px;" title="Picacho Peak" vspace="5"/></p>
-<h2>
+    <h2>
     Announcements
    </h2>
    <p>
@@ -63,10 +68,7 @@
     </a>
     <br/>
    </p>
-   <!-- h2>Related Pages</h2>
-<a href="../announcements/hike_03_05_2005p.html">2005 Participant List</a>
-<p></p --></p>
-<h2>
+   <h2>
     Trip Reports
    </h2>
    <p>
@@ -161,5 +163,6 @@
     Updated 2/28/2007
    </small>
   </main>
+  <script src="../js/flickr-sidebar.js"></script>
  </body>
 </html>

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const alt = div.dataset.alt || topic;
 
         // Optional custom link text
-        const linkText = div.dataset.linkText || `More ${topic} photos`;
+        const linkText = div.dataset.linkText || `More photos tagged ${topic}`;
 
         div.innerHTML = `
             <a href="${page}"
