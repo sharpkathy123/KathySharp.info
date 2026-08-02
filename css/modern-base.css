@@ -94,7 +94,7 @@ main {
 .checklist-index {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
   background-color: rgba(0, 0, 0, 0.03);
   padding: 1rem 1.5rem;
   border-radius: 6px;
@@ -102,7 +102,7 @@ main {
 }
 
 .checklist-index > div {
-  flex: 1 1 250px;
+  flex: 1 1 220px;
 }
 
 .checklist-index h4 {
@@ -123,16 +123,16 @@ main {
 /* Responsive Grid Layout for Lists */
 .list-columns {
   display: grid;
-  gap: 1.5rem;
+  gap: 0.75rem 1rem; /* Tighter gap: 0.75rem row gap, 1rem column gap */
   align-items: start; /* Keeps column tops aligned */
 }
 
-/* Default 3-column setup for standard desktop displays */
+/* Dynamic multi-column setup: creates as many columns as fit (min 220px wide) */
 .list-columns.col-3 {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
-/* Single & Double column utility variants */
+/* Fixed utility variants */
 .list-columns.col-2 {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -144,7 +144,7 @@ main {
 /* Unordered List Clean Formatting */
 .list-columns ul {
   margin: 0;
-  padding-left: 1.25rem;
+  padding-left: 1.1rem;
 }
 
 .list-columns li {
@@ -154,21 +154,6 @@ main {
 /* --------------------------------------------------------------------------
    5. Media Queries & Responsiveness
    -------------------------------------------------------------------------- */
-
-/* Extra Wide Monitors (1400px+): Full-width proportional grid spacing */
-@media (min-width: 1400px) {
-  .list-columns.col-3 {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-}
-
-/* Tablet Screens (800px and under): Scale down to 2 columns */
-@media (max-width: 800px) {
-  .list-columns.col-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
 /* Mobile Screens (500px and under): Collapse to single column */
 @media (max-width: 500px) {
