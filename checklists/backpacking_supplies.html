@@ -1,151 +1,189 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <title>
-   Backpacking Supplies
-  </title>
-  <meta content="Kathy Sharp's Web Pages" name="description"/>
-  <meta content="Kathy Sharp" name="author"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="upgrade-insecure-requests" http-equiv="Content-Security-Policy"/>
-  <link href="../css/style.css" rel="stylesheet"/>
-  <link href="../css/Kathy.css" rel="stylesheet"/>
-  <link href="../css/modern-base.css" rel="stylesheet"/>
-  <style>
-    /* 3-Column Grid Checklist Layout */
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px 16px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 20px;
-      margin: 1.5rem 0;
-    }
-
-    .checklist-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.95rem;
-      line-height: 1.4;
-      color: #334155;
-    }
-
-    .checklist-item input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-      accent-color: #2c3e50;
-      flex-shrink: 0;
-    }
-
-    /* Mobile view: collapses cleanly into 1 column for touch accessibility */
-    @media (max-width: 600px) {
+  <head>
+    <meta charset="utf-8" />
+    <title>Backpacking Supplies</title>
+    <meta content="Kathy Sharp's Web Pages" name="description" />
+    <meta content="Kathy Sharp" name="author" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      content="upgrade-insecure-requests"
+      http-equiv="Content-Security-Policy"
+    />
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/Kathy.css" rel="stylesheet" />
+    <link href="../css/modern-base.css" rel="stylesheet" />
+    <style>
+      /* 3-Column Grid Checklist Layout */
       .checklist-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px 16px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 1.5rem 0;
       }
-    }
-  </style>
- </head>
- <body>
-  <nav class="site-nav">
-   <a href="index.html">previous</a>
-   <a href="can_supplies.html">next</a>
-   <a href="../index.html">home</a>
-   <a href="../announcements/index.html">announcements</a>
-   <a href="index.html">checklists</a>
-   <a href="../links/index.html">links</a>
-   <a href="../photos/index.html">photos</a>
-   <a href="../reports/index.html">reports</a>
-   <a href="../schedules/index.html">schedules</a>
-   <a href="../index.html">up</a>
-  </nav>
-  <main>
-   <h1>
-    Backpacking Supplies
-   </h1>
-   <p>
-    Here's a backpacking supply list from rec.backcountry.
-   </p>
-
-   <!-- Modernized 3-Column Gear Checklist -->
-   <div class="checklist-grid">
-    <label class="checklist-item"><input type="checkbox"/> backpack</label>
-    <label class="checklist-item"><input type="checkbox"/> sleeping bag</label>
-    <label class="checklist-item"><input type="checkbox"/> ground pad</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> tent</label>
-    <label class="checklist-item"><input type="checkbox"/> groundcloth</label>
-    <label class="checklist-item"><input type="checkbox"/> boots &amp; socks</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> cook kit &amp; cup</label>
-    <label class="checklist-item"><input type="checkbox"/> stove &amp; fuel</label>
-    <label class="checklist-item"><input type="checkbox"/> fork &amp; spoon</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> camp knife</label>
-    <label class="checklist-item"><input type="checkbox"/> can opener</label>
-    <label class="checklist-item"><input type="checkbox"/> soap (biodegradable)</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> scouring pad</label>
-    <label class="checklist-item"><input type="checkbox"/> towel</label>
-    <label class="checklist-item"><input type="checkbox"/> rain poncho</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> pack raincover</label>
-    <label class="checklist-item"><input type="checkbox"/> ~30 ft. rope</label>
-    <label class="checklist-item"><input type="checkbox"/> maps</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> compass</label>
-    <label class="checklist-item"><input type="checkbox"/> signal mirror</label>
-    <label class="checklist-item"><input type="checkbox"/> hand shovel</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> toilet paper</label>
-    <label class="checklist-item"><input type="checkbox"/> flashlight</label>
-    <label class="checklist-item"><input type="checkbox"/> hat</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> walking stick</label>
-    <label class="checklist-item"><input type="checkbox"/> scarf</label>
-    <label class="checklist-item"><input type="checkbox"/> salt &amp; pepper</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> toothbrush</label>
-    <label class="checklist-item"><input type="checkbox"/> tooth powder</label>
-    <label class="checklist-item"><input type="checkbox"/> sunscreen</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> lip balm</label>
-    <label class="checklist-item"><input type="checkbox"/> water pur. tabs</label>
-    <label class="checklist-item"><input type="checkbox"/> snakebite kit</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> camera &amp; film</label>
-    <label class="checklist-item"><input type="checkbox"/> binoculars</label>
-    <label class="checklist-item"><input type="checkbox"/> ziplok bags for trash</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> matches or Bic lighters</label>
-    <label class="checklist-item"><input type="checkbox"/> water bottle (1 liter)</label>
-    <label class="checklist-item"><input type="checkbox"/> water jug, collapsible (6 l.)</label>
-    
-    <label class="checklist-item"><input type="checkbox"/> tennis shoes or moccasins</label>
-   </div>
-
-   <hr/>
-   <nav class="site-nav">
-    <a href="index.html">previous</a>
-    <a href="can_supplies.html">next</a>
-    <a href="../index.html">home</a>
-    <a href="../announcements/index.html">announcements</a>
-    <a href="index.html">checklists</a>
-    <a href="../links/index.html">links</a>
-    <a href="../photos/index.html">photos</a>
-    <a href="../reports/index.html">reports</a>
-    <a href="../schedules/index.html">schedules</a>
-    <a href="../index.html">up</a>
-    <a href="backpacking_supplies.html#">top</a>
-   </nav>
-   <hr/>
-   <small>
-    Generated Sat Jan 29 16:52:58 2005
-   </small>
-  </main>
- </body>
+      .checklist-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        color: #334155;
+      }
+      .checklist-item input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        accent-color: #2c3e50;
+        flex-shrink: 0;
+      } /* Mobile view: collapses cleanly into 1 column for touch accessibility */
+      @media (max-width: 600px) {
+        .checklist-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav">
+      <a href="index.html">previous</a> <a href="can_supplies.html">next</a>
+      <a href="../index.html">home</a>
+      <a href="../announcements/index.html">announcements</a>
+      <a href="index.html">checklists</a>
+      <a href="../links/index.html">links</a>
+      <a href="../photos/index.html">photos</a>
+      <a href="../reports/index.html">reports</a>
+      <a href="../schedules/index.html">schedules</a>
+      <a href="../index.html">up</a>
+    </nav>
+    <main>
+      <h1>Backpacking Supplies</h1>
+      <p>Here's a backpacking supply list from rec.backcountry.</p>
+      <!-- Modernized 3-Column Gear Checklist -->
+      <div class="checklist-grid">
+        <label class="checklist-item"><input type="checkbox" /> backpack</label>
+        <label class="checklist-item"
+          ><input type="checkbox" /> sleeping bag</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> ground pad</label
+        >
+        <label class="checklist-item"><input type="checkbox" /> tent</label>
+        <label class="checklist-item"
+          ><input type="checkbox" /> groundcloth</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> boots &amp; socks</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> cook kit &amp; cup</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> stove &amp; fuel</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> fork &amp; spoon</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> camp knife</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> can opener</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> soap (biodegradable)</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> scouring pad</label
+        >
+        <label class="checklist-item"><input type="checkbox" /> towel</label>
+        <label class="checklist-item"
+          ><input type="checkbox" /> rain poncho</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> pack raincover</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> ~30 ft. rope</label
+        >
+        <label class="checklist-item"><input type="checkbox" /> maps</label>
+        <label class="checklist-item"><input type="checkbox" /> compass</label>
+        <label class="checklist-item"
+          ><input type="checkbox" /> signal mirror</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> hand shovel</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> toilet paper</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> flashlight</label
+        >
+        <label class="checklist-item"><input type="checkbox" /> hat</label>
+        <label class="checklist-item"
+          ><input type="checkbox" /> walking stick</label
+        >
+        <label class="checklist-item"><input type="checkbox" /> scarf</label>
+        <label class="checklist-item"
+          ><input type="checkbox" /> salt &amp; pepper</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> toothbrush</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> tooth powder</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> sunscreen</label
+        >
+        <label class="checklist-item"><input type="checkbox" /> lip balm</label>
+        <label class="checklist-item"
+          ><input type="checkbox" /> water pur. tabs</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> snakebite kit</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> camera &amp; film</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> binoculars</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> ziplok bags for trash</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> matches or Bic lighters</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> water bottle (1 liter)</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> water jug, collapsible (6 l.)</label
+        >
+        <label class="checklist-item"
+          ><input type="checkbox" /> tennis shoes or moccasins</label
+        >
+      </div>
+      <hr />
+      <nav class="site-nav">
+        <a href="index.html">previous</a> <a href="can_supplies.html">next</a>
+        <a href="../index.html">home</a>
+        <a href="../announcements/index.html">announcements</a>
+        <a href="index.html">checklists</a>
+        <a href="../links/index.html">links</a>
+        <a href="../photos/index.html">photos</a>
+        <a href="../reports/index.html">reports</a>
+        <a href="../schedules/index.html">schedules</a>
+        <a href="../index.html">up</a>
+        <a href="backpacking_supplies.html#">top</a>
+      </nav>
+      <hr />
+      <small> Generated Sat Jan 29 16:52:58 2005 </small>
+    </main>
+  </body>
 </html>
