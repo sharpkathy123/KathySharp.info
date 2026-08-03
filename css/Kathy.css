@@ -1,508 +1,141 @@
 /* ==========================================================================
-   Kathy.css - Unified Legacy & Modern Stylesheet
+   Kathy.css — Unified Site Stylesheet
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Base Reset, Body & Universal Rules
+   1. Base Reset & Typography
    -------------------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+}
 
 body {
-    font-family: Verdana, "Myriad Web", Syntax, sans-serif;
-    font-size: 0.7em;
-    font-weight: normal;
-    line-height: 1.5em;
-    word-spacing: normal;
-    letter-spacing: normal;
-    text-transform: none;
-    color: black;
-    background: white;
-    padding: 0;
-    border: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    padding: 1rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1em;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
 }
-
-/* Universal Reset Defaults */
-a, address, blockquote, cite, code, dd, del, dfn, div, dl, dt, em, form, 
-h1, h2, h3, h4, h5, h6, iframe, img, kbd, li, object, ol, p, q, samp, 
-small, span, strong, sub, sup, ul, var, applet, b, big, center, dir, font, 
-hr, i, menu, pre, s, strike, tt, u, abbr, acronym, bdo, button, fieldset, ins, label {
-    word-spacing: normal;
-    letter-spacing: normal;
-    text-transform: none;
-    text-decoration: none;
-    border-color: #cde;
-    vertical-align: baseline;
-}
-
-/* --------------------------------------------------------------------------
-   2. Typography, Headings & Inline Formatting
-   -------------------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
-    line-height: 1.33em;
-    font-style: normal;
-    text-decoration: none;
-    word-spacing: normal;
-    letter-spacing: normal;
-    text-transform: none;
+    font-family: Tahoma, Verdana, sans-serif;
     color: #036;
-    background: white;
-    padding: 0;
-    border: 0;
+    margin-top: 1.2em;
+    margin-bottom: 0.5em;
 }
 
 h1 {
     font-size: 2em;
-    font-weight: 500;
-    margin: 1.1em 0 0.33em 0;
 }
 
 h2 {
-    font-size: 1.75em;
-    font-weight: 500;
-    margin: 1em 0 0.33em 0;
+    font-size: 1.5em;
 }
 
-h3 {
-    font-size: 1.58em;
-    font-weight: 600;
-    margin: 0.95em 0 0.33em 0;
-}
-
-h4 {
-    font-size: 1.33em;
-    font-weight: 600;
-    margin: 0.9em 0 0.33em 0;
-}
-
-h5 {
-    font-size: 1.17em;
-    font-weight: 600;
-    margin: 0.85em 0 0.33em 0;
-}
-
-h6 {
+p, li {
     font-size: 1em;
-    font-weight: 700;
-    margin: 0.8em 0 0.33em 0;
 }
-
-small { font-size: 0.92em; }
-big { font-size: 1.17em; }
-pre {
-    font-family: 'Monotype.com', "Courier New", monospace;
-    line-height: 1.25em;
-    margin: 0.75em 0;
-}
-
-b { font-weight: bold; }
-i { font-style: italic; }
-em {
-    font-style: normal;
-    font-weight: bold;
-    color: black;
-    background: white;
-}
-strong {
-    font-style: italic;
-    font-weight: bold;
-    color: black;
-    background: white;
-}
-em strong, strong em {
-    text-transform: uppercase;
-    font-style: bolder;
-    color: black;
-    background: white;
-}
-
-var, cite, dfn, .note { font-style: italic; }
-address {
-    font-style: normal;
-    letter-spacing: 0.1em;
-    margin: 1.58em 0;
-}
-acronym {
-    font-variant: small-caps;
-    letter-spacing: 0.1em;
-}
-
-.warning {
-    font-style: normal;
-    font-weight: bolder;
-    color: black;
-    background: yellow;
-}
-del {
-    text-decoration: line-through;
-    background: #F66;
-}
-ins {
-    text-decoration: none;
-    background: yellow;
-}
-.highlight { background: #cde; }
 
 /* --------------------------------------------------------------------------
-   3. Links & Anchor States
+   2. Links (Site-Wide Defaults)
    -------------------------------------------------------------------------- */
-
 a:link {
-    text-decoration: none;
-    font-weight: bold;
     color: #F30;
-    background: white;
+    text-decoration: none;
 }
+
 a:visited {
-    text-decoration: none;
-    font-weight: bold;
     color: #996;
-    background: white;
-}
-a:active {
     text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   3. Tables & Header Banners
+   -------------------------------------------------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+table,
+tbody,
+tr,
+td {
+    padding: 2px;
+}
+
+/* Grid & Bordered Tables */
+table.grid, 
+table.grid td, 
+table.grid th {
+    border: 1px solid #ccc;
+}
+
+/* Page Title / Header Tables */
+table.head {
+    background-color: #fff;
+    width: 100%;
+}
+
+table.head td {
+    text-align: center;
+}
+
+table.head th {
+    text-align: center;
+    font-size: 2em;
     font-weight: bold;
-    color: #F30;
-    background: #FF0;
-}
-a:hover {
-    text-decoration: none;
-    color: #F30;
-    background: white;
-}
-a.offsite {
-    text-decoration: none;
-    font-weight: normal;
-    color: #C30;
-    background: white;
-}
-
-/* Utility Link Classes */
-a.link-broken,
-a.link-broken:visited {
-    text-decoration: line-through !important;
-    opacity: 0.65 !important;
-}
-
-/* --------------------------------------------------------------------------
-   4. Legacy Paragraphs, Lists & Block Formatting
-   -------------------------------------------------------------------------- */
-
-p, blockquote, fieldset, form, ul, ol, dl, dir, menu {
-    margin: 0.75em 0;
-    padding: 0;
-    border: 0;
-}
-
-div > p:first-child, body > p:first-child, td > p:first-child,
-h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p, div + p, p.initial {
-    margin: 0.75em 0;
-    padding: 0;
-    border: 0;
-    text-align: left;
-    text-indent: 0;
-}
-
-blockquote {
-    margin-left: 1.58em;
-    margin-right: 0;
-}
-
-/* List Defaults */
-ol li { list-style-type: decimal; }
-ol ol li { list-style-type: lower-alpha; }
-ol ol ol li { list-style-type: lower-roman; }
-
-li {
-    margin: 0 0 0.33em 3.16em;
-    padding: 0;
-    border: 0;
-}
-
-dt {
-    font-family: Tahoma, Verdana, "Myriad Web", Syntax, sans-serif;
-    font-size: 1.17em;
-    font-weight: 600;
     color: #036;
-    background: white;
-    margin: 0;
-}
-
-dd {
-    margin: 0 0 0.75em 1.58em;
-    padding: 0;
-    border: 0;
-}
-
-ul ul, ol ol, li address, li dl, li ol, li p, li ul, li dir, li hr, li menu, li pre, 
-li h1, li h2, li h3, li h4, li h5, li h6, dd address, dd dl, dd ol, dd p, dd ul, 
-dd dir, dd hr, dd menu, dd pre, dd h1, dd h2, dd h3, dd h4, dd h5, dd h6 {
-    margin: 0;
-    padding: 0;
-    border: 0;
 }
 
 /* --------------------------------------------------------------------------
-   5. Tables & Legacy Structure
+   4. Navigation & Footer Structures
    -------------------------------------------------------------------------- */
-
-table, tbody, tr, td, th, thead, tfoot, col, colgroup {
-    font-family: Verdana, "Myriad Web", Syntax, sans-serif;
-    font-size: 1em;
-    word-spacing: normal;
-    letter-spacing: normal;
-    text-transform: none;
-    color: black;
-    background-color: white;
-    text-align: left;
-    margin: 0;
-    padding: 2px 4px;
-    border-color: white;
-    border-style: solid;
-    border-width: 0;
-    float: none;
-    clear: none;
-}
-
-td, th { line-height: 1.2em; }
-th, thead, tfoot { color: #036; font-weight: bold; }
-th { vertical-align: baseline; }
-caption { text-align: left; }
-.grid { border: 2px solid #cde; }
-
-hr {
-    visibility: visible;
-    background: #cde;
-    color: #cde;
-    margin: 0.2em 0;
-    padding: 0;
-    border: 0;
-    height: 5px;
-    width: 100%;
-}
-
-div, center {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    text-align: left;
-}
-
-#colophon { display: none; }
-.subhead { margin: 0.75em 0; }
-
-.stb {
-    margin: 2.17em 0 0.75em 0;
-    padding-top: 2.17em;
-    border-style: solid;
-    border-width: 0;
-}
-
-.mtb {
-    margin: 3.08em 0 0.75em 0;
-    padding-top: 3.08em;
-    border-top: 0.1em solid;
-}
-
-.ltb {
-    margin: 4.34em 0 0.75em 0;
-    padding-top: 4.34em;
-    border-top: 0.25em solid;
-}
-
-/* Legacy Floats */
-.floatright {
-    float: right;
-    margin: 0 0 10px 10px;
-    clear: right;
-}
-
-.floatleft {
-    float: left;
-    margin: 0 5px 5px 0;
-    clear: left;
-}
-
-.floatclear {
-    float: none;
-    clear: both;
-}
-
-img {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    text-align: left;
-    float: none;
-    clear: none;
-    list-style-position: outside;
-    height: auto;
-}
-
-video {
-    max-width: 100%;
-    height: auto;
-}
-
-/* --------------------------------------------------------------------------
-   6. Modern Container Layout & Navigation
-   -------------------------------------------------------------------------- */
-
-main {
-    flex: 1;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Navigation Bar Flex Layout */
-nav.site-nav,
 .site-nav {
-    font-size: 0.92em;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 1.25rem;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    margin-left: 0;
-    list-style: none;
-}
-
-.site-nav li {
-    margin-left: 0; /* Overrides legacy 3.16em indent */
-}
-
-/* --------------------------------------------------------------------------
-   7. Photo Galleries & Grid Components
-   -------------------------------------------------------------------------- */
-
-.photo-gallery,
-.thumbnail-grid,
-.gallery-grid,
-.thumbnails {
-    display: flex;
-    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
-    margin: 1rem 0;
-    padding: 0;
-    list-style: none;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid #ccc;
 }
 
-.photo-gallery > *,
-.thumbnail-grid > *,
-.gallery-grid > *,
-.thumbnails > * {
-    flex: 0 1 auto;
-}
-
-.photo-gallery img,
-.thumbnail-grid img,
-.gallery-grid img,
-.thumbnails img,
-img.thumbnail {
-    border-radius: 4px;
+.site-nav a {
+    font-weight: bold;
 }
 
 /* --------------------------------------------------------------------------
-   8. Checklist Indexes & Responsive Grid Columns
+   5. Utilities & Layout Helpers
    -------------------------------------------------------------------------- */
-
-.checklist-index {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    background-color: rgba(0, 0, 0, 0.03);
-    padding: 1rem 1.5rem;
-    border-radius: 6px;
-    margin-bottom: 2rem;
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 1.5rem 0;
 }
 
-.checklist-index > div {
-    flex: 1 1 220px;
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
-.checklist-index h4 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-}
-
-.checklist-index ul {
-    margin: 0;
-    padding-left: 1.2rem;
-}
-
-.checklist-index li {
-    margin-left: 0;
-}
-
-.checklist-section {
-    margin-bottom: 2.5rem;
-}
-
-/* CSS Grid Layouts for Lists */
-.list-columns {
-    display: grid;
-    gap: 0.75rem 1rem;
-    align-items: start;
-}
-
-.list-columns.col-3 {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-}
-
-.list-columns.col-2 {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.list-columns.col-1 {
-    grid-template-columns: 1fr;
-}
-
-.list-columns ul {
-    margin: 0;
-    padding-left: 1.1rem;
-}
-
-.list-columns li {
-    margin-left: 0;
-    margin-bottom: 0.35rem;
-}
-
-/* Text & Alignment Utilities */
-.align-left   { text-align: left; }
-.align-center { text-align: center; }
-.align-right  { text-align: right; }
-.align-middle { vertical-align: middle; }
-.align-top    { vertical-align: top; }
-.align-bottom { vertical-align: bottom; }
-
-.last-modified {
-    font-size: 0.85em;
-    color: #666;
-    margin-top: 1em;
-}
-
-/* --------------------------------------------------------------------------
-   9. Media Queries & Responsive Breakpoints
-   -------------------------------------------------------------------------- */
-
-@media (max-width: 500px) {
-    .list-columns.col-3,
-    .list-columns.col-2 {
-        grid-template-columns: 1fr;
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 0.5rem;
     }
-
-    main {
-        padding: 0.75rem 1rem;
-    }
-
-    .site-nav {
-        padding: 0.75rem 1rem;
+    
+    table.head th {
+        font-size: 1.5em;
     }
 }

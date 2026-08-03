@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Flickr Sidebar Component
+   ========================================================================== */
+
 .flickr-sidebar {
     float: right;
     width: 320px;
@@ -7,6 +11,12 @@
     font-size: inherit;
     font-family: inherit;
     line-height: inherit;
+}
+
+/* Ensure the image container link doesn't show unwanted underlines */
+.flickr-sidebar > a {
+    display: block;
+    text-decoration: none;
 }
 
 .flickr-sidebar img {
