@@ -421,9 +421,14 @@ img.thumbnail {
     color: #333;
 }
 
-.flickr-sidebar a {
-    color: #F30; /* Restores traditional link color */
+.flickr-sidebar a,
+.flickr-sidebar a:link {
+    color: #F30;
     text-decoration: none;
+}
+
+.flickr-sidebar a:visited {
+    color: #996;
 }
 
 .flickr-sidebar a:hover {
@@ -442,13 +447,17 @@ img.thumbnail {
     margin-top: .5rem;
 }
 
-.flickr-more a {
-    color: #0063dc; /* Flickr brand blue for 'More' links */
+.flickr-more a,
+.flickr-more a:link,
+.flickr-more a:visited {
+    color: #0063dc !important;
     text-decoration: none;
     font-weight: 600;
 }
 
-.flickr-more a:hover {
+.flickr-more a:hover,
+.flickr-more a:active {
+    color: #0051b3 !important;
     text-decoration: underline;
 }
 
