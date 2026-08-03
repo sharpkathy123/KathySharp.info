@@ -70,7 +70,7 @@ body {
 
 main {
   flex: 1;
-  max-width: 1400px;
+  max-width: 1200px; /* Standardized page width across styles */
   margin: 0 auto;
   padding: 1rem 1.5rem;
   width: 100%;
@@ -81,9 +81,50 @@ main {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1rem;
+  gap: 0.5rem 1rem; /* Controls item spacing cleanly without margin tricks */
   align-items: center;
   padding: 0.75rem 0;
+}
+
+/* Flickr Sidebar Typography & Layout */
+.flickr-sidebar {
+    float: right;
+    width: 320px;
+    margin: 0 0 1.5rem 1.5rem;
+    text-align: center;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+.flickr-sidebar img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.25);
+}
+
+.flickr-more {
+    margin-top: .5rem;
+}
+
+.flickr-more a {
+    color: #0063dc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.flickr-more a:hover {
+    text-decoration: underline;
+}
+
+.flickr-mobile-tip {
+    display: none;
+    font-size: inherit;
+    color: #666;
+    margin-top: 0.25rem;
+    font-style: italic;
 }
 
 /* --------------------------------------------------------------------------
@@ -115,6 +156,10 @@ main {
   padding-left: 1.2rem;
 }
 
+.checklist-index li {
+  margin-left: 0; /* Prevents legacy 3.16em margin override */
+}
+
 /* Individual Checklist Sections */
 .checklist-section {
   margin-bottom: 2.5rem;
@@ -123,16 +168,14 @@ main {
 /* Responsive Grid Layout for Lists */
 .list-columns {
   display: grid;
-  gap: 0.75rem 1rem; /* Tighter gap: 0.75rem row gap, 1rem column gap */
-  align-items: start; /* Keeps column tops aligned */
+  gap: 0.75rem 1rem;
+  align-items: start;
 }
 
-/* Dynamic multi-column setup: creates as many columns as fit (min 220px wide) */
 .list-columns.col-3 {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
-/* Fixed utility variants */
 .list-columns.col-2 {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -141,19 +184,32 @@ main {
   grid-template-columns: 1fr;
 }
 
-/* Unordered List Clean Formatting */
 .list-columns ul {
   margin: 0;
   padding-left: 1.1rem;
 }
 
 .list-columns li {
+  margin-left: 0; /* Prevents legacy 3.16em margin override */
   margin-bottom: 0.35rem;
 }
 
 /* --------------------------------------------------------------------------
    5. Media Queries & Responsiveness
    -------------------------------------------------------------------------- */
+
+@media (max-width: 700px) {
+    .flickr-sidebar {
+        float: none;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .flickr-mobile-tip {
+        display: block;
+    }
+}
 
 /* Mobile Screens (500px and under): Collapse to single column */
 @media (max-width: 500px) {

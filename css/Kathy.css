@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Kathy.css - Legacy Base Styles & Typography
+   ========================================================================== */
+
 /* Base Layout & Typography */
 body {
     font-family: Verdana, "Myriad Web", Syntax, sans-serif;
@@ -9,7 +13,6 @@ body {
     text-transform: none;
     color: black;
     background: white;
-    margin: 1.58em 1ex 1.58em 1.58em;
     padding: 0;
     border: 0;
     width: auto;
@@ -91,8 +94,7 @@ strong {
 }
 em strong, strong em {
     text-transform: uppercase;
-    font-style: normal;
-    font-weight: bolder;
+    font-style: bolder;
     color: black;
     background: white;
 }
@@ -323,16 +325,14 @@ img {
     float: none;
     clear: none;
     list-style-position: outside;
-    height: auto; /* Responsive img addition */
+    height: auto;
 }
 
-/* Modern Responsive Additions */
+/* Base Nav & Alignment Helpers */
 nav.site-nav {
     font-size: 0.92em;
     padding: 0.5em 0;
 }
-
-nav.site-nav a { margin-right: 0.5em; }
 
 .align-left   { text-align: left; }
 .align-center { text-align: center; }
@@ -341,20 +341,8 @@ nav.site-nav a { margin-right: 0.5em; }
 .align-top    { vertical-align: top; }
 .align-bottom { vertical-align: bottom; }
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1em;
-}
-
 .last-modified {
     font-size: 0.85em;
     color: #666;
     margin-top: 1em;
-}
-
-main::after {
-    content: "";
-    display: table;
-    clear: both;
 }

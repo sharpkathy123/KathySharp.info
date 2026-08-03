@@ -11,7 +11,7 @@ const TARGET_TAGS = [
 const INLINE_TAGS = ['a', 'i', 'b', 'span', 'em', 'strong'];
 
 // Directories to ignore during recursive search
-const IGNORED_DIRS = ['css', 'misc','node_modules', '.git', '.codespaces', 'dist', 'build'];
+const IGNORED_DIRS = ['css', 'misc', 'node_modules', '.git', '.codespaces', 'dist', 'build'];
 
 // Build regex patterns
 const tagList = TARGET_TAGS.join('|');
@@ -26,8 +26,8 @@ const trailingWhitespaceRegex = new RegExp(`\\s+(<\\/(${tagList})>)`, 'gi');
 // 3. Collapse newlines, tabs, and multiple spaces INSIDE inline tags to a single space
 const internalInlineSpacesRegex = new RegExp(`<(${inlineTagList})\\b[^>]*>([\\s\\S]*?)<\\/\\2>`, 'gi');
 
-// 4. Ensure a space exists before inline tags when preceded directly by text, numbers, or punctuation (not after open brackets/quotes or line starts)
-const missingSpaceBeforeInlineRegex = new RegExp(`([a-zA-Z0-9_\\.\\,\\!\\?\\:\\;\\)\\>])(<(${inlineTagList})\\b[^>]*>)`, 'gi');
+// 4. Ensure a space exists before inline tags when preceded directly by text, numbers, or standard punctuation
+const missingSpaceBeforeInlineRegex = new RegExp(`([a-zA-Z0-9_\\.\\,\\!\\?\\:\\;\\)])(<(${inlineTagList})\\b[^>]*>)`, 'gi');
 
 /**
  * Cleans inline whitespace, fixes hidden Unicode/path issues, and normalizes <hr> and <br> tags.
@@ -56,7 +56,7 @@ function cleanFile(filePath) {
       return match.replace(/\s+/g, ' ');
     });
 
-    // Add back a space before opening inline tags if adjacent to non-whitespace content
+    // Add back a space before opening inline tags if adjacent to non-whitespace text
     cleanedContent = cleanedContent.replace(missingSpaceBeforeInlineRegex, '$1 $2');
 
     // Normalize all <hr> tag variations to HTML5 <hr>

@@ -3,7 +3,10 @@
     width: 320px;
     margin: 0 0 1.5rem 1.5rem;
     text-align: center;
-    font-size: 0.95rem;
+    /* Match standard <p> styling */
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
 }
 
 .flickr-sidebar img {
@@ -31,7 +34,7 @@
 /* Hide the mobile tip on desktop screens */
 .flickr-mobile-tip {
     display: none;
-    font-size: 0.8rem;
+    font-size: inherit; /* Keeps mobile tip consistent with <p> size if displayed */
     color: #666;
     margin-top: 0.25rem;
     font-style: italic;
