@@ -379,7 +379,7 @@ nav.site-nav,
 }
 
 /* --------------------------------------------------------------------------
-   7. Photo Galleries & Sidebar Components
+   7. Photo Galleries & Grid Components
    -------------------------------------------------------------------------- */
 
 .photo-gallery,
@@ -407,66 +407,6 @@ nav.site-nav,
 .thumbnails img,
 img.thumbnail {
     border-radius: 4px;
-}
-
-/* Flickr Sidebar Component */
-.flickr-sidebar {
-    float: right;
-    width: 320px;
-    margin: 0 0 1.5rem 1.5rem;
-    text-align: center;
-    font-size: inherit;
-    font-family: inherit;
-    line-height: inherit;
-    color: #333;
-}
-
-.flickr-sidebar a,
-.flickr-sidebar a:link {
-    color: #F30;
-    text-decoration: none;
-}
-
-.flickr-sidebar a:visited {
-    color: #996;
-}
-
-.flickr-sidebar a:hover {
-    text-decoration: underline;
-}
-
-.flickr-sidebar img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 6px;
-    box-shadow: 0 3px 10px rgba(0,0,0,.25);
-}
-
-.flickr-more {
-    margin-top: .5rem;
-}
-
-.flickr-more a,
-.flickr-more a:link,
-.flickr-more a:visited {
-    color: #0063dc !important;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.flickr-more a:hover,
-.flickr-more a:active {
-    color: #0051b3 !important;
-    text-decoration: underline;
-}
-
-.flickr-mobile-tip {
-    display: none;
-    font-size: inherit;
-    color: #666;
-    margin-top: 0.25rem;
-    font-style: italic;
 }
 
 /* --------------------------------------------------------------------------
@@ -551,19 +491,6 @@ img.thumbnail {
 /* --------------------------------------------------------------------------
    9. Media Queries & Responsive Breakpoints
    -------------------------------------------------------------------------- */
-
-@media (max-width: 700px) {
-    .flickr-sidebar {
-        float: none;
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto 1.5rem auto;
-    }
-
-    .flickr-mobile-tip {
-        display: block;
-    }
-}
 
 @media (max-width: 500px) {
     .list-columns.col-3,

@@ -21,10 +21,10 @@
     margin-top: .5rem;
 }
 
+/* No explicit link colors defined here so links naturally 
+   inherit default site-wide paragraph link colors */
 .flickr-more a {
-    color: #0063dc;
     text-decoration: none;
-    font-weight: 600;
 }
 
 .flickr-more a:hover {
