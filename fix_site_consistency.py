@@ -36,7 +36,7 @@ def normalize_tag_spacing(text: str) -> str:
     patterns = [
         (r'<divclass=', '<div class='),
         (r'<ahref=', '<a href='),
-        (r'<nav><small>', '<nav><small>'),
+        (r'<nav>', '<nav>'),
         (r'\s+class="([^"]+)"data-topic=', ' class="\\1" data-topic='),
         (r'data-topic="([^"]+)"data-photo=', ' data-topic="\\1" data-photo='),
         (r'data-photo="([^"]+)"data-page=', ' data-photo="\\1" data-page='),
