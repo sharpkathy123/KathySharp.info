@@ -21,8 +21,9 @@
 
 .flickr-sidebar img {
     display: block;
-    width: 100%;
+    max-width: 100%; /* Prevents upsizing beyond the photo's original dimensions */
     height: auto;
+    margin: 0 auto;  /* Optional: keeps the image centered if it is smaller than 320px */
     border-radius: 6px;
     box-shadow: 0 3px 10px rgba(0,0,0,.25);
 }
