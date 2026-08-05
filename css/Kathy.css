@@ -181,16 +181,17 @@ a.offsite {
     background: white;
 }
 
-/* Utility Link Classes */
-a.link-broken,
-a.link-broken:visited {
+/* Utility Link Classes: Apply broken styles ONLY if link does NOT contain an image */
+a.link-broken:not(:has(img)),
+a.link-broken:not(:has(img)):visited {
     text-decoration: line-through !important;
     opacity: 0.65 !important;
 }
 
-/* Prevent photos inside broken text links from fading out */
+/* Fallback for older browsers: force nested images to stay opaque and clear text-decoration */
 a.link-broken img {
     opacity: 1 !important;
+    text-decoration: none !important;
 }
 
 /* --------------------------------------------------------------------------
