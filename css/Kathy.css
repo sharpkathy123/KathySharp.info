@@ -536,6 +536,28 @@ img.thumbnail {
     margin-bottom: 2.5rem;
 }
 
+/* Dynamic Column Checklist Layout */
+.checklist-grid {
+    display: grid;
+    /* Fits as many ~200px columns as screen width allows, then stretches them to fill */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px 12px; /* Tight vertical and horizontal spacing */
+    margin: 1rem 0;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* Keeps checkbox close to text */
+    line-height: 1.2; /* Tight text line height */
+}
+
+.checklist-item input[type="checkbox"] {
+    cursor: pointer;
+    margin: 0;
+    vertical-align: middle;
+}
+
 /* CSS Grid Layouts for Lists */
 .list-columns {
     display: grid;
