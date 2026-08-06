@@ -2,6 +2,30 @@
    Flickr Sidebar Component
    ========================================================================== */
 
+/* --------------------------------------------------------------------------
+   1. Column Container (For Stacking Multiple Sidebars Vertically)
+   -------------------------------------------------------------------------- */
+
+.flickr-sidebar-column {
+    float: right;
+    width: 320px;
+    margin: 0 0 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Override individual sidebars inside the column container */
+.flickr-sidebar-column .flickr-sidebar {
+    float: none;
+    width: 100%;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. Individual Sidebar Item
+   -------------------------------------------------------------------------- */
+
 .flickr-sidebar {
     float: right;
     width: 320px;
@@ -23,7 +47,7 @@
     display: block;
     max-width: 100%; /* Prevents upsizing beyond the photo's original dimensions */
     height: auto;
-    margin: 0 auto;  /* Optional: keeps the image centered if it is smaller than 320px */
+    margin: 0 auto;  /* Keeps the image centered if smaller than container width */
     border-radius: 6px;
     box-shadow: 0 3px 10px rgba(0,0,0,.25);
 }
@@ -51,8 +75,12 @@
     font-style: italic;
 }
 
-/* Mobile responsive layout & tip reveal */
+/* --------------------------------------------------------------------------
+   3. Mobile Responsive Layout & Tip Reveal
+   -------------------------------------------------------------------------- */
+
 @media (max-width: 700px) {
+    .flickr-sidebar-column,
     .flickr-sidebar {
         float: none;
         width: 100%;
