@@ -536,12 +536,10 @@ img.thumbnail {
     margin-bottom: 2.5rem;
 }
 
-/* Dynamic Column Checklist Layout */
+/* Dynamic Column Checklist Layout (Top-to-Bottom Flow) */
 .checklist-grid {
-    display: grid;
-    /* Fits as many ~200px columns as screen width allows, then stretches them to fill */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2px 12px; /* Tight vertical and horizontal spacing */
+    column-width: 200px;
+    column-gap: 12px; /* Horizontal space between columns */
     margin: 1rem 0;
 }
 
@@ -550,6 +548,8 @@ img.thumbnail {
     align-items: center;
     gap: 4px; /* Keeps checkbox close to text */
     line-height: 1.2; /* Tight text line height */
+    margin-bottom: 2px; /* Tight vertical spacing between items */
+    break-inside: avoid; /* Prevents an individual label/checkbox from breaking across columns */
 }
 
 .checklist-item input[type="checkbox"] {

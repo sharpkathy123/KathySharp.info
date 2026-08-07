@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>iPad + GitHub Codespaces: Fast & Stable Web Development</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/Kathy.css" />
+  <style>
+    .guide-box {
+      background-color: #f8f9fa;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .warning-card {
+      background-color: #ffebe9;
+      border-left: 5px solid #cf222e;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .tip-card {
+      background-color: #ddf4ff;
+      border-left: 5px solid #0969da;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    kbd {
+      background-color: #f3f4f6;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      box-shadow: inset 0 -1px 0 #d0d7de;
+      font-family: monospace;
+      font-size: 0.9em;
+      padding: 2px 6px;
+      white-space: nowrap;
+    }
+
+    code {
+      background-color: #f3f4f6;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.9em;
+    }
+
+    pre code {
+      display: block;
+      padding: 0.75rem 1rem;
+      overflow-x: auto;
+      line-height: 1.4;
+    }
+
+    ol li,
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="index.html" class="back-link">&larr; Back to Misc Directory</a>
+
+  <main>
+    <h1>iPad + Safari Web Development in GitHub Codespaces</h1>
+    <p>A simple, AI-generated guide to editing HTML/CSS pages on an iPad without dealing with broken extension windows,
+      touch drag-and-drop issues, or crashed preview panes.</p>
+
+    <div class="warning-card">
+      <strong>Why Avoid the "Live Preview" Extension on iPad?</strong>
+      <p>VS Code's embedded <em>Live Preview</em> extension relies on internal browser frames that frequently crash on
+        iPadOS. This locks up the editor screen, overlaps code text, and spawns stuck background server processes
+        ("zombie ports").</p>
+    </div>
+
+    <section class="guide-box">
+      <h2>Step 1: Clean Up Stuck Background Processes</h2>
+      <p>If your editor was previously stuck or showing multiple unused ports, run this quick command to reset
+        everything:</p>
+      <ol>
+        <li>Open the <strong>Terminal</strong> panel at the bottom of Codespaces.</li>
+        <li>Type the following command and press <kbd>Return</kbd>:
+          <pre><code>pkill -f node</code></pre>
+        </li>
+        <li>Open the <strong>Extensions</strong> tab on the left sidebar, find <strong>Live Preview</strong>, and tap
+          <strong>Uninstall</strong>.</li>
+      </ol>
+    </section>
+
+    <section class="guide-box">
+      <h2>Step 2: Start the Lightweight Python Web Server</h2>
+      <p>Instead of relying on heavy extensions, use Python's built-in web server directly in your terminal:</p>
+      <ol>
+        <li>In the Terminal panel, type:
+          <pre><code>python3 -m http.server 8000</code></pre>
+        </li>
+        <li>Press <kbd>Return</kbd>. You will see a notification confirming the server is running on port 8000.</li>
+      </ol>
+    </section>
+
+    <section class="guide-box">
+      <h2>Step 3: Preview Pages in a Dedicated Safari Tab</h2>
+      <ol>
+        <li>Tap the <strong>Ports</strong> tab at the bottom of the editor window.</li>
+        <li>Find <strong>Port 8000</strong> in the list.</li>
+        <li>Tap the <strong>Globe icon</strong> (or tap and hold port 8000 and choose <strong>Open in External
+            Browser</strong>).</li>
+        <li>Safari will open your live web page in a new full browser tab.</li>
+      </ol>
+
+      <div class="tip-card">
+        <strong>Recommended iPad Layout:</strong> Use <strong>iPadOS Split View</strong> to place Safari side-by-side
+        with your Codespace window.
+        <br /><br />
+        <em>To set it up:</em> Tap the <strong>three dots (&bull;&bull;&bull;)</strong> at the top center of your iPad
+        screen &rarr; select <strong>Split View</strong> &rarr; pick your Safari preview window. Now you can edit code
+        on the left, save, and simply tap refresh on the right!
+      </div>
+    </section>
+
+    <section class="guide-box">
+      <h2>Step 4: Useful iPad Keyboard Shortcuts</h2>
+      <ul>
+        <li><kbd>Cmd</kbd> + <kbd>S</kbd> &mdash; Save your HTML/CSS file edits.</li>
+        <li><kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> &mdash; Open Command Palette (for quick settings).</li>
+        <li><kbd>Cmd</kbd> + <kbd>B</kbd> &mdash; Hide/Show the left file sidebar for maximum screen space.</li>
+        <li><kbd>Cmd</kbd> + <kbd>J</kbd> &mdash; Hide/Show the bottom Terminal/Ports panel.</li>
+        <li><kbd>Ctrl</kbd> + <kbd>C</kbd> (in terminal) &mdash; Stop the Python web server when done.</li>
+      </ul>
+    </section>
+    AI-generated on August 6, 2026
+  </main>
+</body>
+
+</html>

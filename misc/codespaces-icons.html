@@ -1,414 +1,327 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GitHub Codespaces Icon Cheat Sheet</title>
-    <!-- Site CSS Reference (adjusts automatically based on depth) -->
-    <style>
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-          Arial, sans-serif;
-        background-color: #0d1117;
-        color: #c9d1d9;
-        margin: 0;
-        padding: 20px;
-        font-size: 14px;
-        line-height: 1.5;
-      }
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-      }
-      .header {
-        border-bottom: 1px solid #30363d;
-        padding-bottom: 16px;
-        margin-bottom: 24px;
-      }
-      .badge {
-        background-color: #238636;
-        color: #ffffff;
-        font-size: 11px;
-        font-weight: 600;
-        padding: 3px 8px;
-        border-radius: 12px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        vertical-align: middle;
-        display: inline-block;
-        margin-right: 8px;
-      }
-      h1 {
-        color: #f0f6fc;
-        font-size: 24px;
-        margin: 0;
-        display: inline-block;
-        vertical-align: middle;
-        font-weight: 700;
-      }
-      .subtitle {
-        color: #8b949e;
-        font-size: 14px;
-        margin: 8px 0 0 0;
-      }
-      .back-link {
-        display: inline-block;
-        margin-bottom: 16px;
-        color: #58a6ff;
-        text-decoration: none;
-      }
-      .back-link:hover {
-        text-decoration: underline;
-      }
-      .section-title {
-        color: #58a6ff;
-        font-size: 14px;
-        font-weight: 600;
-        margin: 24px 0 12px 0;
-        padding-bottom: 6px;
-        border-bottom: 1px solid #21262d;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-      table.sheet-table {
-        width: 100%;
-        border-collapse: separate;
-        border-spacing: 0;
-        margin-bottom: 24px;
-        background-color: #161b22;
-        border: 1px solid #30363d;
-        border-radius: 6px;
-        overflow: hidden;
-      }
-      table.sheet-table th {
-        background-color: #21262d;
-        color: #f0f6fc;
-        font-weight: 600;
-        text-align: left;
-        padding: 10px 14px;
-        font-size: 12px;
-        border-bottom: 1px solid #30363d;
-        text-transform: uppercase;
-        letter-spacing: 0.3px;
-      }
-      table.sheet-table td {
-        padding: 10px 14px;
-        border-bottom: 1px solid #21262d;
-        vertical-align: middle;
-        font-size: 13px;
-      }
-      table.sheet-table tr:last-child td {
-        border-bottom: none;
-      }
-      .col-icon {
-        width: 15%;
-        text-align: center;
-      }
-      .col-name {
-        width: 30%;
-        font-weight: 600;
-        color: #f0f6fc;
-      }
-      .col-desc {
-        width: 55%;
-        color: #8b949e;
-      }
-      .icon-badge {
-        display: inline-block;
-        background-color: #21262d;
-        border: 1px solid #30363d;
-        border-radius: 4px;
-        padding: 2px 6px;
-        font-family: SFMono-Regular, Consolas, monospace;
-        font-size: 12px;
-        color: #58a6ff;
-        font-weight: bold;
-      }
-      .icon-green {
-        background-color: #1f6feb22;
-        border-color: #388bfd44;
-        color: #3fb950;
-      }
-      .icon-symbol {
-        font-size: 16px;
-      }
-      .status-tag {
-        display: inline-block;
-        font-weight: 700;
-        font-family: SFMono-Regular, Consolas, monospace;
-        padding: 2px 8px;
-        border-radius: 4px;
-        font-size: 12px;
-        text-align: center;
-        min-width: 24px;
-      }
-      .status-m {
-        background-color: #d2992222;
-        color: #d29922;
-        border: 1px solid #d2992244;
-      }
-      .status-u {
-        background-color: #3fb95022;
-        color: #3fb950;
-        border: 1px solid #3fb95044;
-      }
-      .status-a {
-        background-color: #3fb95022;
-        color: #58a6ff;
-        border: 1px solid #58a6ff44;
-      }
-      .status-d {
-        background-color: #f8514922;
-        color: #f85149;
-        border: 1px solid #f8514944;
-      }
-      .tip-box {
-        background-color: #161b22;
-        border: 1px solid #30363d;
-        border-left: 4px solid #58a6ff;
-        border-radius: 6px;
-        padding: 12px 16px;
-        margin-top: 16px;
-        font-size: 13px;
-        color: #8b949e;
-      }
-      .tip-box strong {
-        color: #f0f6fc;
-      }
-      .kbd {
-        background-color: #21262d;
-        border: 1px solid #30363d;
-        border-radius: 3px;
-        padding: 2px 6px;
-        font-family: SFMono-Regular, Consolas, monospace;
-        font-size: 11px;
-        color: #c9d1d9;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <a href="index.html" class="back-link">&larr; Back to Misc Directory</a>
-      <div class="header">
-        <div class="header-title-box">
-          <span class="badge">Reference</span>
-          <h1>GitHub Codespaces Icon Cheat Sheet</h1>
-        </div>
-        <p class="subtitle">
-          AI-generated quick visual guide to icons, indicators, and status
-          symbols in VS Code & Codespaces
-        </p>
-      </div>
-      <div class="section-title">
-        1. Activity Bar (Far-Left Navigation Sidebar)
-      </div>
-      <table class="sheet-table">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Codespaces Complete Icon Cheat Sheet</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/Kathy.css" />
+  <!-- Official VS Code Codicon Icon Set -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons@latest/dist/codicon.css" />
+  <style>
+    .icon-section {
+      background-color: #ffffff;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .icon-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .icon-table th,
+    .icon-table td {
+      border: 1px solid #d0d7de;
+      padding: 0.65rem 0.85rem;
+      text-align: left;
+      font-size: 0.9em;
+    }
+
+    .icon-table th {
+      background-color: #f6f8fa;
+      color: #0366d6;
+      font-weight: 600;
+    }
+
+    .icon-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #f3f4f6;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-weight: bold;
+      color: #24292f;
+      min-width: 28px;
+    }
+
+    .icon-badge .codicon {
+      font-size: 1.25em;
+    }
+
+    .section-desc {
+      color: #57606a;
+      font-size: 0.95em;
+      margin-bottom: 0.5rem;
+    }
+
+    kbd {
+      background-color: #f3f4f6;
+      border: 1px solid #d0d7de;
+      border-radius: 4px;
+      box-shadow: inset 0 -1px 0 #d0d7de;
+      font-family: monospace;
+      font-size: 0.85em;
+      padding: 2px 5px;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="index.html" class="back-link">&larr; Back to Misc Directory</a>
+
+  <main>
+    <h1>GitHub Codespaces: Complete Interface &amp; Icon Reference</h1>
+    <p>An exhaustive visual guide mapping out every top toolbar icon, sidebar panel badge, editor tab control, and
+      bottom status bar indicator in the GitHub Codespaces / VS Code web environment using official Codicons.</p>
+
+    <!-- SECTION 1: TOP NAVIGATION & BREADCRUMB BARS -->
+    <section class="icon-section">
+      <h2>1. Top Header &amp; Navigation Bars (Lines 1 &amp; 2)</h2>
+      <p class="section-desc">Controls located at the very top of the editor and directly above the code file tabs.</p>
+
+      <table class="icon-table">
         <thead>
           <tr>
-            <th class="col-icon">Icon</th>
-            <th class="col-name">Name</th>
-            <th class="col-desc">Primary Function & Action</th>
+            <th style="width: 15%;">Icon</th>
+            <th style="width: 25%;">Name</th>
+            <th>Function &amp; Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="col-icon"><span class="icon-symbol">📄</span></td>
-            <td class="col-name">Explorer</td>
-            <td class="col-desc">
-              Browse workspace file tree, open editors, and project directories.
+            <td><span class="icon-badge"><i class="codicon codicon-menu"></i></span></td>
+            <td>Main Menu (Hamburger)</td>
+            <td>Opens top-level VS Code menus (File, Edit, Selection, View, Go, Run, Terminal, Help). Essential on iPad
+              when native menu bars are hidden.</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-arrow-left"></i> <i
+                  class="codicon codicon-arrow-right"></i></span></td>
+            <td>Navigate Back / Forward</td>
+            <td>Jumps backward or forward through your recent cursor positions or file history across the workspace.
             </td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="icon-symbol">🔍</span></td>
-            <td class="col-name">Search</td>
-            <td class="col-desc">
-              Search and replace text globally across all files in your project.
-            </td>
+            <td><span class="icon-badge"><i class="codicon codicon-split-horizontal"></i></span></td>
+            <td>Split Editor Right</td>
+            <td>Splits the active editor pane horizontally into side-by-side columns.</td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="icon-symbol">🌿</span></td>
-            <td class="col-name">Source Control</td>
-            <td class="col-desc">
-              Manage Git changes, stage modified files, commit, and push/pull to
-              GitHub.
-            </td>
+            <td><span class="icon-badge"><i class="codicon codicon-eye"></i></span></td>
+            <td>Show Live Preview</td>
+            <td>Renders an internal webview preview of the active HTML document.</td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="icon-symbol">🪲</span></td>
-            <td class="col-name">Run & Debug</td>
-            <td class="col-desc">
-              Launch debug configurations, set breakpoints, and view execution
-              call stacks.
-            </td>
+            <td><span class="icon-badge"><i class="codicon codicon-globe"></i></span></td>
+            <td>Open in External Browser</td>
+            <td>Launches the rendered web preview or forwarded port in a full Safari tab outside the editor frame.</td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="icon-symbol">🧩</span></td>
-            <td class="col-name">Extensions</td>
-            <td class="col-desc">
-              Search, install, or configure extensions, themes, and language
-              helpers.
-            </td>
+            <td><span class="icon-badge"><i class="codicon codicon-more"></i></span></td>
+            <td>More Actions / Editor Options</td>
+            <td>Reveals contextual actions like pin tab, clear split, lock editor group, or show file breadcrumbs.</td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="icon-symbol">⚙️</span></td>
-            <td class="col-name">Settings</td>
-            <td class="col-desc">
-              Access editor preferences, keyboard shortcuts, color themes, and
-              user settings.
-            </td>
+            <td><span class="icon-badge"><i class="codicon codicon-close"></i></span></td>
+            <td>Close Tab</td>
+            <td>Closes the current file tab. Unsaved changes will prompt a save warning unless auto-save is active.</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge">M</span> / <span class="icon-badge">U</span></td>
+            <td>Git File Badges</td>
+            <td><strong>M</strong> = Modified (changes made since last commit). <strong>U</strong> = Untracked (new file
+              not yet added to Git).</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-primitive-dot"></i></span></td>
+            <td>Unsaved Changes Indicator</td>
+            <td>Appears on a tab title when changes exist in memory that have not yet been written to disk.</td>
           </tr>
         </tbody>
       </table>
-      <div class="section-title">2. Status Bar (Bottom Panel Controls)</div>
-      <table class="sheet-table">
+    </section>
+
+    <!-- SECTION 2: PRIMARY SIDEBAR PANELS -->
+    <section class="icon-section">
+      <h2>2. Left Primary Sidebar Navigation</h2>
+      <p class="section-desc">The primary tool selector icons running along the far left edge of the screen.</p>
+
+      <table class="icon-table">
         <thead>
           <tr>
-            <th class="col-icon">Icon</th>
-            <th class="col-name">Name / Indicator</th>
-            <th class="col-desc">Meaning & Interaction</th>
+            <th style="width: 15%;">Icon</th>
+            <th style="width: 25%;">Name</th>
+            <th>Function &amp; Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="col-icon">
-              <span class="icon-badge icon-green">&gt;&lt;</span>
-            </td>
-            <td class="col-name">Remote Indicator</td>
-            <td class="col-desc">
-              Active Codespace session. Tap/click to stop container, rebuild, or
-              change machine.
+            <td><span class="icon-badge"><i class="codicon codicon-files"></i></span></td>
+            <td>Explorer</td>
+            <td>Shows your complete project folder tree, open editors, and project files.</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-search"></i></span></td>
+            <td>Search</td>
+            <td>Global search and replace across all files in your repository
+              (<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>F</kbd>).</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-source-control"></i></span></td>
+            <td>Source Control (Git)</td>
+            <td>Tracks changed files, staging, commit message input, and Push/Pull sync actions. Displays a numeric
+              badge of pending changes.</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-debug-alt"></i></span></td>
+            <td>Run &amp; Debug</td>
+            <td>Configures launch scripts, breakpoints, call stacks, and interactive debugging environments.</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-extensions"></i></span></td>
+            <td>Extensions</td>
+            <td>Browse, install, disable, or configure VS Code marketplace plugins (e.g., Python, Prettier, Themes).
             </td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="icon-symbol">📡</span></td>
-            <td class="col-name">Forwarded Ports</td>
-            <td class="col-desc">
-              Opens the Ports tab to preview local web servers (<span
-                class="kbd"
-                >localhost</span
-              >) in browser.
-            </td>
-          </tr>
-          <tr>
-            <td class="col-icon"><span class="icon-symbol">🔀</span></td>
-            <td class="col-name">Git Branch</td>
-            <td class="col-desc">
-              Displays active Git branch name. Tap to switch branches or
-              checkout a new one.
-            </td>
-          </tr>
-          <tr>
-            <td class="col-icon"><span class="icon-symbol">🔄</span></td>
-            <td class="col-name">Syncing / Building</td>
-            <td class="col-desc">
-              Container background task running (pulling commits, installing
-              dependencies, building).
-            </td>
-          </tr>
-          <tr>
-            <td class="col-icon"><span class="icon-symbol">🔌</span></td>
-            <td class="col-name">Disconnected</td>
-            <td class="col-desc">
-              Connection to remote dev container lost or timed out. Tap to
-              reconnect.
-            </td>
+            <td><span class="icon-badge"><i class="codicon codicon-settings-gear"></i></span></td>
+            <td>Accounts &amp; Settings</td>
+            <td>Manage GitHub account sync, keybindings, color themes, settings sync, and user preferences.</td>
           </tr>
         </tbody>
       </table>
-      <div class="section-title">
-        3. Editor Header & Tab Actions (Top-Right)
-      </div>
-      <table class="sheet-table">
+    </section>
+
+    <!-- SECTION 3: BOTTOM STATUS BAR -->
+    <section class="icon-section">
+      <h2>3. Bottom Status Bar (Very Bottom Line)</h2>
+      <p class="section-desc">Real-time environment stats, Git branch details, port mappings, and encoding indicators
+        running along the bottom blue/purple bar.</p>
+
+      <table class="icon-table">
         <thead>
           <tr>
-            <th class="col-icon">Icon</th>
-            <th class="col-name">Name</th>
-            <th class="col-desc">Function</th>
+            <th style="width: 15%;">Icon</th>
+            <th style="width: 25%;">Name</th>
+            <th>Function &amp; Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="col-icon"><span class="icon-symbol">📑</span></td>
-            <td class="col-name">Split Editor</td>
-            <td class="col-desc">
-              Splits the active file or editor into two side-by-side editing
-              panes.
+            <td><span class="icon-badge"><i class="codicon codicon-remote"></i></span></td>
+            <td>Codespaces Remote Indicator</td>
+            <td>Shows active connection status to your cloud container. Tapping opens remote options (Rebuild Container,
+              Stop Codespace).</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-git-branch"></i> main*</span></td>
+            <td>Git Branch &amp; Status</td>
+            <td>Displays current working branch (e.g., <code>main</code>). Asterisk indicates uncommitted local changes.
+              Tapping opens branch selector.</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-sync"></i></span></td>
+            <td>Synchronize Changes</td>
+            <td>Shows incoming ($\downarrow$) and outgoing ($\uparrow$) commits relative to GitHub. Tapping triggers a
+              Git Pull/Push.</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-error"></i> 0 <i class="codicon codicon-warning"></i>
+                0</span></td>
+            <td>Problems Panel Indicator</td>
+            <td>Displays total syntax errors and warnings detected in workspace files. Tapping opens Problems panel.
             </td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="icon-symbol">▶️</span></td>
-            <td class="col-name">Run Code</td>
-            <td class="col-desc">
-              Executes the active script file directly inside the integrated
-              terminal.
-            </td>
+            <td><span class="icon-badge"><i class="codicon codicon-ports"></i></span></td>
+            <td>Ports Forwarding Status</td>
+            <td>Displays active forwarded web ports (e.g., port 8000 for Python HTTP server). Tapping opens the Ports
+              panel.</td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="icon-symbol">📖</span></td>
-            <td class="col-name">Markdown Preview</td>
-            <td class="col-desc">
-              Toggles side-by-side rendered HTML preview for
-              <span class="kbd">.md</span> documents.
-            </td>
+            <td><span class="icon-badge">Ln 24, Col 12</span></td>
+            <td>Cursor Position</td>
+            <td>Shows current active line number and character column. Tapping opens "Go to Line" prompt.</td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="icon-badge">...</span></td>
-            <td class="col-name">More Actions</td>
-            <td class="col-desc">
-              Opens contextual overflow menu options for the current active
-              editor tab or panel.
+            <td><span class="icon-badge">Spaces: 2</span></td>
+            <td>Indentation Rules</td>
+            <td>Displays tab size or indentation mode (Spaces vs. Tabs). Tapping lets you reformat spacing or convert
+              tabs.</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge">UTF-8</span></td>
+            <td>File Encoding</td>
+            <td>Displays character set encoding for the active file. Tapping allows switching encoding modes.</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-json"></i> / <span class="icon-badge">HTML</span>
             </td>
+            <td>Language Mode</td>
+            <td>Identifies file type syntax highlighting and IntelliSense grammar rules. Tapping lets you override mode
+              manually.</td>
+          </tr>
+          <tr>
+            <td><span class="icon-badge"><i class="codicon codicon-bell"></i></span></td>
+            <td>Notifications</td>
+            <td>Bell icon showing system alerts, extension messages, or background terminal tasks. Numeric badge
+              indicates unread alerts.</td>
           </tr>
         </tbody>
       </table>
-      <div class="section-title">4. Source Control Status Badges</div>
-      <table class="sheet-table">
+    </section>
+
+    <!-- SECTION 4: PANEL BOTTOM TABS -->
+    <section class="icon-section">
+      <h2>4. Lower Terminal &amp; Drawer Tabs</h2>
+      <p class="section-desc">Tabs located in the collapsible bottom drawer (toggleable via
+        <kbd>Cmd</kbd>+<kbd>J</kbd>).</p>
+
+      <table class="icon-table">
         <thead>
           <tr>
-            <th class="col-icon">Symbol</th>
-            <th class="col-name">Git State</th>
-            <th class="col-desc">Description</th>
+            <th style="width: 15%;">Icon</th>
+            <th style="width: 25%;">Tab Name</th>
+            <th>Function &amp; Description</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="col-icon"><span class="status-tag status-m">M</span></td>
-            <td class="col-name">Modified</td>
-            <td class="col-desc">
-              File exists in Git repository but has unstaged changes.
-            </td>
+            <td><span class="icon-badge"><i class="codicon codicon-terminal"></i></span></td>
+            <td><strong>Terminal</strong></td>
+            <td>Command-line interface to your Codespace container. Used to run bash commands, Python servers, or Git
+              scripts.</td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="status-tag status-u">U</span></td>
-            <td class="col-name">Untracked</td>
-            <td class="col-desc">
-              Newly created file that is not yet tracked or committed in Git.
-            </td>
+            <td><span class="icon-badge"><i class="codicon codicon-ports"></i></span></td>
+            <td><strong>Ports</strong></td>
+            <td>Lists active web application ports, local addresses, visibility (Private/Public), and preview launch
+              buttons.</td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="status-tag status-a">A</span></td>
-            <td class="col-name">Added</td>
-            <td class="col-desc">
-              File has been staged (<span class="kbd">git add</span>) and is
-              ready for the next commit.
-            </td>
+            <td><span class="icon-badge"><i class="codicon codicon-output"></i></span></td>
+            <td><strong>Output</strong></td>
+            <td>Displays background extension logs, language server diagnostics, and task execution output.</td>
           </tr>
           <tr>
-            <td class="col-icon"><span class="status-tag status-d">D</span></td>
-            <td class="col-name">Deleted</td>
-            <td class="col-desc">
-              File was removed or deleted from the local workspace.
+            <td><span class="icon-badge"><i class="codicon codicon-warning"></i></span></td>
+            <td><strong>Problems</strong></td>
+            <td>Aggregates syntax errors, missing CSS tags, broken code rules, and linting issues in one scannable list.
             </td>
           </tr>
         </tbody>
       </table>
-      <div class="tip-box">
-        <strong>Pro Tip for iPad Users:</strong> Open the Command Palette
-        anytime using <span class="kbd">Cmd + Shift + P</span> (or
-        <span class="kbd">Ctrl + Shift + P</span>) to trigger any command by
-        name without searching for its icon.
-      </div>
-    </div>
-  </body>
+    </section>
+    AI-generated on August 6, 2026
+  </main>
+</body>
+
 </html>
