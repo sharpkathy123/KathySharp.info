@@ -1,95 +1,244 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miscellaneous Tools & References</title>
-    <style>
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-          Arial, sans-serif;
-        margin: 0;
-        padding: 30px 20px;
-        line-height: 1.6;
-      }
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-      h1 {
-        border-bottom: 2px solid #ccc;
-        padding-bottom: 8px;
-      }
-      .misc-list {
-        list-style: none;
-        padding: 0;
-        margin-top: 20px;
-      }
-      .misc-list li {
-        margin-bottom: 15px;
-        padding: 12px 16px;
-        background: #f8f9fa;
-        border: 1px solid #e9ecef;
-        border-radius: 6px;
-      }
-      .misc-list a {
-        font-weight: bold;
-        font-size: 1.1em;
-        text-decoration: none;
-        color: #0366d6;
-      }
-      .misc-list a:hover {
-        text-decoration: underline;
-      }
-      .misc-list p {
-        margin: 4px 0 0 0;
-        color: #586069;
-        font-size: 0.95em;
-      }
-      .home-link {
-        display: inline-block;
-        margin-bottom: 20px;
-        color: #0366d6;
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <a href="../index.html" class="home-link">&larr; Back to Main Site</a>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miscellaneous Tools & References</title>
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --border: #e2e8f0;
+      --radius: 10px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 40px 20px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .home-link {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .home-link:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.025em;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    /* Entire card is now clickable */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      position: relative;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+    }
+
+    /* Stretched link pattern makes the whole card clickable */
+    .card-title a.main-link::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+    }
+
+    /* Clear visual link indicator */
+    .card-title a {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .card:hover .card-title a {
+      color: var(--primary-hover);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      width: fit-content;
+    }
+
+    .tag-app { background: #dbeafe; color: #1e40af; }
+    .tag-guide { background: #fef3c7; color: #92400e; }
+    .tag-ref { background: #f3e8ff; color: #6b21a8; }
+
+    /* Version badge list styling */
+    .version-group {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 2; /* Keeps version links clickable over the card link */
+    }
+
+    .version-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .version-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .version-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      background: var(--bg-color);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 600;
+    }
+
+    .version-btn:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a href="../index.html" class="home-link">&#8592; Back to Main Site</a>
+    
+    <header>
       <h1>Miscellaneous Directory</h1>
-      <p>
-        A collection of standalone utilities, AI-generated reference guides, and experiments.
-      </p>
-      <ul class="misc-list">
-        <li>
-          <a href="codespaces-icons.html">GitHub Codespaces Icon Cheat Sheet</a>
-          <p>
-            AI-generated visual guide to interface icons, status bar indicators,
-            and Git state badges in VS Code & Codespaces.
-          </p>
-        </li>
-        <li>
-          <a href="ipad-codespaces-guide.html">iPad &amp; GitHub Codespaces Web Development Guide</a>
-          <p>
-            AI-generated step-by-step workflow guide for editing HTML/CSS on an iPad using Python's web server, iPadOS Split View, and Safari.
-          </p>
-        </li>
-        <li>
-          <a href="Political_words_precisely.HTML">Political Words, Precisely</a>
-          <p>
-            A neutral, university-sourced reference on political terms and how they are often used in public discussion.
-          </p>
-        </li>
-        <li>
-          <a href="https://sharpkathy123.github.io/Sudoku/"
-            >Kathy's AI-Generated Sudoku Game</a
-          >
-          <p>Kathy's AI-generated Sudoku game</p>
-        </li>
-        <!-- Future standalone tools can be added here -->
-      </ul>
-    </div>
-  </body>
+      <p class="subtitle">Mostly AI-generated code, reference guides, and experiments</p>
+    </header>
+
+    <main class="grid">
+      <!-- App Card -->
+      <article class="card">
+        <div>
+          <span class="tag tag-app">Interactive App</span>
+          <h2 class="card-title">
+            <a href="https://sharpkathy123.github.io/Sudoku/" class="main-link">Sudoku Game</a>
+          </h2>
+          <p>Kathy's first successful app generation using AI, a simple Sudoku game</p>
+        </div>
+      </article>
+
+      <!-- Guide 1 -->
+      <article class="card">
+        <div>
+          <span class="tag tag-guide">Visual Guide</span>
+          <h2 class="card-title">
+            <a href="codespaces-icons.html" class="main-link">GitHub Codespaces Icon Cheat Sheet</a>
+          </h2>
+          <p>Visual guide to interface icons, status bar indicators, and Git state badges in VS Code & Codespaces</p>
+        </div>
+      </article>
+
+      <!-- Guide 2 -->
+      <article class="card">
+        <div>
+          <span class="tag tag-guide">Workflow Guide</span>
+          <h2 class="card-title">
+            <a href="ipad-codespaces-guide.html" class="main-link">iPad &amp; GitHub Codespaces Web Dev Guide</a>
+          </h2>
+          <p>Step-by-step workflow guide for editing HTML/CSS on an iPad using Python's web server, iPadOS Split View, and Safari</p>
+        </div>
+      </article>
+
+      <!-- Reference with Versions -->
+      <article class="card">
+        <div>
+          <span class="tag tag-ref">Reference</span>
+          <h2 class="card-title" style="color: var(--text-main);">Political Words, Precisely</h2>
+          <p>Reference guide synthesizing expert political definitions paired with university source links.</p>
+        </div>
+        <div class="version-group">
+          <span class="version-label">Select Version:</span>
+          <div class="version-links">
+            <a href="Political_words_precisely.HTML" class="version-btn">v1.0 (Aug 8, 2026)</a>
+            <a href="political_definitions_by_experts.html" class="version-btn">v2.0 (Aug 9, 2026)</a>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+</body>
+
 </html>

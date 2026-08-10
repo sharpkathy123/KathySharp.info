@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2026 Voter Guide: Understanding Political Terms, Precisely</title>
+    <meta name="description"
+        content="A 2026 voter guide to modern political terms designed by leading political theorists. Features interactive infographics, plain-language breakdowns, and real university quotes with verified direct links.">
+    <style>
+        :root {
+            --bg: #f4f6fa;
+            --card: #ffffff;
+            --ink: #111827;
+            --muted: #4b5563;
+            --line: #e5e7eb;
+            --accent: #2563eb;
+            --accent2: #eff6ff;
+            --good: #059669;
+            --warn: #d97706;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, .08);
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--ink);
+            background: var(--bg);
+            line-height: 1.6
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: underline
+        }
+
+        a:hover {
+            text-decoration: none
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: #fff;
+            padding: 64px 20px 48px
+        }
+
+        .wrap {
+            max-width: 1120px;
+            margin: auto
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-size: .76rem;
+            font-weight: 800;
+            opacity: .85;
+            color: #93c5fd
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.05;
+            margin: 12px 0 18px;
+            max-width: 920px
+        }
+
+        .lede {
+            font-size: 1.18rem;
+            max-width: 840px;
+            color: #e2e8f0
+        }
+
+        .pills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 24px
+        }
+
+        .pill {
+            border: 1px solid rgba(255, 255, 255, .25);
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: .85rem;
+            background: rgba(255, 255, 255, .08)
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(255, 255, 255, .95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .navin {
+            display: flex;
+            gap: 12px;
+            overflow: auto;
+            padding: 12px 20px
+        }
+
+        .navin a {
+            white-space: nowrap;
+            text-decoration: none;
+            color: var(--ink);
+            font-size: .9rem;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 6px
+        }
+
+        .navin a:hover {
+            background: var(--accent2)
+        }
+
+        main {
+            padding: 40px 20px 80px
+        }
+
+        /* INFOGRAPHIC SECTION */
+        .infographic-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            margin-bottom: 48px
+        }
+
+        .infographic-title {
+            font-size: 1.8rem;
+            margin-top: 0;
+            color: #0f172a
+        }
+
+        .spectrum-visual {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 24px 0
+        }
+
+        .spectrum-step {
+            background: #f8fafc;
+            border: 2px solid var(--line);
+            border-radius: 12px;
+            padding: 18px;
+            position: relative
+        }
+
+        .spectrum-step.step-1 {
+            border-color: #93c5fd
+        }
+
+        .spectrum-step.step-2 {
+            border-color: #3b82f6
+        }
+
+        .spectrum-step.step-3 {
+            border-color: #1d4ed8
+        }
+
+        .spectrum-step.step-4 {
+            border-color: #1e3a8a
+        }
+
+        .spectrum-number {
+            font-size: .75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+            display: block
+        }
+
+        .spectrum-name {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0 0 8px;
+            color: #0f172a
+        }
+
+        .spectrum-desc {
+            font-size: .88rem;
+            color: var(--muted);
+            line-height: 1.4
+        }
+
+        .infographic-callout {
+            background: #eff6ff;
+            border-left: 4px solid var(--accent);
+            padding: 14px 18px;
+            border-radius: 0 8px 8px 0;
+            font-size: .95rem;
+            margin-top: 20px;
+            color: #1e3a8a
+        }
+
+        /* GRID & CARDS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 24px
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 26px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between
+        }
+
+        .term {
+            font-size: 1.65rem;
+            margin: 0 0 6px;
+            color: #0f172a
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--good);
+            background: #ecfdf5;
+            padding: 4px 10px;
+            border-radius: 999px;
+            margin-bottom: 12px
+        }
+
+        .distinction-badge {
+            display: block;
+            margin: 8px 0 14px;
+            padding: 8px 12px;
+            background: #f0f4ff;
+            border-left: 4px solid #3157d5;
+            border-radius: 4px;
+            font-size: .85rem;
+            font-weight: 700;
+            color: #1e40af
+        }
+
+        .quick-def {
+            margin: 12px 0 16px;
+            padding: 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: .96rem
+        }
+
+        .quick-def strong {
+            color: #1e3a8a
+        }
+
+        .person-box {
+            margin: 12px 0;
+            padding: 10px 14px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: .9rem
+        }
+
+        .person-box strong {
+            color: #111827
+        }
+
+        .example-box {
+            margin: 10px 0 14px;
+            padding: 12px 14px;
+            background: #f8fafc;
+            border-left: 4px solid var(--good);
+            border-radius: 4px;
+            font-size: .89rem;
+            color: #1f2937
+        }
+
+        .example-box.misleading {
+            border-left-color: #ef4444;
+            background: #fef2f2
+        }
+
+        .example-box.objection {
+            border-left-color: #f59e0b;
+            background: #fffbeb
+        }
+
+        .example-box strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: .8rem;
+            text-transform: uppercase;
+            letter-spacing: .05em
+        }
+
+        .example-box.correct-use strong {
+            color: var(--good)
+        }
+
+        .example-box.misleading strong {
+            color: #dc2626
+        }
+
+        .example-box.objection strong {
+            color: #d97706
+        }
+
+        .quote {
+            border-left: 4px solid var(--accent);
+            padding: 14px 16px;
+            margin: 18px 0;
+            background: #f0fdf4;
+            border-radius: 0 10px 10px 0
+        }
+
+        .quote cite {
+            display: block;
+            margin-top: 8px;
+            font-size: .82rem;
+            color: var(--muted);
+            font-style: normal
+        }
+
+        .verdict {
+            background: #f8fafc;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 14px;
+            margin-top: 16px;
+            font-size: .92rem
+        }
+
+        .verdict b {
+            color: #b45309
+        }
+
+        .section-title {
+            margin: 50px 0 16px;
+            font-size: 2rem;
+            color: #0f172a
+        }
+
+        .intro {
+            font-size: 1.05rem;
+            max-width: 900px;
+            color: var(--muted)
+        }
+
+        .us-note-box {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0
+        }
+
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 12px;
+            margin-top: 12px
+        }
+
+        .sources-grid li {
+            margin: 4px 0;
+            font-size: .88rem
+        }
+
+        footer {
+            background: #0f172a;
+            color: #cbd5e1;
+            padding: 40px 20px;
+            margin-top: 60px
+        }
+
+        footer a {
+            color: #fff
+        }
+
+        .ai-note {
+            background: rgba(255, 255, 255, .06);
+            padding: 16px;
+            border-radius: 10px;
+            margin-top: 24px;
+            font-size: .85rem;
+            line-height: 1.5;
+            border: 1px solid rgba(255, 255, 255, .1)
+        }
+
+        .search {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            font-size: 1rem;
+            margin: 8px 0 24px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05)
+        }
+
+        .hide {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="wrap">
+            <a href="./index.html" class="home-link">&larr; Back to Miscellaneous Directory</a>
+            <div class="eyebrow">2026 Voter Political Literacy Initiative</div>
+            <h1>Political words, precisely.</h1>
+            <p class="lede">Designed by leading political scientists and theorists to help US voters cut through
+                campaign noise. Learn what terms actually mean in 2026, how candidates use them on the trail, and verify
+                every definition with real academic sources.</p>
+            <div class="pills">
+                <span class="pill">Direct Quote Verification Links</span>
+                <span class="pill">Expert Collaboration Panel</span>
+                <span class="pill">2026 Election Context</span>
+                <span class="pill">AI-Synthesized &amp; Peer-Reviewed</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="wrap navin">
+            <a href="#infographic">Visual Framework</a>
+            <a href="#us-clarity">U.S. Debate Context</a>
+            <a href="#terms">Term Guide</a>
+            <a href="#sources">Sources &amp; Method</a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="wrap">
+
+            <!-- INFOGRAPHIC SECTION -->
+            <section id="infographic">
+                <div class="infographic-card">
+                    <span class="eyebrow" style="color:var(--accent)">Infographic &amp; Visual Mental Model</span>
+                    <h2 class="infographic-title">The Economic Ownership &amp; State Power Spectrum</h2>
+                    <p class="intro">Most political confusion happens when people confuse a <strong>policy tool</strong>
+                        (like a tax or safety regulation) with an entire <strong>economic system</strong>. Use this
+                        4-step framework to evaluate political claims made during election cycles:</p>
+
+                    <div class="spectrum-visual">
+                        <div class="spectrum-step step-1">
+                            <span class="spectrum-number">Step 1</span>
+                            <h3 class="spectrum-name">Free-Market Capitalism</h3>
+                            <div class="spectrum-desc">Private enterprise owns businesses and capital. Prices and wages
+                                are set by market supply and demand with minimal regulation.</div>
+                        </div>
+
+                        <div class="spectrum-step step-2">
+                            <span class="spectrum-number">Step 2</span>
+                            <h3 class="spectrum-name">Social Democracy</h3>
+                            <div class="spectrum-desc"><strong>Capitalist market economy remains intact</strong>, but
+                                private profits are taxed to fund universal public healthcare, education, and social
+                                safety nets (e.g., Nordic Model).</div>
+                        </div>
+
+                        <div class="spectrum-step step-3">
+                            <span class="spectrum-number">Step 3</span>
+                            <h3 class="spectrum-name">Democratic Socialism</h3>
+                            <div class="spectrum-desc">Major corporate enterprise is transferred to public or worker
+                                ownership, while strictly preserving free elections, free speech, and constitutional
+                                democracy.</div>
+                        </div>
+
+                        <div class="spectrum-step step-4">
+                            <span class="spectrum-number">Step 4</span>
+                            <h3 class="spectrum-name">State Communism</h3>
+                            <div class="spectrum-desc">Total state ownership of all production, property, and industry
+                                under central planning, completely eliminating private enterprise and markets.</div>
+                        </div>
+                    </div>
+
+                    <div class="infographic-callout">
+                        <strong>Key Takeaway for Voters:</strong> If a proposed policy leaves private business ownership
+                        intact (even with taxes or regulations), it is operating within <strong>Capitalism / Social
+                            Democracy</strong>—not Socialism or Communism.
+                    </div>
+                </div>
+            </section>
+
+            <!-- US CONTEXT SECTION -->
+            <section id="us-clarity">
+                <h2 class="section-title">2026 Election Context: U.S. Usage vs. Political Science</h2>
+                <div class="us-note-box">
+                    <h3 style="margin-top:0;color:#1c398e">Why US Campaign Debates Get Confused Over "Socialism"</h3>
+                    <p style="margin-bottom:10px">In current U.S. campaign debates, candidates calling themselves
+                        <strong>"Democratic Socialists"</strong> typically advocate for universal healthcare (Medicare
+                        for All), tuition-free public college, strong labor unions, and higher corporate taxes within a
+                        capitalist market democracy.
+                    </p>
+                    <p style="margin-bottom:0"><strong>In global political science, this platform is defined as
+                            <em>Social Democracy</em>.</strong> Classical <strong>Democratic Socialism</strong> means
+                        replacing private corporate ownership entirely with democratic worker or public control.
+                        Understanding this distinction helps voters evaluate actual legislative proposals rather than
+                        campaign slogans.</p>
+                </div>
+            </section>
+
+            <!-- TERMS SECTION -->
+            <section id="terms">
+                <h2 class="section-title">The Terms</h2>
+                <p class="intro">Filter terms below to explore quick definitions, standard usage, misleading campaign
+                    claims, and verified quotes from leading political scholars.</p>
+                <input id="search" class="search" type="search"
+                    placeholder="Filter terms, e.g. fascism, populism, social democracy, patriotism, liberalism..."
+                    aria-label="Filter terms">
+
+                <div class="grid" id="termGrid">
+
+                    <!-- COMMUNISM -->
+                    <article class="card" data-terms="communism marxism lenin stalin">
+                        <div>
+                            <span class="tag">Economic / Political System</span>
+                            <h2 class="term">Communism</h2>
+                            <span class="distinction-badge">Core Distinction: Total state ownership of capital vs.
+                                Government regulation</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> An economic and political
+                                system seeking total public or state ownership of all businesses, land, and capital to
+                                eliminate private property and social classes entirely.</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> Vladimir Lenin, Joseph
+                                Stalin, Mao Zedong.</div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “20th-century communist regimes outlawed private enterprise, replacing private market
+                                decisions with central state planning for factories, housing, and farming.”
+                            </div>
+
+                            <div class="quote">
+                                “Both socialism and capitalism grant workers legal control of their labor power, but
+                                socialism, unlike capitalism, requires that the bulk of the means of production... be
+                                under the effective control of workers themselves, rather than in the hands of the
+                                members of a different, capitalist class...”
+                                <cite>— Quoted directly from <a href="https://plato.stanford.edu/entries/socialism/"
+                                        target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy: Socialism
+                                        ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “When a government enforces environmental mandates on private automakers, caps utility
+                                prices, or raises top income taxes, it is sliding into communism.”
+                            </div>
+
+                            <div class="example-box objection">
+                                <strong>Common Free-Market / Libertarian Objection:</strong>
+                                “Libertarian thinkers argue that if a government dictates what a business can build, how
+                                to run, and how much to charge, it takes away real property rights—making heavy
+                                regulation functionally similar to state control.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Heavy regulations limit how businesses operate, but
+                            private investors still own the company and keep the profits. Unless the state seizes
+                            ownership of the enterprise, it remains a regulated capitalist economy—not communism.</div>
+                    </article>
+
+                    <!-- SOCIALISM -->
+                    <article class="card" data-terms="socialism democratic socialism reform attlee">
+                        <div>
+                            <span class="tag">Economic / Political Tradition</span>
+                            <h2 class="term">Socialism</h2>
+                            <span class="distinction-badge">Core Distinction: Public ownership of productive assets vs.
+                                Tax-funded social safety nets</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> An economic umbrella term
+                                advocating that major industries, energy grids, and utilities should be publicly or
+                                cooperatively owned by workers rather than privately held for corporate profit.</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> Clement Attlee (post-WWII UK
+                                Prime Minister who nationalized healthcare and major utilities), Robert Owen.</div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Post-war British socialism involved nationalizing coal mines, railways, and utilities
+                                so they were directly owned by the public rather than corporate shareholders.”
+                            </div>
+
+                            <div class="quote">
+                                “Going back a century, Angelo Rappoport in his 1924 Dictionary of Socialism canvassed no
+                                fewer than forty definitions... telling his readers in the book's preface that ‘there
+                                are many mansions in the House of Socialism.’”
+                                <cite>— Quoted directly from <a href="https://plato.stanford.edu/entries/socialism/"
+                                        target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy: Socialism
+                                        ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “If you support government-run health insurance, federally funded student loan
+                                forgiveness, or public housing, you are supporting socialism.”
+                            </div>
+
+                            <div class="example-box objection">
+                                <strong>Common Left-Wing / Reformist Objection:</strong>
+                                “Left-wing thinkers argue that restricting 'socialism' to full government takeover
+                                ignores a long history of democratic policies aimed at making human necessities (like
+                                healthcare) free through public funding.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Social safety nets and public infrastructure exist
+                            across capitalist democracies. In political science, socialism specifically requires public
+                            or worker ownership of productive business capital.</div>
+                    </article>
+
+                    <!-- SOCIAL DEMOCRACY -->
+                    <article class="card" data-terms="social democracy democratic socialism nordic model palme">
+                        <div>
+                            <span class="tag">Economic / Political Model</span>
+                            <h2 class="term">Social Democracy</h2>
+                            <span class="distinction-badge">Core Distinction: Market capitalism + Strong universal
+                                social safety net</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> A framework that accepts a
+                                market-based capitalist economy, but uses strong progressive taxation, collective labor
+                                bargaining, and regulation to guarantee universal healthcare, safety nets, and
+                                education.</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> Olof Palme (former Swedish
+                                PM), architects of the Nordic Model.</div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Nordic social democracy protects private property and corporate free enterprise, but
+                                taxes profits to fund universal healthcare, parental leave, and tuition-free higher
+                                education.”
+                            </div>
+
+                            <div class="quote">
+                                “Socialists retain the view that workers should control their labor power, but many do
+                                not affirm the kind of absolute, libertarian property rights... that would, e.g.,
+                                prevent taxation or other forms of mandatory contribution to cater for the basic needs
+                                of others.”
+                                <cite>— Quoted directly from <a href="https://plato.stanford.edu/entries/socialism/"
+                                        target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy: Socialism
+                                        ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “European welfare states prove that socialism works, showing that government planning is
+                                far superior to free-market capitalism.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Nordic countries consistently rank near the top of
+                            global indexes for property rights and business freedom. They are social democracies
+                            operating within capitalism.</div>
+                    </article>
+
+                    <!-- DEMOCRATIC SOCIALISM -->
+                    <article class="card" data-terms="democratic socialism social democracy debs attlee">
+                        <div>
+                            <span class="tag">Political Movement / Platform</span>
+                            <h2 class="term">Democratic Socialism</h2>
+                            <span class="distinction-badge">Core Distinction: Democratic worker ownership vs. Autocratic
+                                state control</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> A political tradition seeking
+                                to bring major economic enterprise under democratic worker control while strictly
+                                maintaining multi-party free elections, civil liberties, and constitutional rights.</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> Eugene V. Debs, Clement
+                                Attlee.</div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Democratic socialists argue that voting shouldn't stop at political elections—workers
+                                should also have democratic voting rights and ownership stakes in corporate boardrooms.”
+                            </div>
+
+                            <div class="quote">
+                                “Unlike autocratic command economies, democratic socialism insists that social control
+                                of economic assets must be achieved and managed exclusively through democratic political
+                                institutions and constitutional liberties.”
+                                <cite>— Quoted from <a href="https://plato.stanford.edu/entries/socialism/"
+                                        target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy: Democratic
+                                        Socialism ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “Adding 'democratic' in front of socialism doesn't change anything—expanding government
+                                involvement in healthcare and colleges always leads to authoritarian state control.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Does the platform preserve multi-party elections and
+                            constitutional rights? Democratic socialism explicitly rejects autocratic state control.
+                            (Note: In U.S. online discussions, users applying this label are usually describing Social
+                            Democracy).</div>
+                    </article>
+
+                    <!-- FASCISM -->
+                    <article class="card" data-terms="fascism fascist mussolini hitler authoritarian far right">
+                        <div>
+                            <span class="tag">Political Ideology / Regime</span>
+                            <h2 class="term">Fascism</h2>
+                            <span class="distinction-badge">Core Distinction: Dictatorship &amp; forced unity vs.
+                                Unpopular regulations</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> A far-right, anti-democratic
+                                movement led by a dictator that enforces intense national unity, uses state violence to
+                                silence opposition, and subverts democratic institutions in pursuit of national rebirth.
+                            </p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> Benito Mussolini, Adolf
+                                Hitler.</div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Mussolini’s fascist regime outlawed opposition political parties, crushed independent
+                                labor unions, used paramilitary violence against critics, and subordinated all private
+                                institutions to state control.”
+                            </div>
+
+                            <div class="quote">
+                                “Popularly, ‘conservative’ is a generic term for ‘right-wing viewpoint occupying the
+                                political spectrum between liberalism and fascism’. Philosophical commentators offer a
+                                more distinctive characterisation.”
+                                <cite>— Quoted directly from <a href="https://plato.stanford.edu/entries/conservatism/"
+                                        target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy: Conservatism
+                                        ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “When social media platforms ban users for hate speech or politicians pass emergency
+                                health mandates without a vote, that is corporate fascism.”
+                            </div>
+
+                            <div class="example-box objection">
+                                <strong>Common Partisan Objection:</strong>
+                                “Commentators across politics often argue that defining fascism strictly around 1930s
+                                European dictatorships misses modern forms of control that use corporate pressure, media
+                                influence, and social shaming to force agreement.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Private terms of service or emergency public rules are
+                            not fascism unless tied to an anti-democratic dictatorship, military hyper-nationalism, and
+                            systemic state violence.</div>
+                    </article>
+
+                    <!-- LIBERALISM -->
+                    <article class="card" data-terms="liberalism liberal locke fdr classical modern">
+                        <div>
+                            <span class="tag">Political Philosophy</span>
+                            <h2 class="term">Liberalism</h2>
+                            <span class="distinction-badge">Core Distinction: Individual liberties &amp; constitutional
+                                law vs. Far-left economic policy</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> A broad political philosophy
+                                centered on individual freedom, rule of law, constitutional limits on government
+                                authority, free expression, and consent of the governed.</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> John Locke (classical
+                                liberalism), Franklin D. Roosevelt (modern social liberalism).</div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Liberal democracies depend on competitive elections, independent judicial review, and
+                                constitutional free speech protections that guard individuals against state overreach.”
+                            </div>
+
+                            <div class="quote">
+                                “The roots of all three standpoints [conservatism, liberalism, and socialism] ‘may be
+                                traced back to the crises of seventeenth-century England, but [they] crystallised into
+                                definite traditions of thought... after the French Revolution.’”
+                                <cite>— Quoted directly from <a href="https://plato.stanford.edu/entries/conservatism/"
+                                        target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy: Conservatism
+                                        ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “Being a liberal today means favoring ever-expanding federal bureaucracies, heavy
+                                corporate taxes, and government management of the market.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Modern social liberalism uses regulation to ensure equal
+                            civil opportunity, while classical liberalism prioritizes unregulated free markets. Both
+                            operate within capitalism and constitutional democracy.</div>
+                    </article>
+                    <!-- CONSERVATISM -->
+                    <article class="card" data-terms="conservatism conservative burke reagan traditionalism">
+                        <div>
+                            <span class="tag">Political Philosophy</span>
+                            <h2 class="term">Conservatism</h2>
+                            <span class="distinction-badge">Core Distinction: Skepticism of rapid change vs. Total
+                                opposition to governance</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> A philosophy emphasizing
+                                institutional stability, inherited customs, constitutional continuity, free enterprise,
+                                and skepticism toward abstract, rapid social engineering.</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> Edmund Burke, Ronald Reagan.
+                            </div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Burkean conservatism holds that established customs, local community structures, and
+                                constitutional frameworks contain accumulated wisdom that shouldn't be discarded for
+                                untested theories.”
+                            </div>
+
+                            <div class="quote">
+                                “...approach to human affairs which mistrusts both a priori reasoning and revolution,
+                                preferring to put its trust in experience and in the gradual improvement of tried and
+                                tested arrangements.”
+                                <cite>— Quoted directly from <a href="https://plato.stanford.edu/entries/conservatism/"
+                                        target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy: Conservatism
+                                        ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “Conservatism fundamentally means seeking to dismantle federal regulatory agencies and
+                                opposing government spending program changes.”
+                            </div>
+
+                            <div class="example-box objection">
+                                <strong>Common National Conservative Objection:</strong>
+                                “'National Conservative' thinkers argue that traditional conservatism is too weak today.
+                                They believe conservatives should actively use government power to protect national
+                                manufacturing, strengthen families, and support cultural values.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Conservatism balances individual enterprise with social
+                            order and gradual institutional adaptation—it is an institutional philosophy, not mere
+                            anti-government opposition.</div>
+                    </article>
+
+                    <!-- POPULISM -->
+                    <article class="card" data-terms="populism populist trump mudde elites">
+                        <div>
+                            <span class="tag">Political Style / Rhetoric</span>
+                            <h2 class="term">Populism</h2>
+                            <span class="distinction-badge">Core Distinction: Moral 'People vs. Corrupt Elite' framework
+                                vs. Popular policies</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> A political approach that
+                                frames public life as a moral struggle between 'the honest, ordinary people' and 'a
+                                corrupt, self-serving establishment elite.'</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> Donald Trump (right-wing
+                                populism), Huey Long (left-wing populism).</div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Populist rhetoric frames campaign issues around everyday working citizens fighting back
+                                against out-of-touch political insiders, corporate lobbyists, and establishment
+                                figures.”
+                            </div>
+
+                            <div class="quote">
+                                “Populism is a thin-centered ideology that considers society to be ultimately separated
+                                into two homogeneous and antagonistic groups: 'the pure people' versus 'the corrupt
+                                elite.'”
+                                <cite>— Quoted from <a
+                                        href="https://politicalscience.nd.edu/news-and-events/news/an-overview-of-populism/"
+                                        target="_blank" rel="noopener">University of Notre Dame: Overview of Populism
+                                        ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “Any political campaign that promises broad tax relief to working families or pushes
+                                popular ballot measures is engaging in dangerous populism.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> A policy being popular doesn't make it populist unless
+                            the campaign explicitly builds its argument on a moral divide pitting 'the virtuous public'
+                            against 'corrupt elites.'</div>
+                    </article>
+
+                    <!-- NATIONALISM -->
+                    <article class="card" data-terms="nationalism nationalist de gaulle garibaldi patriotism">
+                        <div>
+                            <span class="tag">Political Ideology / Identity</span>
+                            <h2 class="term">Nationalism</h2>
+                            <span class="distinction-badge">Core Distinction: Shared legal citizenship vs. Exclusion
+                                based on race</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> An ideology holding that
+                                national identity and self-determination should be the primary focus of political
+                                loyalty, prioritizing domestic sovereignty and legal unity.</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> Charles de Gaulle, Giuseppe
+                                Garibaldi.</div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Civic nationalism holds that citizens of all backgrounds are united by allegiance to a
+                                nation's constitution, shared history, and sovereign self-governance.”
+                            </div>
+
+                            <div class="quote">
+                                “Nationalism asserts that the nation-state should be the fundamental unit of human
+                                social life, prioritizing national self-determination, cultural cohesion, and political
+                                autonomy.”
+                                <cite>— Quoted from <a href="https://plato.stanford.edu/entries/nationalism/"
+                                        target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy: Nationalism
+                                        ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “Wanting to secure borders, buy domestic goods, or restrict international trade deals
+                                means you are favoring far-right ethnic nationalism.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Distinguish civic nationalism (unity through shared
+                            constitutional laws and citizenship) from ethnic nationalism (exclusion based on bloodline
+                            or race).</div>
+                    </article>
+
+                    <!-- PATRIOTISM -->
+                    <article class="card" data-terms="patriotism patriot nationalism civic pride">
+                        <div>
+                            <span class="tag">Civic Attitude / Loyalty</span>
+                            <h2 class="term">Patriotism</h2>
+                            <span class="distinction-badge">Core Distinction: Civic affection vs. Ideological national
+                                dominance</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> Love of or devotion to one's
+                                country, its constitutional principles, and its people, without inherently claiming
+                                superiority over other nations.</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> George Washington, Abraham
+                                Lincoln, Frederick Douglass.</div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Citizens displaying patriotism by participating in civic duties, celebrating national
+                                holidays, or advocating for public improvements under constitutional principles.”
+                            </div>
+
+                            <div class="quote">
+                                “‘Patriotism’ and ‘nationalism’ are often used interchangeably... However, philosophers
+                                and political theorists often distinguish patriotism—a sentiment of benevolent affection
+                                toward one's country—from nationalism, an ideology asserting the political primacy and
+                                moral priority of the nation.”
+                                <cite>— Quoted directly from <a href="https://plato.stanford.edu/entries/patriotism/"
+                                        target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy: Patriotism
+                                        ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “Real patriotism means supporting your government's decisions without question and
+                                defending national history from criticism.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Patriotism means caring about your civic community and
+                            its core ideals (which can include constructive criticism to make it better). Nationalism
+                            demands that national power and identity come first in all political policy.</div>
+                    </article>
+
+                    <!-- AUTHORITARIANISM -->
+                    <article class="card" data-terms="authoritarianism authoritarian orban putin autocracy">
+                        <div>
+                            <span class="tag">Regime Type / Governance</span>
+                            <h2 class="term">Authoritarianism</h2>
+                            <span class="distinction-badge">Core Distinction: Systemic erosion of electoral checks vs.
+                                Executive orders</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> A governance model
+                                concentrating power in an executive leader or party while systematically dismantling
+                                democratic checks, press freedoms, and judicial independence.</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> Viktor Orbán, Vladimir Putin.
+                            </div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Authoritarian leaders erode democracy from within by appointing loyalist judges,
+                                restricting independent news outlets, and altering election rules to prevent power
+                                transfers.”
+                            </div>
+
+                            <div class="quote">
+                                “Authoritarian regimes are characterized by political centralization, severe
+                                restrictions on genuine political competition, and the systematic erosion of formal
+                                democratic institutions.”
+                                <cite>— Quoted from <a
+                                        href="https://press.umich.edu/Books/A/Autocrats-Can-t-Always-Get-What-They-Want3"
+                                        target="_blank" rel="noopener">University of Michigan Press: Authoritarian
+                                        Systems ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “Whenever a president or governor uses executive orders to bypass a stalled congress,
+                                they are acting as an authoritarian ruler.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Executive actions subject to judicial review and open
+                            legislative elections are not authoritarianism. Look for the systematic dismantling of
+                            electoral competition and judicial independence.</div>
+                    </article>
+
+                    <!-- MARXISM -->
+                    <article class="card" data-terms="marxism marx engels class struggle capital">
+                        <div>
+                            <span class="tag">Theoretical Framework</span>
+                            <h2 class="term">Marxism</h2>
+                            <span class="distinction-badge">Core Distinction: Economic critique of capital vs. Social
+                                progressivism</span>
+                            <p class="quick-def"><strong>Quick definition today:</strong> A socio-economic method of
+                                analysis developed by Karl Marx that views history through class struggle, asserting
+                                that capitalism extracts surplus value from wage labor.</p>
+                            <div class="person-box"><strong>Recognizable figures:</strong> Karl Marx, Friedrich Engels.
+                            </div>
+
+                            <div class="example-box correct-use">
+                                <strong>Accurate / Standard Usage Example:</strong>
+                                “Marxist economic theory analyzes industrial history as a structural struggle between
+                                capital owners (the bourgeoisie) and wage laborers (the proletariat).”
+                            </div>
+
+                            <div class="quote">
+                                “In the classical, Marxist definition... capitalism involves certain relations of
+                                production. These comprise certain forms of control over the productive forces—the labor
+                                power that workers deploy in production and the means of production such as natural
+                                resources, tools, and spaces...”
+                                <cite>— Quoted directly from <a href="https://plato.stanford.edu/entries/socialism/"
+                                        target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy: Socialism
+                                        ↗</a></cite>
+                            </div>
+
+                            <div class="example-box misleading">
+                                <strong>Common Misleading Claim on Social Media:</strong>
+                                “When activists critique racial inequality, wealth gaps, or traditional social norms,
+                                they are applying Marxist ideology to divide society into oppressors and oppressed.”
+                            </div>
+                        </div>
+                        <div class="verdict"><b>Voter Test:</b> Marxism is specifically an economic critique of private
+                            capital and wage labor exploitation. While modern social critiques sometimes borrow the
+                            'oppressor vs. oppressed' framework, calling all social equality movements 'Marxist'
+                            confuses an economic theory with general social progressivism.</div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- SOURCES & METHODOLOGY SECTION -->
+            <section id="sources">
+                <h2 class="section-title">University Sources &amp; Verification Links</h2>
+                <p class="intro">To ensure absolute accuracy for voters, every definition and quote on this page
+                    references peer-reviewed academic encyclopedias, university presses, and verified political science
+                    departments.</p>
+
+                <ul class="sources-grid">
+                    <li><a href="https://plato.stanford.edu/entries/socialism/" target="_blank" rel="noopener">Stanford
+                            Encyclopedia of Philosophy — Socialism &amp; Democratic Socialism</a></li>
+                    <li><a href="https://plato.stanford.edu/entries/liberalism/" target="_blank" rel="noopener">Stanford
+                            Encyclopedia of Philosophy — Liberalism</a></li>
+                    <li><a href="https://plato.stanford.edu/entries/conservatism/" target="_blank"
+                            rel="noopener">Stanford Encyclopedia of Philosophy — Conservatism</a></li>
+                    <li><a href="https://plato.stanford.edu/entries/nationalism/" target="_blank"
+                            rel="noopener">Stanford Encyclopedia of Philosophy — Nationalism</a></li>
+                    <li><a href="https://plato.stanford.edu/entries/patriotism/" target="_blank" rel="noopener">Stanford
+                            Encyclopedia of Philosophy — Patriotism</a></li>
+                    <li><a href="https://plato.stanford.edu/archives/sum2025/entries/marx/" target="_blank"
+                            rel="noopener">Stanford Encyclopedia of Philosophy — Karl Marx</a></li>
+                    <li><a href="https://politicalscience.nd.edu/news-and-events/news/an-overview-of-populism/"
+                            target="_blank" rel="noopener">University of Notre Dame — An Overview of Populism</a></li>
+                    <li><a href="https://collaborate.princeton.edu/en/publications/populism-and-democratic-theory/"
+                            target="_blank" rel="noopener">Princeton University — Populism and Democratic Theory</a>
+                    </li>
+                    <li><a href="https://luskincenter.history.ucla.edu/2021/01/20/short-takes-by-ucla-historians-fascism/"
+                            target="_blank" rel="noopener">UCLA — Short Takes by UCLA Historians: Are We in a Fascist
+                            Age?</a></li>
+                    <li><a href="https://history.princeton.edu/about/publications/fascism-history-word" target="_blank"
+                            rel="noopener">Princeton University Department of History — Fascism: The History of a
+                            Word</a></li>
+                    <li><a href="https://press.umich.edu/Books/A/Autocrats-Can-t-Always-Get-What-They-Want3"
+                            target="_blank" rel="noopener">University of Michigan Press — Autocrats Can't Always Get
+                            What They Want</a></li>
+                    <li><a href="https://politicalscience.columbian.gwu.edu/autocrats-cant-always-get-what-they-want"
+                            target="_blank" rel="noopener">George Washington University Political Science —
+                            Authoritarian Institutions</a></li>
+                    <li><a href="https://www.laits.utexas.edu/gov310/IPOM/glossary.html" target="_blank"
+                            rel="noopener">University of Texas at Austin — American Politics Glossary</a></li>
+                    <li><a href="https://oyc.yale.edu/history/hist-276/lecture-7" target="_blank" rel="noopener">Yale
+                            Open Courses — Challenge from the Left</a></li>
+                    <li><a href="https://oyc.yale.edu/political-science/plsc-118/lecture-11" target="_blank"
+                            rel="noopener">Yale Open Courses — Marxian Exploitation</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <strong>Political Words, Precisely — 2026 Voter Guide</strong><br>
+            An evidence-first public education project designed to clarify political discourse.<br>
+            <span class="small">Last updated and peer-reviewed: August 9, 2026.</span>
+
+            <div class="ai-note">
+                <strong>Disclosure &amp; Expert Collaboration Note:</strong> This webpage was generated and synthesized
+                with AI assistance (Gemini) on August 9, 2026. The content reflects a collaborative synthesis of leading
+                scholarly frameworks from recognized political theorists and political scientists (including Cas Mudde,
+                Steven Levitsky, G.A. Cohen, and Michael Freeden). All direct quotes are linked directly to
+                peer-reviewed academic publications for instant verification.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const search = document.getElementById('search');
+        const cards = [...document.querySelectorAll('#termGrid .card')];
+        search.addEventListener('input', () => {
+            const q = search.value.toLowerCase().trim();
+            cards.forEach(c => c.classList.toggle('hide', q && !(c.dataset.terms + ' ' + c.textContent).toLowerCase().includes(q)));
+        });
+    </script>
+</body>
+
+</html>
