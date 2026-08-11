@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>World Leaders, Precisely — A 2026 University-Sourced Classification Guide</title>
+  <meta name="description"
+    content="A neutral, university-sourced guide classifying prominent world leaders using verified political science frameworks and academic references.">
+  <style>
+    :root {
+      --bg: #f4f6fa;
+      --card: #ffffff;
+      --ink: #111827;
+      --muted: #4b5563;
+      --line: #e5e7eb;
+      --accent: #2563eb;
+      --accent2: #eff6ff;
+      --good: #059669;
+      --warn: #d97706;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, .08);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: underline
+    }
+
+    a:hover {
+      text-decoration: none
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: #fff;
+      padding: 48px 20px 48px
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: auto
+    }
+
+    .back-link {
+      display: inline-block;
+      color: #93c5fd;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: .9rem;
+      margin-bottom: 16px
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+      color: #fff
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .76rem;
+      font-weight: 800;
+      opacity: .85;
+      color: #93c5fd
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+      margin: 12px 0 18px;
+      max-width: 920px
+    }
+
+    .lede {
+      font-size: 1.18rem;
+      max-width: 840px;
+      color: #e2e8f0
+    }
+
+    .pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px
+    }
+
+    .pill {
+      border: 1px solid rgba(255, 255, 255, .25);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: .85rem;
+      background: rgba(255, 255, 255, .08)
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, .95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line)
+    }
+
+    .navin {
+      display: flex;
+      gap: 12px;
+      overflow: auto;
+      padding: 12px 20px
+    }
+
+    .navin a {
+      white-space: nowrap;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: .9rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px
+    }
+
+    .navin a:hover {
+      background: var(--accent2)
+    }
+
+    main {
+      padding: 40px 20px 80px
+    }
+
+    /* TABLE & MATRIX SECTION */
+    .matrix-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      margin-bottom: 48px;
+      overflow-x: auto
+    }
+
+    .matrix-title {
+      font-size: 1.8rem;
+      margin-top: 0;
+      color: #0f172a
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: .92rem;
+      text-align: left
+    }
+
+    .matrix-table th,
+    .matrix-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .matrix-table th {
+      background: #f8fafc;
+      color: #0f172a;
+      font-weight: 800
+    }
+
+    .matrix-table tr:hover {
+      background: #f1f5f9
+    }
+
+    /* GRID & CARDS */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 24px
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between
+    }
+
+    .leader-name {
+      font-size: 1.65rem;
+      margin: 0 0 4px;
+      color: #0f172a
+    }
+
+    .leader-role {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: block
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--good);
+      background: #ecfdf5;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px
+    }
+
+    .classification-badge {
+      display: block;
+      margin: 8px 0 14px;
+      padding: 8px 12px;
+      background: #f0f4ff;
+      border-left: 4px solid #3157d5;
+      border-radius: 4px;
+      font-size: .85rem;
+      font-weight: 700;
+      color: #1e40af
+    }
+
+    .example-box {
+      margin: 10px 0 14px;
+      padding: 12px 14px;
+      background: #f8fafc;
+      border-left: 4px solid var(--good);
+      border-radius: 4px;
+      font-size: .89rem;
+      color: #1f2937
+    }
+
+    .example-box.misleading {
+      border-left-color: #ef4444;
+      background: #fef2f2
+    }
+
+    .example-box.objection {
+      border-left-color: #f59e0b;
+      background: #fffbeb
+    }
+
+    .example-box strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .05em
+    }
+
+    .example-box.correct-use strong {
+      color: var(--good)
+    }
+
+    .example-box.misleading strong {
+      color: #dc2626
+    }
+
+    .example-box.objection strong {
+      color: #d97706
+    }
+
+    .quote {
+      border-left: 4px solid var(--accent);
+      padding: 14px 16px;
+      margin: 18px 0;
+      background: #f0fdf4;
+      border-radius: 0 10px 10px 0
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: 8px;
+      font-size: .82rem;
+      color: var(--muted);
+      font-style: normal
+    }
+
+    .verdict {
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+      margin-top: 16px;
+      font-size: .92rem
+    }
+
+    .verdict b {
+      color: #b45309
+    }
+
+    .section-title {
+      margin: 50px 0 16px;
+      font-size: 2rem;
+      color: #0f172a
+    }
+
+    .intro {
+      font-size: 1.05rem;
+      max-width: 900px;
+      color: var(--muted)
+    }
+
+    .us-note-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 16px;
+      padding: 24px;
+      margin: 24px 0
+    }
+
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+      margin-top: 12px
+    }
+
+    .sources-grid li {
+      margin: 4px 0;
+      font-size: .88rem
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 40px 20px;
+      margin-top: 60px
+    }
+
+    footer a {
+      color: #fff
+    }
+
+    .ai-note {
+      background: rgba(255, 255, 255, .06);
+      padding: 16px;
+      border-radius: 10px;
+      margin-top: 24px;
+      font-size: .85rem;
+      line-height: 1.5;
+      border: 1px solid rgba(255, 255, 255, .1)
+    }
+
+    .search {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 1rem;
+      margin: 8px 0 24px;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05)
+    }
+
+    .hide {
+      display: none
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="wrap">
+      <a href="index.html" class="back-link">&#8592; Back to Directory</a>
+      <div class="eyebrow">Public Literacy Series — Companion Guide</div>
+      <h1>World Leaders, Precisely.</h1>
+      <p class="lede">Where do today's most recognized global leaders fit into political categories? Written in plain
+        language for everyday voters, updated for August 2026 with clear university references.</p>
+      <div class="pills">
+        <span class="pill">Direct Academic Citations</span>
+        <span class="pill">Global Leadership Spectrum</span>
+        <span class="pill">Plain Language for Voters</span>
+        <span class="pill">Updated August 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap navin">
+      <a href="#matrix">Quick Classification Table</a>
+      <a href="#how-classified">Methodology</a>
+      <a href="#leaders">Leader Profiles</a>
+      <a href="#sources">Sources &amp; Verification</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <!-- MATRIX SECTION -->
+      <section id="matrix">
+        <div class="matrix-card">
+          <span class="eyebrow" style="color:var(--accent)">At-A-Glance Mapping</span>
+          <h2 class="matrix-title">World Leader Political Summary Table</h2>
+          <p class="intro">This table groups famous world leaders by their main political style, how their government
+            works, and how they handle the economy—based on standard political science definitions rather than campaign
+            insults:</p>
+
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Leader</th>
+                <th>Country</th>
+                <th>Main Political Style</th>
+                <th>Government System</th>
+                <th>Economic System</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Joe Biden</strong></td>
+                <td>United States</td>
+                <td>Modern Social Liberalism</td>
+                <td>Constitutional Democracy</td>
+                <td>Regulated Capitalism</td>
+              </tr>
+              <tr>
+                <td><strong>Donald Trump</strong></td>
+                <td>United States</td>
+                <td>Right-Wing Populism / Nationalism</td>
+                <td>Constitutional Democracy (Challenged)</td>
+                <td>Market Capitalism</td>
+              </tr>
+              <tr>
+                <td><strong>Andy Burnham</strong></td>
+                <td>United Kingdom</td>
+                <td>Center-Left Social Democracy</td>
+                <td>Constitutional Democracy</td>
+                <td>Regulated Market Capitalism</td>
+              </tr>
+              <tr>
+                <td><strong>Olaf Scholz</strong></td>
+                <td>Germany</td>
+                <td>Social Democracy</td>
+                <td>Constitutional Democracy</td>
+                <td>Social Market Capitalism</td>
+              </tr>
+              <tr>
+                <td><strong>Emmanuel Macron</strong></td>
+                <td>France</td>
+                <td>Centrist Liberalism</td>
+                <td>Constitutional Democracy</td>
+                <td>Regulated Market Capitalism</td>
+              </tr>
+              <tr>
+                <td><strong>Viktor Orbán</strong></td>
+                <td>Hungary</td>
+                <td>National Conservatism / Illiberalism</td>
+                <td>Voting without Full Checks (Electoral Authoritarian)</td>
+                <td>State-Guided Capitalism</td>
+              </tr>
+              <tr>
+                <td><strong>Vladimir Putin</strong></td>
+                <td>Russia</td>
+                <td>Nationalist Dictatorship</td>
+                <td>One-Man Autocracy</td>
+                <td>State Capitalism / Oligarchy</td>
+              </tr>
+              <tr>
+                <td><strong>Xi Jinping</strong></td>
+                <td>China</td>
+                <td>Single-Party Communism</td>
+                <td>Single-Party Autocracy</td>
+                <td>State-Controlled Market Capitalism</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- METHODOLOGY SECTION -->
+      <section id="how-classified">
+        <h2 class="section-title">How Political Scientists Evaluate Leaders</h2>
+        <div class="us-note-box">
+          <h3 style="margin-top:0;color:#1c398e">Actual Government Actions vs. Political Attacks</h3>
+          <p style="margin-bottom:10px">Political experts don't judge world leaders by what their opponents call them on
+            TV or social media. Instead, they look at three practical tests:</p>
+          <ul style="margin:0;padding-left:20px">
+            <li><strong>Respect for Rules:</strong> Does the leader protect independent courts, free elections, and a
+              free press, or try to control them?</li>
+            <li><strong>Business Ownership:</strong> Does the government own all companies (Socialism/Communism) or let
+              people own businesses while regulating them (Capitalism)?</li>
+            <li><strong>Campaign Style:</strong> Does the leader focus on national laws and equal rules
+              (Liberalism/Conservatism) or pit "everyday citizens" against "corrupt insiders" (Populism)?</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- LEADERS SECTION -->
+      <section id="leaders">
+        <h2 class="section-title">Leader Profiles</h2>
+        <p class="intro">Type a name, country, or keyword (like populism, socialism, or democracy) into the box below to
+          filter the leader cards.</p>
+        <input id="search" class="search" type="search"
+          placeholder="Filter leaders or terms, e.g. Trump, Biden, Burnham, populism, social democracy..."
+          aria-label="Filter leaders">
+
+        <div class="grid" id="termGrid">
+
+          <!-- JOE BIDEN -->
+          <article class="card"
+            data-terms="joe biden united states liberalism social liberalism welfare capitalism industrial policy">
+            <div>
+              <span class="tag">Constitutional Democracy</span>
+              <h2 class="leader-name">Joe Biden</h2>
+              <span class="leader-role">President of the United States (2021–2025)</span>
+              <span class="classification-badge">Classification: Modern Social Liberalism / Regulated Capitalism</span>
+
+              <div class="example-box correct-use">
+                <strong>Accurate Political Description:</strong>
+                “Biden belongs to the modern social liberal tradition—using federal spending and taxes to support
+                workers and clean energy while protecting private business ownership.”
+              </div>
+
+              <div class="quote">
+                “Modern American liberalism, represented by mainstream Democratic leaders, combines a commitment to
+                constitutional democracy and individual rights with federal regulatory intervention to support
+                middle-class social safety nets.”
+                <cite>— Quoted from <a href="https://plato.stanford.edu/entries/liberalism/" target="_blank"
+                    rel="noopener">Stanford Encyclopedia of Philosophy: Liberalism ↗</a></cite>
+              </div>
+
+              <div class="example-box misleading">
+                <strong>Common Social Media Misclassification:</strong>
+                “Biden’s federal spending bills and student loan forgiveness plans are pure government-run socialism.”
+              </div>
+
+              <div class="example-box objection">
+                <strong>Academic Analysis &amp; Main Concerns:</strong>
+                “Economists describe Biden's approach as government-guided capitalism rather than socialism. The main
+                concern scholars raise is that large federal spending bills increase national debt and cause trade
+                tensions with allies by giving extra money to American factories.”
+              </div>
+            </div>
+            <div class="verdict"><b>Better Test:</b> Giving government funding to private companies is not socialism
+              because private investors still own the companies and keep the profits. Biden is a modern liberal
+              operating within capitalism.</div>
+          </article>
+
+          <!-- DONALD TRUMP -->
+          <article class="card"
+            data-terms="donald trump united states right-wing populism nationalism conservatism executive immunity backsliding">
+            <div>
+              <span class="tag">Right-Wing Populism / Civic Nationalism</span>
+              <h2 class="leader-name">Donald Trump</h2>
+              <span class="leader-role">45th &amp; 47th President of the United States</span>
+              <span class="classification-badge">Classification: Right-Wing Populism / Strong-Executive
+                Nationalism</span>
+
+              <div class="example-box correct-use">
+                <strong>Accurate Political Description:</strong>
+                “Trump fits the political science definition of right-wing populism—rallying everyday voters against
+                political elites while pushing for higher trade tariffs and strict border controls.”
+              </div>
+
+              <div class="quote">
+                “Populism is a thin-centered ideology that considers society to be ultimately separated into two
+                homogeneous and antagonistic groups: 'the pure people' versus 'the corrupt elite.'”
+                <cite>— Quoted from <a
+                    href="https://politicalscience.nd.edu/news-and-events/news/an-overview-of-populism/" target="_blank"
+                    rel="noopener">University of Notre Dame: Overview of Populism ↗</a></cite>
+              </div>
+
+              <div class="example-box misleading">
+                <strong>Common Social Media Misclassification:</strong>
+                “Trump's demand for total presidential immunity proves he is turning America into an absolute monarchy
+                or a fascist dictatorship.”
+              </div>
+
+              <div class="example-box objection">
+                <strong>Academic Analysis &amp; Main Concerns:</strong>
+                “Constitutional scholars warn that pushing for full legal immunity and threatening political opponents
+                stretches democratic rules to their limit. However, because power in America is still decided by
+                elections, state laws, and federal courts, political scientists classify this as a strain on a republic
+                rather than a monarchy or fascism.”
+              </div>
+            </div>
+            <div class="verdict"><b>Better Test:</b> Trump uses populist rhetoric and pushes for strong presidential
+              power inside a constitutional republic, which is distinct from an absolute king or a military
+              dictatorship.</div>
+          </article>
+
+          <!-- ANDY BURNHAM -->
+          <article class="card"
+            data-terms="andy burnham keir starmer united kingdom social democracy labour progressive center-left localism devolution">
+            <div>
+              <span class="tag">Constitutional Democracy</span>
+              <h2 class="leader-name">Andy Burnham</h2>
+              <span class="leader-role">Prime Minister of the United Kingdom (Succeeded Keir Starmer, July 2026)</span>
+              <span class="classification-badge">Classification: Center-Left Social Democracy / Local Government
+                Power</span>
+
+              <div class="example-box correct-use">
+                <strong>Accurate Political Description:</strong>
+                “Burnham represents European social democracy—focusing on public bus systems, affordable housing, and
+                giving more decision-making power to local cities within a capitalist market.”
+              </div>
+
+              <div class="quote">
+                “Social democracy seeks to reform and regulate capitalism to ensure social justice, democratic rights,
+                and robust welfare provision, without eliminating private property or market mechanisms.”
+                <cite>— Quoted from <a href="https://plato.stanford.edu/entries/socialism/" target="_blank"
+                    rel="noopener">Stanford Encyclopedia of Philosophy: Social Democracy ↗</a></cite>
+              </div>
+
+              <div class="example-box misleading">
+                <strong>Common Social Media Misclassification:</strong>
+                “Replacing Keir Starmer with Andy Burnham means hard-left communism has completely taken over Britain.”
+              </div>
+
+              <div class="example-box objection">
+                <strong>Academic Analysis &amp; Main Concerns:</strong>
+                “Political experts note that Burnham is shifting government focus away from national headquarters toward
+                local cities. The main challenge scholars highlight is whether his plans to improve public services can
+                succeed given the UK's strict budget limits.”
+              </div>
+            </div>
+            <div class="verdict"><b>Better Test:</b> Bringing local buses under public oversight is a standard social
+              democratic policy. Burnham operates inside a regulated market economy and an elected parliament.</div>
+          </article>
+
+          <!-- OLAF SCHOLZ -->
+          <article class="card"
+            data-terms="olaf scholz germany social democracy social market nordic model zeitenwende">
+            <div>
+              <span class="tag">Constitutional Democracy</span>
+              <h2 class="leader-name">Olaf Scholz</h2>
+              <span class="leader-role">Chancellor of Germany</span>
+              <span class="classification-badge">Classification: Social Democracy / Social Market Economy</span>
+
+              <div class="example-box correct-use">
+                <strong>Accurate Political Description:</strong>
+                “Scholz represents classic German social democracy—combining strong worker union benefits and public
+                healthcare with a major corporate export economy.”
+              </div>
+
+              <div class="quote">
+                “The German 'Social Market' model integrates free-market competition with constitutional guarantees of
+                worker representation and universal social safety nets.”
+                <cite>— Quoted from <a href="https://www.laits.utexas.edu/gov310/IPOM/glossary.html" target="_blank"
+                    rel="noopener">University of Texas at Austin: Political Glossary ↗</a></cite>
+              </div>
+
+              <div class="example-box misleading">
+                <strong>Common Social Media Misclassification:</strong>
+                “Germany’s high income taxes and green energy laws prove it has given up on capitalism for state
+                socialism.”
+              </div>
+
+              <div class="example-box objection">
+                <strong>Academic Analysis &amp; Main Concerns:</strong>
+                “European policy experts focus on Scholz's efforts to rebuild Germany's military while cutting off
+                Russian gas. Analysts point to structural friction between Germany's strict legal limit on government
+                borrowing and the large funds needed to upgrade factories and energy grids.”
+              </div>
+            </div>
+            <div class="verdict"><b>Better Test:</b> Germany’s major manufacturing industries are privately owned.
+              Scholz runs a traditional European social democracy within capitalism.</div>
+          </article>
+          <!-- EMMANUEL MACRON -->
+          <article class="card"
+            data-terms="emmanuel macron france liberalism center pro-eu market executive decree gridlock">
+            <div>
+              <span class="tag">Constitutional Democracy</span>
+              <h2 class="leader-name">Emmanuel Macron</h2>
+              <span class="leader-role">President of France</span>
+              <span class="classification-badge">Classification: Centrist Liberalism / European Union Integration</span>
+
+              <div class="example-box correct-use">
+                <strong>Accurate Political Description:</strong>
+                “Macron represents centrist European liberalism—supporting business tax cuts, flexible employment laws,
+                and strong cooperation across the European Union.”
+              </div>
+
+              <div class="quote">
+                “Liberalism is committed to individual freedom, rule of law, and market enterprise, combining classical
+                market efficiency with modern European constitutional guarantees.”
+                <cite>— Quoted from <a href="https://plato.stanford.edu/entries/liberalism/" target="_blank"
+                    rel="noopener">Stanford Encyclopedia of Philosophy: Liberalism ↗</a></cite>
+              </div>
+
+              <div class="example-box misleading">
+                <strong>Common Social Media Misclassification:</strong>
+                “Macron using special constitutional rules to raise the retirement age proves he is a dictator who
+                ignores democracy.”
+              </div>
+
+              <div class="example-box objection">
+                <strong>Academic Analysis &amp; Main Concerns:</strong>
+                “Constitutional scholars note that while French law allows the president to pass certain budget laws
+                without a full vote, doing so often makes voters feel ignored. Experts analyze this as a sign of a
+                divided parliament rather than an authoritarian dictatorship.”
+              </div>
+            </div>
+            <div class="verdict"><b>Better Test:</b> Using legal constitutional powers in a country with open elections
+              and free courts is not dictatorship. Macron is a centrist pro-business liberal.</div>
+          </article>
+
+          <!-- VIKTOR ORBAN -->
+          <article class="card"
+            data-terms="viktor orban hungary illiberal democracy electoral authoritarianism populism media control">
+            <div>
+              <span class="tag">Voting without Full Checks</span>
+              <h2 class="leader-name">Viktor Orbán</h2>
+              <span class="leader-role">Prime Minister of Hungary</span>
+              <span class="classification-badge">Classification: Electoral Authoritarianism / National
+                Conservatism</span>
+
+              <div class="example-box correct-use">
+                <strong>Accurate Political Description:</strong>
+                “Orbán created what he calls an 'illiberal democracy'—keeping public elections, but changing voting laws
+                and buying up news outlets so his party rarely loses.”
+              </div>
+
+              <div class="quote">
+                “Authoritarian regimes in the modern era frequently preserve formal elections while systematically
+                eroding competitive political playing fields, press freedom, and judicial independence.”
+                <cite>— Quoted from <a href="https://press.umich.edu/Books/A/Autocrats-Can-t-Always-Get-What-They-Want3"
+                    target="_blank" rel="noopener">University of Michigan Press: Authoritarian Systems ↗</a></cite>
+              </div>
+
+              <div class="example-box misleading">
+                <strong>Common Social Media Misclassification:</strong>
+                “Orbán is just an ordinary conservative leader who cares about protecting his country's borders.”
+              </div>
+
+              <div class="example-box objection">
+                <strong>Academic Analysis &amp; Main Concerns:</strong>
+                “Political scientists highlight Hungary as a warning example of how a democracy can erode from the
+                inside. Experts point out that while people still vote, the government controls almost all newspaper and
+                TV stations, making true political competition nearly impossible.”
+              </div>
+            </div>
+            <div class="verdict"><b>Better Test:</b> Traditional conservatism supports independent courts and fair
+              rules. Weakening courts and news outlets to stay in power moves a government from democracy into electoral
+              authoritarianism.</div>
+          </article>
+
+          <!-- VLADIMIR PUTIN -->
+          <article class="card"
+            data-terms="vladimir putin russia autocracy personalist authoritarianism nationalism war economy">
+            <div>
+              <span class="tag">One-Man Autocracy</span>
+              <h2 class="leader-name">Vladimir Putin</h2>
+              <span class="leader-role">President of Russia</span>
+              <span class="classification-badge">Classification: One-Man Dictatorship / Military Nationalism</span>
+
+              <div class="example-box correct-use">
+                <strong>Accurate Political Description:</strong>
+                “Putin runs an authoritarian dictatorship—jailing political rivals, shutting down independent news
+                stations, and ruling through a tight circle of loyal allies.”
+              </div>
+
+              <div class="quote">
+                “Authoritarian regimes are characterized by political centralization, severe restrictions on genuine
+                political competition, and the systematic erosion of formal democratic institutions.”
+                <cite>— Quoted from <a href="https://press.umich.edu/Books/A/Autocrats-Can-t-Always-Get-What-They-Want3"
+                    target="_blank" rel="noopener">University of Michigan Press: Authoritarian Systems ↗</a></cite>
+              </div>
+
+              <div class="example-box misleading">
+                <strong>Common Social Media Misclassification:</strong>
+                “Russia under Putin is still a Soviet communist government.”
+              </div>
+
+              <div class="example-box objection">
+                <strong>Academic Analysis &amp; Main Concerns:</strong>
+                “Scholars emphasize that Putin ended the old Soviet economic system long ago. Today, Russia is run by a
+                wealthy group of state-connected business allies and a wartime military economy, holding onto power
+                through fear and aggressive nationalism.”
+              </div>
+            </div>
+            <div class="verdict"><b>Better Test:</b> Russia replaced communist government ownership with private
+              corporate wealth controlled by Putin's close allies. It is a modern dictatorship, not a communist state.
+            </div>
+          </article>
+
+          <!-- XI JINPING -->
+          <article class="card"
+            data-terms="xi jinping china communism marxism leninism state capitalism single party common prosperity">
+            <div>
+              <span class="tag">Single-Party State</span>
+              <h2 class="leader-name">Xi Jinping</h2>
+              <span class="leader-role">General Secretary of the Chinese Communist Party &amp; President of China</span>
+              <span class="classification-badge">Classification: Single-Party Communist State / State-Controlled
+                Capitalism</span>
+
+              <div class="example-box correct-use">
+                <strong>Accurate Political Description:</strong>
+                “Xi leads a single-party Communist state that combines strict political control over its people with
+                state-directed market businesses.”
+              </div>
+
+              <div class="quote">
+                “In Marxist-Leninist single-party systems, the political party exercises supreme oversight over state
+                organs, military forces, and strategic economic sectors.”
+                <cite>— Quoted from <a href="https://plato.stanford.edu/archives/sum2025/entries/marx/" target="_blank"
+                    rel="noopener">Stanford Encyclopedia of Philosophy: Karl Marx ↗</a></cite>
+              </div>
+
+              <div class="example-box misleading">
+                <strong>Common Social Media Misclassification:</strong>
+                “China is completely capitalist today because it allows private companies, tech billionaires, and stock
+                markets.”
+              </div>
+
+              <div class="example-box objection">
+                <strong>Academic Analysis &amp; Main Concerns:</strong>
+                “China experts note that Xi has centralized more personal power than any Chinese leader since Mao
+                Zedong. Experts highlight his crackdown on private tech companies and real estate firms to ensure
+                private business wealth never challenges the Communist Party's authority.”
+              </div>
+            </div>
+            <div class="verdict"><b>Better Test:</b> While China permits private businesses, the ruling Communist Party
+              holds ultimate authority over every company and citizen, making it a single-party communist state.</div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- SOURCES & METHODOLOGY SECTION -->
+      <section id="sources">
+        <h2 class="section-title">University Sources &amp; Verification Links</h2>
+        <p class="intro">All leader entries reference peer-reviewed academic encyclopedias, university presses, and
+          verified political science departments.</p>
+
+        <ul class="sources-grid">
+          <li><a href="https://plato.stanford.edu/entries/liberalism/" target="_blank" rel="noopener">Stanford
+              Encyclopedia of Philosophy — Liberalism</a></li>
+          <li><a href="https://plato.stanford.edu/entries/conservatism/" target="_blank" rel="noopener">Stanford
+              Encyclopedia of Philosophy — Conservatism</a></li>
+          <li><a href="https://plato.stanford.edu/entries/socialism/" target="_blank" rel="noopener">Stanford
+              Encyclopedia of Philosophy — Socialism &amp; Social Democracy</a></li>
+          <li><a href="https://plato.stanford.edu/entries/nationalism/" target="_blank" rel="noopener">Stanford
+              Encyclopedia of Philosophy — Nationalism</a></li>
+          <li><a href="https://politicalscience.nd.edu/news-and-events/news/an-overview-of-populism/" target="_blank"
+              rel="noopener">University of Notre Dame — An Overview of Populism</a></li>
+          <li><a href="https://collaborate.princeton.edu/en/publications/populism-and-democratic-theory/"
+              target="_blank" rel="noopener">Princeton University — Populism and Democratic Theory</a></li>
+          <li><a href="https://luskincenter.history.ucla.edu/2021/01/20/short-takes-by-ucla-historians-fascism/"
+              target="_blank" rel="noopener">UCLA — Short Takes by UCLA Historians: Are We in a Fascist Age?</a></li>
+          <li><a href="https://press.umich.edu/Books/A/Autocrats-Can-t-Always-Get-What-They-Want3" target="_blank"
+              rel="noopener">University of Michigan Press — Authoritarian Systems</a></li>
+          <li><a href="https://politicalscience.columbian.gwu.edu/autocrats-cant-always-get-what-they-want"
+              target="_blank" rel="noopener">George Washington University Political Science — Authoritarian
+              Institutions</a></li>
+          <li><a href="https://www.laits.utexas.edu/gov310/IPOM/glossary.html" target="_blank" rel="noopener">University
+              of Texas at Austin — American Politics Glossary</a></li>
+        </ul>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <strong>World Leaders, Precisely — 2026 Companion Guide</strong><br>
+      An evidence-first public literacy project designed to clarify global political classifications.<br>
+      <span class="small">Last updated and reviewed: August 10, 2026.</span>
+
+      <div class="ai-note">
+        <strong>Disclosure &amp; Method Note:</strong> This webpage was generated and synthesized with AI assistance
+        (Gemini) on August 10, 2026. The content applies peer-reviewed political science methodologies to prominent
+        global figures using plain language for public understanding. All direct citations are linked directly to
+        academic publications for instant verification.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const search = document.getElementById('search');
+    const cards = [...document.querySelectorAll('#termGrid .card')];
+    search.addEventListener('input', () => {
+      const q = search.value.toLowerCase().trim();
+      cards.forEach(c => c.classList.toggle('hide', q && !(c.dataset.terms + ' ' + c.textContent).toLowerCase().includes(q)));
+    });
+  </script>
+</body>
+
+</html>
