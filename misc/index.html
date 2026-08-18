@@ -45,7 +45,7 @@
     }
 
     header {
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     h1 {
@@ -58,6 +58,24 @@
       color: var(--text-muted);
       margin: 0;
       font-size: 0.95rem;
+    }
+
+    .section-header {
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 2px 0;
+      color: var(--text-main);
+    }
+
+    .section-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
     }
 
     .grid {
@@ -180,7 +198,7 @@
     }
 
     footer {
-      margin-top: 24px;
+      margin-top: 32px;
       padding-top: 12px;
       border-top: 1px solid var(--border);
       text-align: center;
@@ -196,73 +214,100 @@
     
     <header>
       <h1>Miscellaneous Directory</h1>
-      <p class="subtitle">Kathy's mostly AI-generated experiments</p>
+      <p class="subtitle">Kathy's directory of tools, guides, and experimental projects</p>
     </header>
 
-    <main class="grid">
-      <!-- App Card -->
-      <article class="card">
-        <div class="card-header">
-          <span class="tag tag-app">App</span>
-          <h2 class="card-title">
-            <a href="https://sharpkathy123.github.io/Sudoku/" class="main-link">Sudoku Game</a>
-          </h2>
-        </div>
-        <p>Kathy's first successful app generation using AI, a simple Sudoku game</p>
-      </article>
+    <main>
+      <!-- SECTION 1: APPS -->
+      <section class="section-header">
+        <h2 class="section-title">Web Apps &amp; Interactive Tools</h2>
+        <p class="section-desc">Single-page offline-capable web utilities.</p>
+      </section>
 
-      <!-- Guide 1 -->
-      <article class="card">
-        <div class="card-header">
-          <span class="tag tag-guide">Guide</span>
-          <h2 class="card-title">
-            <a href="codespaces-icons.html" class="main-link">GitHub Codespaces Icon Cheat Sheet</a>
-          </h2>
-        </div>
-        <p>Visual guide to interface icons, status bar indicators, and Git state badges in VS Code &amp; Codespaces</p>
-      </article>
-
-      <!-- Guide 2 -->
-      <article class="card">
-        <div class="card-header">
-          <span class="tag tag-guide">Guide</span>
-          <h2 class="card-title">
-            <a href="ipad-codespaces-guide.html" class="main-link">iPad &amp; GitHub Codespaces Web Dev Guide</a>
-          </h2>
-        </div>
-        <p>Step-by-step workflow guide for editing HTML/CSS on an iPad using Python's web server, iPadOS Split View, and Safari</p>
-      </article>
-
-      <!-- Reference with Versions -->
-      <article class="card">
-        <div class="card-header">
-          <span class="tag tag-ref">Reference</span>
-          <h2 class="card-title" style="color: var(--text-main);">Political Words, Precisely</h2>
-        </div>
-        <p>Reference guide synthesizing expert political definitions paired with university source links.</p>
-        <div class="version-group">
-          <span class="version-label">Versions:</span>
-          <div class="version-links">
-            <a href="Political_words_precisely.HTML" class="version-btn">v1.0 (Aug 8, 2026)</a>
-            <a href="political_definitions_by_experts.html" class="version-btn">v2.0 (Aug 9, 2026)</a>
+      <div class="grid">
+        <!-- Photo Collage Builder App -->
+        <article class="card">
+          <div class="card-header">
+            <span class="tag tag-app">App</span>
+            <h3 class="card-title">
+              <a href="https://sharpkathy123.github.io/MakePhotoCollage/" class="main-link">Photo Collage Builder</a>
+            </h3>
           </div>
-        </div>
-      </article>
+          <p>A mobile-friendly Progressive Web App (PWA) for building customized photo collages offline without uploading images to any server.</p>
+        </article>
 
-      <!-- Follow-on Leader Guide -->
-      <article class="card">
-        <div class="card-header">
-          <span class="tag tag-ref">Reference</span>
-          <h2 class="card-title">
-            <a href="world_leaders_precisely.html" class="main-link">World Leaders, Precisely</a>
-          </h2>
-        </div>
-        <p>Companion guide classifying famous global figures (Biden, Trump, Burnham, Putin, Xi) into political science categories using plain language and university source citations.</p>
-      </article>
+        <!-- Sudoku Game App -->
+        <article class="card">
+          <div class="card-header">
+            <span class="tag tag-app">App</span>
+            <h3 class="card-title">
+              <a href="https://sharpkathy123.github.io/Sudoku/" class="main-link">Sudoku Game</a>
+            </h3>
+          </div>
+          <p>Kathy's first successful app generation using AI—a simple offline Sudoku game.</p>
+        </article>
+      </div>
+
+      <!-- SECTION 2: AI COMPILATIONS & GUIDES -->
+      <section class="section-header" style="margin-top: 32px;">
+        <h2 class="section-title">AI-Compiled Guides &amp; References</h2>
+        <p class="section-desc">Compilations, cheat sheets, and reference notes compiled with AI assistance (for general information; may contain oversights).</p>
+      </section>
+
+      <div class="grid">
+        <!-- Guide 1 -->
+        <article class="card">
+          <div class="card-header">
+            <span class="tag tag-guide">Guide</span>
+            <h3 class="card-title">
+              <a href="codespaces-icons.html" class="main-link">GitHub Codespaces Icon Cheat Sheet</a>
+            </h3>
+          </div>
+          <p>Visual guide to interface icons, status bar indicators, and Git state badges in VS Code &amp; Codespaces.</p>
+        </article>
+
+        <!-- Guide 2 -->
+        <article class="card">
+          <div class="card-header">
+            <span class="tag tag-guide">Guide</span>
+            <h3 class="card-title">
+              <a href="ipad-codespaces-guide.html" class="main-link">iPad &amp; GitHub Codespaces Web Dev Guide</a>
+            </h3>
+          </div>
+          <p>Step-by-step workflow guide for editing HTML/CSS on an iPad using Python's web server, iPadOS Split View, and Safari.</p>
+        </article>
+
+        <!-- Reference with Versions -->
+        <article class="card">
+          <div class="card-header">
+            <span class="tag tag-ref">Reference</span>
+            <h3 class="card-title" style="color: var(--text-main);">Political Words, Precisely</h3>
+          </div>
+          <p>Reference guide synthesizing expert political definitions paired with university source links.</p>
+          <div class="version-group">
+            <span class="version-label">Versions:</span>
+            <div class="version-links">
+              <a href="Political_words_precisely.HTML" class="version-btn">v1.0 (Aug 8, 2026)</a>
+              <a href="political_definitions_by_experts.html" class="version-btn">v2.0 (Aug 9, 2026)</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Follow-on Leader Guide -->
+        <article class="card">
+          <div class="card-header">
+            <span class="tag tag-ref">Reference</span>
+            <h3 class="card-title">
+              <a href="world_leaders_precisely.html" class="main-link">World Leaders, Precisely</a>
+            </h3>
+          </div>
+          <p>Companion guide classifying famous global figures into political science categories using plain language and university source citations.</p>
+        </article>
+      </div>
     </main>
 
     <footer>
-      Last updated: August 10, 2026 at 5:45 PM MST
+      Last updated: August 17, 2026
     </footer>
   </div>
 </body>
