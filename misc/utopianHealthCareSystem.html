@@ -256,7 +256,7 @@
       font-size: 0.9rem;
     }
 
-    /* Readiness Assessment Grid */
+    /* Assessment Grid */
     .assessment-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -359,15 +359,15 @@
     <div class="nav-container">
       <div class="nav-brand">U.S. HEALTH BLUEPRINT</div>
       <div class="nav-links">
-        <a href="#idea">The Idea</a>
-        <a href="#why">Why Consider This?</a>
-        <a href="#how">How It Works</a>
-        <a href="#readiness">Is It Ready to Implement?</a>
-        <a href="#people">People & Stories</a>
-        <a href="#lessons">Global Lessons</a>
-        <a href="#tech">Technology</a>
-        <a href="#tradeoffs">Tradeoffs</a>
-        <a href="#verification">Verification & Data</a>
+        <a href="#why">1. Why Change?</a>
+        <a href="#idea">2. The Big Idea</a>
+        <a href="#how">3. How It Works</a>
+        <a href="#people">4. Everyday Life</a>
+        <a href="#tech">5. The Technology</a>
+        <a href="#lessons">6. Global Lessons</a>
+        <a href="#tradeoffs">7. Tradeoffs & Risks</a>
+        <a href="#readiness">8. Implementation Reality</a>
+        <a href="#verification">9. Research Sources</a>
       </div>
     </div>
   </nav>
@@ -380,31 +380,10 @@
 
   <main>
 
-    <!-- SECTION: THE IDEA -->
-    <section id="idea">
-      <h2>The Basic Promise</h2>
-      <p class="lead-text">This model isn't "free health care." It's a different way of organizing the risk, financing, and bureaucracy of health care.</p>
-      
-      <div class="story-grid">
-        <div class="story-card">
-          <h4>Everyone is covered</h4>
-          <p>Coverage starts automatically at birth or residency. No open-enrollment panic. No losing coverage because you changed jobs, started a business, or reduced your work hours.</p>
-        </div>
-        <div class="story-card">
-          <h4>Medical bills can't ruin you</h4>
-          <p>Medically necessary care has strong annual out-of-pocket limits. The system pools catastrophic risk so a severe illness never leads to financial ruin.</p>
-        </div>
-        <div class="story-card">
-          <h4>The patient isn't the paperwork</h4>
-          <p>If the system already has your information, it uses it. Doctors, hospitals, pharmacies, and agencies connect their systems on the backend so a sick person doesn't have to.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: WHY ARE WE EVEN CONSIDERING THIS? -->
+    <!-- 1. WHY ARE WE EVEN CONSIDERING THIS? (THE PROBLEM STATEMENT) -->
     <section id="why">
-      <h2>Why Are We Even Considering This?</h2>
-      <p>America's health-care problem isn't simply that care is expensive—it's also that getting care requires an extraordinary amount of unpaid personal administrative work.</p>
+      <h2>1. Why Are We Even Considering This?</h2>
+      <p class="lead-text">America's health-care problem isn't simply that care is expensive—it's also that getting care requires an extraordinary amount of unpaid personal administrative work.</p>
 
       <div class="quote-box">
         <p>"In a nationally representative study of insured, nonelderly Americans, 73% reported doing at least one health-care administrative task during the previous year... 24.4% said an administrative task caused them to delay or forgo care. The burden was particularly associated with disability."</p>
@@ -423,9 +402,30 @@
       </div>
     </section>
 
-    <!-- SECTION: HOW IT WORKS -->
+    <!-- 2. THE BIG IDEA (THE CORE SOLUTION) -->
+    <section id="idea">
+      <h2>2. The Big Idea</h2>
+      <p class="lead-text">This model isn't "free health care." It's a different way of organizing the risk, financing, and bureaucracy of health care.</p>
+      
+      <div class="story-grid">
+        <div class="story-card">
+          <h4>Everyone is covered</h4>
+          <p>Coverage starts automatically at birth or residency. No open-enrollment panic. No losing coverage because you changed jobs, started a business, or reduced your work hours.</p>
+        </div>
+        <div class="story-card">
+          <h4>Medical bills can't ruin you</h4>
+          <p>Medically necessary care has strong annual out-of-pocket limits. The system pools catastrophic risk so a severe illness never leads to financial ruin.</p>
+        </div>
+        <div class="story-card">
+          <h4>The patient isn't the paperwork</h4>
+          <p>If the system already has your information, it uses it. Doctors, hospitals, pharmacies, and agencies connect their systems on the backend so a sick person doesn't have to.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. HOW IT WORKS (THE MECHANICS) -->
     <section id="how">
-      <h2>How It Works</h2>
+      <h2>3. How It Works</h2>
       <div class="steps-grid">
         <div class="step-card">
           <span class="step-number">1</span>
@@ -465,44 +465,9 @@
       </div>
     </section>
 
-    <!-- SECTION: EXPERT EVALUATION / IMPLEMENTATION READINESS -->
-    <section id="readiness">
-      <h2>Would Experts Say This Is Ready to Implement?</h2>
-      <p class="lead-text">Short answer: <strong>No policy expert, health economist, or legislator would consider this blueprint ready for immediate implementation.</strong></p>
-      <p style="color: var(--text-muted); margin-bottom: 20px;">
-        While experts would validate the <em>directional principles</em> (such as single-tier risk pooling, administrative simplification, and ambient AI documentation), they would classify this document as a high-level <strong>aspirational architecture</strong> or vision paper—not an operational blueprint.
-      </p>
-
-      <div class="assessment-grid">
-        <div class="assessment-card">
-          <span class="status-badge badge-valid">VALIDATED PRINCIPLE</span>
-          <h4>Administrative Savings & Universal Pooling</h4>
-          <p>Economists agree that consolidating billing and eliminating prior-authorization overhead saves 15–25% in systemic costs. The macro-economics are proven in peer OECD countries.</p>
-        </div>
-
-        <div class="assessment-card">
-          <span class="status-badge badge-incomplete">INCOMPLETE SPECIFICATION</span>
-          <h4>Transition Legislation & Displaced Workforce</h4>
-          <p>Lacks legislative mechanics for retraining ~2 million private health insurance workers, shifting corporate benefit tax codes, or liquidating existing insurer capital reserves.</p>
-        </div>
-
-        <div class="assessment-card">
-          <span class="status-badge badge-missing">MISSING FOR IMPLEMENTATION</span>
-          <h4>Granular Payment Schedules & Fee Codes</h4>
-          <p>Does not contain the thousands of pages of Relative Value Units (RVUs), hospital DRG rate calculations, or pharmaceutical bounty valuation algorithms required by actual health authorities.</p>
-        </div>
-
-        <div class="assessment-card">
-          <span class="status-badge badge-missing">MISSING FOR IMPLEMENTATION</span>
-          <h4>Interoperability & EHR Data Schemas</h4>
-          <p>While specifying open standards, it lacks the technical FHIR/HL7 API specifications, database architecture, or legal liability frameworks for decentralized data pods.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: PEOPLE & STORIES -->
+    <!-- 4. PEOPLE & STORIES (HUMAN EXAMPLES) -->
     <section id="people">
-      <h2>Designed for Ordinary Life</h2>
+      <h2>4. Designed for Ordinary Life</h2>
       <p style="color: var(--text-muted); margin-bottom: 20px;">Real-life scenarios showing how this model functions across different circumstances:</p>
 
       <div class="story-grid">
@@ -538,9 +503,37 @@
       </div>
     </section>
 
-    <!-- SECTION: WHAT DO OTHER COUNTRIES TEACH US? -->
+    <!-- 5. TECHNOLOGY (ENABLERS & SAFETY) -->
+    <section id="tech">
+      <h2>5. The Technology Underneath</h2>
+      <p class="lead-text">The goal isn't to make people use more technology. It's to use technology so people have to do less.</p>
+
+      <div class="story-grid">
+        <div class="story-card">
+          <h4>Your Medical Record Follows You</h4>
+          <p>If you move from Arizona to Maine, you shouldn't have to reconstruct your history from memory. Common technical standards let authorized providers exchange records effortlessly—just like email works across Gmail and Outlook.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>AI as Assistant, Not the Boss</h4>
+          <p>AI tools explain confusing letters, summarize records, find appointments, and assist clinicians with charting. However, AI never gets the final say on clinical decisions, and you can always request a human.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>Electronic Authorization & Speed</h4>
+          <p>If clinical review is required, relevant data in the patient's record populates the request automatically. Strict turnaround deadlines prevent patients from waiting in administrative limbo.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>Privacy by Design & Human Fallback</h4>
+          <p>Every record access is logged for patient viewing. Sensitive data receives extra encryption. AI systems follow NIST Risk Management standards, maintaining strict human accountability throughout.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. WHAT DO OTHER COUNTRIES TEACH US? (REAL-WORLD EVIDENCE) -->
     <section id="lessons">
-      <h2>What Do Other Countries Teach Us?</h2>
+      <h2>6. What Do Other Countries Teach Us?</h2>
       <p style="color: var(--text-muted);">This model borrows individual proven concepts rather than copying any single foreign nation:</p>
 
       <div class="country-grid">
@@ -574,37 +567,9 @@
       </p>
     </section>
 
-    <!-- SECTION: TECHNOLOGY -->
-    <section id="tech">
-      <h2>The Technology Underneath</h2>
-      <p class="lead-text">The goal isn't to make people use more technology. It's to use technology so people have to do less.</p>
-
-      <div class="story-grid">
-        <div class="story-card">
-          <h4>Your Medical Record Follows You</h4>
-          <p>If you move from Arizona to Maine, you shouldn't have to reconstruct your history from memory. Common technical standards let authorized providers exchange records effortlessly—just like email works across Gmail and Outlook.</p>
-        </div>
-
-        <div class="story-card">
-          <h4>AI as Assistant, Not the Boss</h4>
-          <p>AI tools explain confusing letters, summarize records, find appointments, and assist clinicians with charting. However, AI never gets the final say on clinical decisions, and you can always request a human.</p>
-        </div>
-
-        <div class="story-card">
-          <h4>Electronic Authorization & Speed</h4>
-          <p>If clinical review is required, relevant data in the patient's record populates the request automatically. Strict turnaround deadlines prevent patients from waiting in administrative limbo.</p>
-        </div>
-
-        <div class="story-card">
-          <h4>Privacy by Design & Human Fallback</h4>
-          <p>Every record access is logged for patient viewing. Sensitive data receives extra encryption. AI systems follow NIST Risk Management standards, maintaining strict human accountability throughout.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION: TRADEOFFS & WHAT COULD GO WRONG -->
+    <!-- 7. TRADEOFFS & WHAT COULD GO WRONG (BALANCED CRITIQUE) -->
     <section id="tradeoffs">
-      <h2>What Would We Give Up? (Tradeoffs)</h2>
+      <h2>7. What Would We Give Up? (Tradeoffs)</h2>
       <p style="color: var(--text-muted); margin-bottom: 15px;">Universal coverage solves major structural problems but introduces new challenges. Here is how the blueprint directly addresses those risks:</p>
 
       <div class="table-container">
@@ -652,9 +617,44 @@
       </div>
     </section>
 
-    <!-- SECTION: VERIFICATION OF FACTS & SOURCES -->
+    <!-- 8. EXPERT EVALUATION / IMPLEMENTATION READINESS (REALITY CHECK) -->
+    <section id="readiness">
+      <h2>8. Would Experts Say This Is Ready to Implement?</h2>
+      <p class="lead-text">Short answer: <strong>No policy expert, health economist, or legislator would consider this blueprint ready for immediate implementation.</strong></p>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">
+        While experts would validate the <em>directional principles</em> (such as single-tier risk pooling, administrative simplification, and ambient AI documentation), they would classify this document as a high-level <strong>aspirational architecture</strong> or vision paper—not an operational blueprint.
+      </p>
+
+      <div class="assessment-grid">
+        <div class="assessment-card">
+          <span class="status-badge badge-valid">VALIDATED PRINCIPLE</span>
+          <h4>Administrative Savings & Universal Pooling</h4>
+          <p>Economists agree that consolidating billing and eliminating prior-authorization overhead saves 15–25% in systemic costs. The macro-economics are proven in peer OECD countries.</p>
+        </div>
+
+        <div class="assessment-card">
+          <span class="status-badge badge-incomplete">INCOMPLETE SPECIFICATION</span>
+          <h4>Transition Legislation & Displaced Workforce</h4>
+          <p>Lacks legislative mechanics for retraining ~2 million private health insurance workers, shifting corporate benefit tax codes, or liquidating existing insurer capital reserves.</p>
+        </div>
+
+        <div class="assessment-card">
+          <span class="status-badge badge-missing">MISSING FOR IMPLEMENTATION</span>
+          <h4>Granular Payment Schedules & Fee Codes</h4>
+          <p>Does not contain the thousands of pages of Relative Value Units (RVUs), hospital DRG rate calculations, or pharmaceutical bounty valuation algorithms required by actual health authorities.</p>
+        </div>
+
+        <div class="assessment-card">
+          <span class="status-badge badge-missing">MISSING FOR IMPLEMENTATION</span>
+          <h4>Interoperability & EHR Data Schemas</h4>
+          <p>While specifying open standards, it lacks the technical FHIR/HL7 API specifications, database architecture, or legal liability frameworks for decentralized data pods.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. VERIFICATION OF FACTS & SOURCES (REFERENCES AT THE END) -->
     <section id="verification">
-      <h2>Verification of Facts & Sources</h2>
+      <h2>9. Verification of Facts & Sources</h2>
       <p style="margin-bottom: 15px; color: var(--text-muted);">
         This document is a theoretical thought experiment (published August 20, 2026). However, its core problem statements and economic comparisons are grounded in published healthcare research:
       </p>
