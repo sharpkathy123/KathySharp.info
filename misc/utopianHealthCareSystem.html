@@ -147,6 +147,66 @@
       display: block;
     }
 
+    /* Persona Stories Grid */
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .story-card {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 16px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .story-card h4 {
+      font-size: 1rem;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .story-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .story-card blockquote {
+      margin-top: 8px;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    /* Verification Links List */
+    .sources-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sources-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .sources-list li:last-child {
+      border-bottom: none;
+    }
+
+    .sources-list a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .sources-list a:hover {
+      text-decoration: underline;
+    }
+
     /* Comparison Table */
     .table-container {
       overflow-x: auto;
@@ -267,22 +327,65 @@
       </div>
     </div>
 
-    <!-- How the Design Was Chosen & Real-World Facts -->
+    <!-- Real-World Examples Section -->
     <section>
-      <h2>Why This Blueprint Was Designed This Way</h2>
+      <h2>Sample Real-Life Scenarios</h2>
+      <p style="color: var(--text-muted);">How the entire system functions from the point of view of different individuals:</p>
+      
+      <div class="story-grid">
+        <div class="story-card">
+          <h4>Marcus (Unhoused Person)</h4>
+          <p>Visits a street-medicine van with a leg infection. He has no physical ID or wallet. A secure biometric check-in loads his medical history instantly. The nurse treats his wound and the system auto-reserves dry boots at a local shelter.</p>
+          <blockquote>"I don't get turned away at a desk because I lost my ID, and nobody hands me a bill I can't pay."</blockquote>
+        </div>
+
+        <div class="story-card">
+          <h4>Dr. Chen (ER Physician)</h4>
+          <p>Spends her shift looking patients in the eye while ambient audio tools record findings. She taps "Approve" on auto-generated notes in seconds and leaves work on time at 5 PM without hours of late-night charting.</p>
+          <blockquote>"I became a doctor to heal people, not to be a high-paid data entry clerk for insurance companies."</blockquote>
+        </div>
+
+        <div class="story-card">
+          <h4>Julian (High-Income Executive)</h4>
+          <p>Schedules annual checkups effortlessly via his health pod. He receives top-quality clinical care identical to every citizen, while opting to pay out-of-pocket for non-essential private room amenities during recovery.</p>
+          <blockquote>"My tax dollars fund world-class care that keeps my workforce healthy without administrative red tape."</blockquote>
+        </div>
+
+        <div class="story-card">
+          <h4>Eleanor (90 & Memory Loss)</h4>
+          <p>Has no smartphone or digital access. Her daughter manages appointment alerts, while a community health navigator conducts bi-weekly home visits and hands Eleanor a large-print printed care summary.</p>
+          <blockquote>"The system wraps around my mother with real human care without expecting her to navigate a screen."</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verification of Facts & Links -->
+    <section>
+      <h2>Verification of Facts & Research Data</h2>
       <p style="margin-bottom: 15px; color: var(--text-muted);">
-        This AI-generated model synthesizes proven global practices to solve documented structural issues in the current U.S. healthcare system:
+        While this blueprint is a theoretical AI model, its core design principles directly address real-world data from healthcare research institutions:
       </p>
-      <ul style="padding-left: 20px; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">
-        <li style="margin-bottom: 8px;"><strong>Cutting Wasteful Overhead:</strong> Research in the <em>New England Journal of Medicine</em> (NEJM) shows 25–31% of U.S. healthcare spending goes to administrative billing and insurance claims. A single-payer model eliminates this middle layer.</li>
-        <li style="margin-bottom: 8px;"><strong>Reducing Physician Burnout:</strong> According to the American Medical Association (AMA), doctors spend up to 2 hours on EHR paperwork for every 1 hour of patient care. Ambient AI auto-charting restores face-to-face clinical time.</li>
-        <li style="margin-bottom: 8px;"><strong>Guaranteeing Access for Everyone:</strong> Combining street-medicine teams, community navigators, and offline physical charts ensures unhoused individuals and seniors with dementia never fall through the cracks.</li>
+      <ul class="sources-list">
+        <li>
+          <strong>U.S. Healthcare Costs:</strong> National health spending reached $4.8+ trillion ($13,000+ per person). Verify via the 
+          <a href="https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet" target="_blank" rel="noopener">CMS National Health Expenditure Fact Sheet</a> and 
+          <a href="https://www.healthsystemtracker.org/" target="_blank" rel="noopener">Peterson-KFF Health System Tracker</a>.
+        </li>
+        <li>
+          <strong>Administrative Overhead Waste:</strong> Studies show 25% to 31% of total U.S. health spending goes toward administrative billing and insurance claims. Research published in the 
+          <a href="https://www.nejm.org/" target="_blank" rel="noopener">New England Journal of Medicine (NEJM)</a> and 
+          <a href="https://jamanetwork.com/" target="_blank" rel="noopener">JAMA Network</a>.
+        </li>
+        <li>
+          <strong>Physician Burnout & Paperwork:</strong> Doctors spend nearly 2 hours on EHR data entry for every 1 hour of patient care. Data published by the 
+          <a href="https://www.ama-assn.org/practice-management/physician-health/physician-burnout" target="_blank" rel="noopener">American Medical Association (AMA) Physician Burnout Studies</a>.
+        </li>
       </ul>
     </section>
 
     <!-- Interactive Section: How It Works For You -->
     <section>
-      <h2>How It Works in Real Life</h2>
+      <h2>How It Works in Practice</h2>
       <p style="margin-bottom: 20px; color: var(--text-muted);">Select a role below to see how this system functions for real people:</p>
 
       <div class="tabs">
@@ -373,7 +476,7 @@
 
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">Where can I verify the real-world healthcare facts mentioned here?</div>
-        <div class="faq-answer">Data regarding U.S. health spending, administrative costs, and provider burnout can be verified through published reports from the Centers for Medicare & Medicaid Services (CMS), the Peterson-KFF Health System Tracker, the New England Journal of Medicine (NEJM), and the American Medical Association (AMA).</div>
+        <div class="faq-answer">Data regarding U.S. health spending, administrative costs, and provider burnout can be verified through published reports from CMS, the Peterson-KFF Health System Tracker, NEJM, and the AMA (linked in the research section above).</div>
       </div>
     </section>
   </main>
