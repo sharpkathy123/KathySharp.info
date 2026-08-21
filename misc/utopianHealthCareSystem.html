@@ -60,13 +60,37 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .back-link {
+      color: #38bdf8;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: rgba(56, 189, 248, 0.1);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .back-link:hover {
+      background: #38bdf8;
+      color: #0f172a;
     }
 
     .nav-brand {
       font-weight: 800;
       letter-spacing: 0.05em;
       font-size: 1.1rem;
-      color: #38bdf8;
+      color: #ffffff;
     }
 
     .nav-links {
@@ -357,7 +381,10 @@
 
   <nav>
     <div class="nav-container">
-      <div class="nav-brand">U.S. HEALTH BLUEPRINT</div>
+      <div class="nav-left">
+        <a href="index.html" class="back-link">&#8592; Back to Directory</a>
+        <div class="nav-brand">U.S. HEALTH BLUEPRINT</div>
+      </div>
       <div class="nav-links">
         <a href="#why">1. Why Change?</a>
         <a href="#idea">2. The Big Idea</a>
