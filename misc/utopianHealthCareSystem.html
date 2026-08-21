@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AURELIA — A Thought Experiment for American Health Care</title>
+  <title>A Healthcare System Built for People | The U.S. Blueprint Thought Experiment</title>
   <style>
     :root {
       --primary: #0284c7;
@@ -64,8 +64,8 @@
 
     .nav-brand {
       font-weight: 800;
-      letter-spacing: 0.08em;
-      font-size: 1.2rem;
+      letter-spacing: 0.05em;
+      font-size: 1.1rem;
       color: #38bdf8;
     }
 
@@ -256,6 +256,39 @@
       font-size: 0.9rem;
     }
 
+    /* Readiness Assessment Grid */
+    .assessment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .assessment-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .assessment-card h4 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .badge-valid { background: #dcfce7; color: #166534; }
+    .badge-incomplete { background: #fef3c7; color: #92400e; }
+    .badge-missing { background: #fee2e2; color: #991b1b; }
+
     /* Comparison Table */
     .table-container {
       overflow-x: auto;
@@ -324,11 +357,12 @@
 
   <nav>
     <div class="nav-container">
-      <div class="nav-brand">AURELIA</div>
+      <div class="nav-brand">U.S. HEALTH BLUEPRINT</div>
       <div class="nav-links">
         <a href="#idea">The Idea</a>
         <a href="#why">Why Consider This?</a>
         <a href="#how">How It Works</a>
+        <a href="#readiness">Is It Ready to Implement?</a>
         <a href="#people">People & Stories</a>
         <a href="#lessons">Global Lessons</a>
         <a href="#tech">Technology</a>
@@ -349,7 +383,7 @@
     <!-- SECTION: THE IDEA -->
     <section id="idea">
       <h2>The Basic Promise</h2>
-      <p class="lead-text">Aurelia isn't "free health care." It's a different way of organizing the risk, financing, and bureaucracy of health care.</p>
+      <p class="lead-text">This model isn't "free health care." It's a different way of organizing the risk, financing, and bureaucracy of health care.</p>
       
       <div class="story-grid">
         <div class="story-card">
@@ -378,11 +412,11 @@
       </div>
 
       <p style="color: var(--text-muted); margin-bottom: 15px;">
-        This insight forms Aurelia's starting foundation: <strong>the person who needs the system most is often the person least capable of navigating complex bureaucracy.</strong>
+        This insight forms our starting foundation: <strong>the person who needs the system most is often the person least capable of navigating complex bureaucracy.</strong>
       </p>
 
       <div class="story-card" style="background: #e0f2fe; border-color: #7dd3fc;">
-        <h4 style="color: #0369a1;">Aurelia's Core Human Rule</h4>
+        <h4 style="color: #0369a1;">Core Human Rule</h4>
         <p style="color: #0c4a6e; font-size: 1rem; font-weight: 500;">
           “When the patient is too sick to navigate the system, the system must become easier—not the patient.”
         </p>
@@ -431,15 +465,50 @@
       </div>
     </section>
 
+    <!-- SECTION: EXPERT EVALUATION / IMPLEMENTATION READINESS -->
+    <section id="readiness">
+      <h2>Would Experts Say This Is Ready to Implement?</h2>
+      <p class="lead-text">Short answer: <strong>No policy expert, health economist, or legislator would consider this blueprint ready for immediate implementation.</strong></p>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">
+        While experts would validate the <em>directional principles</em> (such as single-tier risk pooling, administrative simplification, and ambient AI documentation), they would classify this document as a high-level <strong>aspirational architecture</strong> or vision paper—not an operational blueprint.
+      </p>
+
+      <div class="assessment-grid">
+        <div class="assessment-card">
+          <span class="status-badge badge-valid">VALIDATED PRINCIPLE</span>
+          <h4>Administrative Savings & Universal Pooling</h4>
+          <p>Economists agree that consolidating billing and eliminating prior-authorization overhead saves 15–25% in systemic costs. The macro-economics are proven in peer OECD countries.</p>
+        </div>
+
+        <div class="assessment-card">
+          <span class="status-badge badge-incomplete">INCOMPLETE SPECIFICATION</span>
+          <h4>Transition Legislation & Displaced Workforce</h4>
+          <p>Lacks legislative mechanics for retraining ~2 million private health insurance workers, shifting corporate benefit tax codes, or liquidating existing insurer capital reserves.</p>
+        </div>
+
+        <div class="assessment-card">
+          <span class="status-badge badge-missing">MISSING FOR IMPLEMENTATION</span>
+          <h4>Granular Payment Schedules & Fee Codes</h4>
+          <p>Does not contain the thousands of pages of Relative Value Units (RVUs), hospital DRG rate calculations, or pharmaceutical bounty valuation algorithms required by actual health authorities.</p>
+        </div>
+
+        <div class="assessment-card">
+          <span class="status-badge badge-missing">MISSING FOR IMPLEMENTATION</span>
+          <h4>Interoperability & EHR Data Schemas</h4>
+          <p>While specifying open standards, it lacks the technical FHIR/HL7 API specifications, database architecture, or legal liability frameworks for decentralized data pods.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION: PEOPLE & STORIES -->
     <section id="people">
       <h2>Designed for Ordinary Life</h2>
-      <p style="color: var(--text-muted); margin-bottom: 20px;">Real-life scenarios showing how Aurelia functions across different circumstances:</p>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">Real-life scenarios showing how this model functions across different circumstances:</p>
 
       <div class="story-grid">
         <div class="story-card">
           <h4>"I'm sick and I can't deal with this paperwork."</h4>
-          <p>Aurelia checks what official letters mean, handles routine tasks automatically, and routes complex problems to a human navigator. You never lose coverage simply because you couldn't finish a form.</p>
+          <p>The system checks what official letters mean, handles routine tasks automatically, and routes complex problems to a human navigator. You never lose coverage simply because you couldn't finish a form.</p>
         </div>
 
         <div class="story-card">
@@ -472,36 +541,36 @@
     <!-- SECTION: WHAT DO OTHER COUNTRIES TEACH US? -->
     <section id="lessons">
       <h2>What Do Other Countries Teach Us?</h2>
-      <p style="color: var(--text-muted);">Aurelia borrows individual proven concepts rather than copying any single foreign nation:</p>
+      <p style="color: var(--text-muted);">This model borrows individual proven concepts rather than copying any single foreign nation:</p>
 
       <div class="country-grid">
         <div class="country-card">
           <h4>🇩🇪 Germany</h4>
           <p>Uses statutory and private insurers. Caps out-of-pocket copayments at 2% of gross income (1% for chronic illnesses).</p>
-          <div class="lesson">Aurelia Lesson: Don't let medical needs become unlimited financial liabilities.</div>
+          <div class="lesson">Lesson: Don't let medical needs become unlimited financial liabilities.</div>
         </div>
 
         <div class="country-card">
           <h4>🇬🇧 United Kingdom</h4>
           <p>The NHS provides publicly funded care with zero direct costs at care delivery, though capacity can face pressure.</p>
-          <div class="lesson">Aurelia Lesson: Universal financial protection is possible, but workforce capacity requires constant investment.</div>
+          <div class="lesson">Lesson: Universal financial protection is possible, but workforce capacity requires constant investment.</div>
         </div>
 
         <div class="country-card">
           <h4>🇳🇱 Netherlands</h4>
           <p>Uses regulated private insurers within a universal framework, showing universal access doesn't require state-owned hospitals.</p>
-          <div class="lesson">Aurelia Lesson: You can achieve universal coverage while retaining choice and private competition.</div>
+          <div class="lesson">Lesson: You can achieve universal coverage while retaining choice and private competition.</div>
         </div>
 
         <div class="country-card">
           <h4>🇦🇺 Australia</h4>
           <p>Ranked #1 overall in the Commonwealth Fund’s 2024 comparison of high-income health systems using a hybrid public-private structure.</p>
-          <div class="lesson">Aurelia Lesson: Every system has weaknesses; hybrid pragmatic models yield strong balance.</div>
+          <div class="lesson">Lesson: Every system has weaknesses; hybrid pragmatic models yield strong balance.</div>
         </div>
       </div>
 
       <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-muted); font-style: italic;">
-        *Note: No foreign country has solved health care perfectly. Aurelia borrows proven mechanisms while tailoring them to an American scale.
+        *Note: No foreign country has solved health care perfectly. This blueprint borrows proven mechanisms while tailoring them to an American scale.
       </p>
     </section>
 
@@ -536,7 +605,7 @@
     <!-- SECTION: TRADEOFFS & WHAT COULD GO WRONG -->
     <section id="tradeoffs">
       <h2>What Would We Give Up? (Tradeoffs)</h2>
-      <p style="color: var(--text-muted); margin-bottom: 15px;">Universal coverage solves major structural problems but introduces new challenges. Here is how Aurelia directly addresses those risks:</p>
+      <p style="color: var(--text-muted); margin-bottom: 15px;">Universal coverage solves major structural problems but introduces new challenges. Here is how the blueprint directly addresses those risks:</p>
 
       <div class="table-container">
         <table>
@@ -544,7 +613,7 @@
             <tr>
               <th>What We Might Gain</th>
               <th>What's the Catch? (Risk)</th>
-              <th>What Aurelia Would Do</th>
+              <th>What the System Would Do</th>
             </tr>
           </thead>
           <tbody>
@@ -583,11 +652,11 @@
       </div>
     </section>
 
-    <!-- SECTION: VERIFICATION OF FACTS & SOURCES (MOVED TO BOTTOM) -->
+    <!-- SECTION: VERIFICATION OF FACTS & SOURCES -->
     <section id="verification">
       <h2>Verification of Facts & Sources</h2>
       <p style="margin-bottom: 15px; color: var(--text-muted);">
-        Aurelia is a theoretical thought experiment (published August 20, 2026). However, its core problem statements and economic comparisons are grounded in published healthcare research:
+        This document is a theoretical thought experiment (published August 20, 2026). However, its core problem statements and economic comparisons are grounded in published healthcare research:
       </p>
 
       <ul class="sources-list">
@@ -617,7 +686,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2026 AURELIA — A Thought Experiment for American Health Care. Designed for Public Discussion.</p>
+    <p>&copy; 2026 Universal U.S. Health Framework — AI-Generated Theoretical Model for Public Discussion.</p>
   </footer>
 
   <script>
