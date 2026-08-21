@@ -33,10 +33,20 @@
       padding-bottom: 60px;
     }
 
+    .disclaimer-banner {
+      background-color: #fef3c7;
+      color: #92400e;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-bottom: 1px solid #fcd34d;
+    }
+
     header {
       background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
       color: white;
-      padding: 60px 20px;
+      padding: 50px 20px;
       text-align: center;
     }
 
@@ -49,14 +59,14 @@
 
     header p {
       font-size: 1.2rem;
-      max-width: 650px;
+      max-width: 700px;
       margin: 0 auto;
       opacity: 0.95;
     }
 
     main {
       max-width: 1000px;
-      margin: -30px auto 0;
+      margin: -25px auto 0;
       padding: 0 20px;
     }
 
@@ -79,9 +89,6 @@
       font-size: 1.25rem;
       color: var(--primary-dark);
       margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
     .card p {
@@ -159,7 +166,7 @@
 
     th {
       background-color: var(--bg-main);
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--text-muted);
@@ -234,32 +241,49 @@
 </head>
 <body>
 
+  <div class="disclaimer-banner">
+    ⚠️ Theoretical AI-Generated Utopian Blueprint — Published for Thought Experiment & Discussion (August 20, 2026)
+  </div>
+
   <header>
     <h1>Healthcare Made Simple. For Everyone.</h1>
-    <p>No insurance cards. No surprise bills. No networks. Just real care when you need it.</p>
+    <p>A ground-up conceptual vision: zero insurance cards, zero surprise bills, zero networks, and total paper-only resilience.</p>
   </header>
 
   <main>
     <!-- Key Pillars -->
     <div class="card-grid">
       <div class="card">
-        <h3>💳 Always Free at Care</h3>
-        <p>No co-pays, no deductibles, and zero surprise bills. Your care is covered automatically from the day you are born.</p>
+        <h3>💳 $0 at Point of Care</h3>
+        <p>No co-pays, deductibles, or surprise bills. Care is guaranteed from birth using broad-based public funding.</p>
       </div>
       <div class="card">
-        <h3>🩺 Choose Any Doctor</h3>
-        <p>No "in-network" or "out-of-network" limits. Visit any doctor, clinic, or hospital anywhere in the country.</p>
+        <h3>🩺 Freedom of Choice</h3>
+        <p>No "in-network" limits. Visit any licensed doctor, specialist, or hospital nationwide whenever you need care.</p>
       </div>
       <div class="card">
-        <h3>🤝 Your Job Doesn't Control Your Care</h3>
-        <p>Switch jobs, launch a business, or take time off without ever losing your health coverage.</p>
+        <h3>📄 Paper-First Resilience</h3>
+        <p>If digital networks or power grids fail, standardized physical charts and analog protocols keep every clinic running.</p>
       </div>
     </div>
+
+    <!-- How the Design Was Chosen & Real-World Facts -->
+    <section>
+      <h2>Why This Blueprint Was Designed This Way</h2>
+      <p style="margin-bottom: 15px; color: var(--text-muted);">
+        This AI-generated model synthesizes proven global practices to solve documented structural issues in the current U.S. healthcare system:
+      </p>
+      <ul style="padding-left: 20px; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 15px;">
+        <li style="margin-bottom: 8px;"><strong>Cutting Wasteful Overhead:</strong> Research in the <em>New England Journal of Medicine</em> (NEJM) shows 25–31% of U.S. healthcare spending goes to administrative billing and insurance claims. A single-payer model eliminates this middle layer.</li>
+        <li style="margin-bottom: 8px;"><strong>Reducing Physician Burnout:</strong> According to the American Medical Association (AMA), doctors spend up to 2 hours on EHR paperwork for every 1 hour of patient care. Ambient AI auto-charting restores face-to-face clinical time.</li>
+        <li style="margin-bottom: 8px;"><strong>Guaranteeing Access for Everyone:</strong> Combining street-medicine teams, community navigators, and offline physical charts ensures unhoused individuals and seniors with dementia never fall through the cracks.</li>
+      </ul>
+    </section>
 
     <!-- Interactive Section: How It Works For You -->
     <section>
       <h2>How It Works in Real Life</h2>
-      <p style="margin-bottom: 20px; color: var(--text-muted);">Select a role below to see how this system transforms day-to-day healthcare for real people:</p>
+      <p style="margin-bottom: 20px; color: var(--text-muted);">Select a role below to see how this system functions for real people:</p>
 
       <div class="tabs">
         <button class="tab-btn active" onclick="showTab('tab-patient')">Everyday Citizen</button>
@@ -269,59 +293,59 @@
       </div>
 
       <div id="tab-patient" class="tab-content active">
-        <p><strong>Frictionless Visits:</strong> Need to see a doctor? Book an appointment online or walk into any clinic. You scan your digital ID, get treated, and walk out. No clipboards with endless forms, no insurance checks, and no bill in the mail two weeks later.</p>
+        <p><strong>Frictionless Visits:</strong> Book an appointment online or walk into any clinic. You scan your ID or present a physical health card, get treated, and walk out. No clipboards with endless forms, no insurance checks, and no bill in the mail two weeks later.</p>
       </div>
 
       <div id="tab-doctor" class="tab-content">
-        <p><strong>100% Focused on Healing:</strong> Doctors spend their shift looking patients in the eye instead of typing on screens. Ambient AI tools auto-draft medical notes in the background, and physicians never have to fight insurance companies for treatment pre-approvals.</p>
+        <p><strong>100% Focused on Healing:</strong> Doctors spend their shifts looking patients in the eye. Ambient AI tools auto-draft notes in the background, while paper fallback kits guarantee seamless treatment even during total power outages.</p>
       </div>
 
       <div id="tab-senior" class="tab-content">
-        <p><strong>Zero Digital Hurdles:</strong> Seniors don't need smartphones or passwords to access top care. Dedicated community health navigators handle home visits, coordinate rides, and ensure physical, easy-to-read care plans are provided directly to caregivers.</p>
+        <p><strong>Zero Digital Hurdles:</strong> Seniors don't need smartphones or passwords. Dedicated community health navigators handle home visits, coordinate rides, and provide large-print physical care plans directly to caregivers.</p>
       </div>
 
       <div id="tab-vulnerable" class="tab-content">
-        <p><strong>Nobody Falls Through the Cracks:</strong> If someone loses their physical documents or shelter, secure biometric check-in (like a palm scan) loads their health history instantly at any street-medicine clinic or hospital in the nation.</p>
+        <p><strong>Nobody Falls Through the Cracks:</strong> Mobile health vans bring primary care directly to shelters and encampments. If a patient lacks physical documents, a secure biometric scan or basic paper intake loads or creates their medical history instantly.</p>
       </div>
     </section>
 
-    <!-- Comparison Table -->
+    <!-- Pros, Cons, and How We Fix Them -->
     <section>
-      <h2>Old System vs. The New System</h2>
+      <h2>Pros, Cons & Structural Safeguards</h2>
       <div class="table-container">
         <table>
           <thead>
             <tr>
-              <th>Feature</th>
-              <th>Old System</th>
-              <th>New System</th>
+              <th>Dimension</th>
+              <th>The Benefit (Pro)</th>
+              <th>The Challenge (Con)</th>
+              <th>How the System Solves It</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>In-Network Restrictions</strong></td>
-              <td><span class="badge-no">Yes</span> (Restricted choice)</td>
-              <td><span class="badge-yes">No</span> (See any provider)</td>
+              <td><strong>Universal Funding</strong></td>
+              <td>Zero out-of-pocket costs & no medical bankruptcies.</td>
+              <td>Requires public tax restructuring; displaces private insurance jobs.</td>
+              <td>Replaces private premiums with lower public contributions; funds retraining programs for insurance staff.</td>
             </tr>
             <tr>
-              <td><strong>Co-Pays & Deductibles</strong></td>
-              <td><span class="badge-no">Yes</span> (High out-of-pocket)</td>
-              <td><span class="badge-yes">No</span> ($0 at point of care)</td>
+              <td><strong>Global Facility Budgets</strong></td>
+              <td>Caps overall national health spending and prevents overbilling.</td>
+              <td>Risk of hospital budget exhaustion late in the fiscal year.</td>
+              <td>Uses demographic-adjusted rolling budgets with national contingency reserves for unexpected surges.</td>
             </tr>
             <tr>
-              <td><strong>Tied to Employment</strong></td>
-              <td><span class="badge-no">Yes</span> (Risk losing coverage)</td>
-              <td><span class="badge-yes">No</span> (Universal coverage)</td>
+              <td><strong>Public Drug Bounties</strong></td>
+              <td>Life-saving medicines are sold at manufacturing cost immediately.</td>
+              <td>Disrupts private venture capital for early-stage biotech research.</td>
+              <td>Provides public co-investments and milestone grants during early Phase I/II clinical trials.</td>
             </tr>
             <tr>
-              <td><strong>Prescription Drug Costs</strong></td>
-              <td>High & unpredictable</td>
-              <td>Bulk-negotiated at low cost</td>
-            </tr>
-            <tr>
-              <td><strong>Doctor Paperwork</strong></td>
-              <td>2 hours per 1 hour of care</td>
-              <td>Automated charting & coding</td>
+              <td><strong>Low-Tech Resilience</strong></td>
+              <td>System remains fully functional on paper during power failures.</td>
+              <td>Requires manual re-entry of paper charts once power returns.</td>
+              <td>Staff train routinely on standardized "downtime paper kits" to maintain quick manual triage.</td>
             </tr>
           </tbody>
         </table>
@@ -333,29 +357,29 @@
       <h2>Frequently Asked Questions</h2>
 
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">How is this system paid for?</div>
-        <div class="faq-answer">Instead of paying expensive monthly insurance premiums, high deductibles, and surprise medical bills, the system is funded through a single, streamlined public health contribution. For the vast majority of families and small businesses, total annual healthcare spending goes <strong>down</strong>.</div>
+        <div class="faq-question" onclick="toggleFaq(this)">Is this an active real-world legal proposal?</div>
+        <div class="faq-answer">No. This page represents an AI-generated utopian thought experiment designed as an aspirational model (published August 20, 2026) to demonstrate how healthcare could function if built from scratch without legacy system friction.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Will wait times get worse?</div>
-        <div class="faq-answer">No. By removing hours of insurance paperwork, doctors gain back nearly half their workday to see real patients. Combined with smart scheduling and community care teams, provider supply increases significantly.</div>
+        <div class="faq-question" onclick="toggleFaq(this)">Can this system function completely on paper if technology fails?</div>
+        <div class="faq-answer">Yes. Every facility maintains standardized physical downtime kits—including carbon-copy paper charts, physical triage tags, and manual inventory logs. Staff train regularly on analog clinical protocols so care continues seamlessly during long-term blackouts.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">What happens during a power outage or cyber attack?</div>
-        <div class="faq-answer">Hospitals use local microgrids (solar, batteries, fuel cells) to stay running independently. Patient data is encrypted in decentralized blocks, meaning a cyber attack cannot bring down medical equipment or local care facilities.</div>
+        <div class="faq-question" onclick="toggleFaq(this)">How is this system funded compared to today?</div>
+        <div class="faq-answer">Instead of paying expensive insurance premiums, deductibles, and out-of-pocket bills, care is funded through a single public health trust. Because 25–30% of administrative waste is eliminated, total healthcare spending for the average family decreases.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Do patients still have choices?</div>
-        <div class="faq-answer">Yes—you get <em>more</em> real choices. You choose your doctor, your hospital, your treatments, and second opinions without an insurance company denying your care.</div>
+        <div class="faq-question" onclick="toggleFaq(this)">Where can I verify the real-world healthcare facts mentioned here?</div>
+        <div class="faq-answer">Data regarding U.S. health spending, administrative costs, and provider burnout can be verified through published reports from the Centers for Medicare & Medicaid Services (CMS), the Peterson-KFF Health System Tracker, the New England Journal of Medicine (NEJM), and the American Medical Association (AMA).</div>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; The Universal Health Framework — Designed for Public Clarity and Universal Access.</p>
+    <p>&copy; 2026 Universal Health Framework — AI-Generated Theoretical Model for Public Discussion.</p>
   </footer>
 
   <script>
