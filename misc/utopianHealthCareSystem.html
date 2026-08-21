@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Healthcare System Built for You | The New National Health Plan</title>
+  <title>AURELIA — A Thought Experiment for American Health Care</title>
   <style>
     :root {
       --primary: #0284c7;
@@ -12,6 +12,7 @@
       --accent: #f59e0b;
       --bg-main: #f8fafc;
       --bg-card: #ffffff;
+      --bg-alt: #f1f5f9;
       --text-main: #0f172a;
       --text-muted: #475569;
       --border: #e2e8f0;
@@ -29,7 +30,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: var(--bg-main);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.65;
       padding-bottom: 60px;
     }
 
@@ -37,63 +38,91 @@
       background-color: #fef3c7;
       color: #92400e;
       text-align: center;
-      padding: 10px 20px;
+      padding: 12px 20px;
       font-size: 0.9rem;
       font-weight: 600;
       border-bottom: 1px solid #fcd34d;
     }
 
+    nav {
+      background: #0f172a;
+      color: white;
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      font-size: 1.2rem;
+      color: #38bdf8;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
     header {
       background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
       color: white;
-      padding: 50px 20px;
+      padding: 60px 20px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       font-weight: 800;
       margin-bottom: 12px;
       letter-spacing: -0.025em;
     }
 
     header p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
+      font-size: 1.25rem;
+      max-width: 720px;
+      margin: 0 auto 20px;
       opacity: 0.95;
+      line-height: 1.5;
+    }
+
+    .header-tagline {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      backdrop-filter: blur(4px);
     }
 
     main {
       max-width: 1000px;
-      margin: -25px auto 0;
+      margin: 30px auto 0;
       padding: 0 20px;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .card {
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      padding: 24px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      color: var(--primary-dark);
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
     }
 
     section {
@@ -103,6 +132,7 @@
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
       margin-bottom: 30px;
+      scroll-margin-top: 70px;
     }
 
     section h2 {
@@ -113,81 +143,152 @@
       padding-bottom: 8px;
     }
 
-    /* Tabs Component */
-    .tabs {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
-      border-bottom: 2px solid var(--border);
-      overflow-x: auto;
+    .lead-text {
+      font-size: 1.1rem;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      font-weight: 500;
     }
 
-    .tab-btn {
-      padding: 10px 16px;
-      border: none;
-      background: none;
-      font-weight: 600;
-      color: var(--text-muted);
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      margin-bottom: -2px;
-      white-space: nowrap;
+    .quote-box {
+      background: var(--bg-alt);
+      border-left: 4px solid var(--primary);
+      padding: 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
     }
 
-    .tab-btn.active {
-      color: var(--primary);
-      border-color: var(--primary);
+    .quote-box p {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--text-main);
+      margin-bottom: 8px;
     }
 
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
+    .quote-box cite {
       display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: normal;
+      font-weight: 600;
     }
 
-    /* Persona Stories Grid */
+    /* Step Cards */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .step-card {
+      background: var(--bg-alt);
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .step-card h4 {
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    /* Story Grid */
     .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .story-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .story-card h4 {
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    /* Country Grid */
+    .country-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 16px;
       margin-top: 20px;
     }
 
-    .story-card {
-      background: #f1f5f9;
-      border-radius: 8px;
-      padding: 16px;
-      border-left: 4px solid var(--primary);
+    .country-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      padding: 18px;
+      border: 1px solid var(--border);
     }
 
-    .story-card h4 {
-      font-size: 1rem;
-      color: var(--primary-dark);
+    .country-card h4 {
+      font-size: 1.1rem;
       margin-bottom: 6px;
     }
 
-    .story-card p {
-      font-size: 0.88rem;
+    .country-card .lesson {
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      font-size: 0.9rem;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 15px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background-color: var(--bg-main);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       color: var(--text-muted);
     }
 
-    .story-card blockquote {
-      margin-top: 8px;
-      font-style: italic;
-      font-size: 0.85rem;
-      color: var(--text-main);
-    }
-
-    /* Verification Links List */
     .sources-list {
       list-style: none;
       padding: 0;
     }
 
     .sources-list li {
-      padding: 10px 0;
+      padding: 12px 0;
       border-bottom: 1px solid var(--border);
       font-size: 0.95rem;
       color: var(--text-muted);
@@ -207,90 +308,6 @@
       text-decoration: underline;
     }
 
-    /* Comparison Table */
-    .table-container {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      margin-top: 10px;
-    }
-
-    th, td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    th {
-      background-color: var(--bg-main);
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-    }
-
-    .badge-no {
-      background: #fee2e2;
-      color: #991b1b;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    .badge-yes {
-      background: #dcfce7;
-      color: #166534;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    /* Accordion */
-    .faq-item {
-      border-bottom: 1px solid var(--border);
-      padding: 16px 0;
-    }
-
-    .faq-item:last-child {
-      border-bottom: none;
-    }
-
-    .faq-question {
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--text-main);
-    }
-
-    .faq-question::after {
-      content: "+";
-      font-size: 1.5rem;
-      color: var(--primary);
-    }
-
-    .faq-item.open .faq-question::after {
-      content: "−";
-    }
-
-    .faq-answer {
-      display: none;
-      margin-top: 10px;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .faq-item.open .faq-answer {
-      display: block;
-    }
-
     footer {
       text-align: center;
       color: var(--text-muted);
@@ -305,195 +322,305 @@
     ⚠️ Theoretical AI-Generated Utopian Blueprint — Published for Thought Experiment & Discussion (August 20, 2026)
   </div>
 
+  <nav>
+    <div class="nav-container">
+      <div class="nav-brand">AURELIA</div>
+      <div class="nav-links">
+        <a href="#idea">The Idea</a>
+        <a href="#why">Why Consider This?</a>
+        <a href="#how">How It Works</a>
+        <a href="#people">People & Stories</a>
+        <a href="#lessons">Global Lessons</a>
+        <a href="#tech">Technology</a>
+        <a href="#tradeoffs">Tradeoffs</a>
+        <a href="#verification">Verification & Data</a>
+      </div>
+    </div>
+  </nav>
+
   <header>
-    <h1>Healthcare Made Simple. For Everyone.</h1>
-    <p>A ground-up conceptual vision: zero insurance cards, zero surprise bills, zero networks, and total paper-only resilience.</p>
+    <h1>What if health care were designed around people?</h1>
+    <p>Imagine a brand-new, U.S.-sized country. Everyone is covered. Nobody has to become a paperwork expert because they're sick. Doctors practice medicine instead of fighting insurance bureaucracy.</p>
+    <span class="header-tagline">“The citizen is not the integration layer.”</span>
   </header>
 
   <main>
-    <!-- Key Pillars -->
-    <div class="card-grid">
-      <div class="card">
-        <h3>💳 $0 at Point of Care</h3>
-        <p>No co-pays, deductibles, or surprise bills. Care is guaranteed from birth using broad-based public funding.</p>
-      </div>
-      <div class="card">
-        <h3>🩺 Freedom of Choice</h3>
-        <p>No "in-network" limits. Visit any licensed doctor, specialist, or hospital nationwide whenever you need care.</p>
-      </div>
-      <div class="card">
-        <h3>📄 Paper-First Resilience</h3>
-        <p>If digital networks or power grids fail, standardized physical charts and analog protocols keep every clinic running.</p>
-      </div>
-    </div>
 
-    <!-- Real-World Examples Section -->
-    <section>
-      <h2>Sample Real-Life Scenarios</h2>
-      <p style="color: var(--text-muted);">How the entire system functions from the point of view of different individuals:</p>
+    <!-- SECTION: THE IDEA -->
+    <section id="idea">
+      <h2>The Basic Promise</h2>
+      <p class="lead-text">Aurelia isn't "free health care." It's a different way of organizing the risk, financing, and bureaucracy of health care.</p>
       
       <div class="story-grid">
         <div class="story-card">
-          <h4>Marcus (Unhoused Person)</h4>
-          <p>Visits a street-medicine van with a leg infection. He has no physical ID or wallet. A secure biometric check-in loads his medical history instantly. The nurse treats his wound and the system auto-reserves dry boots at a local shelter.</p>
-          <blockquote>"I don't get turned away at a desk because I lost my ID, and nobody hands me a bill I can't pay."</blockquote>
+          <h4>Everyone is covered</h4>
+          <p>Coverage starts automatically at birth or residency. No open-enrollment panic. No losing coverage because you changed jobs, started a business, or reduced your work hours.</p>
         </div>
-
         <div class="story-card">
-          <h4>Dr. Chen (ER Physician)</h4>
-          <p>Spends her shift looking patients in the eye while ambient audio tools record findings. She taps "Approve" on auto-generated notes in seconds and leaves work on time at 5 PM without hours of late-night charting.</p>
-          <blockquote>"I became a doctor to heal people, not to be a high-paid data entry clerk for insurance companies."</blockquote>
+          <h4>Medical bills can't ruin you</h4>
+          <p>Medically necessary care has strong annual out-of-pocket limits. The system pools catastrophic risk so a severe illness never leads to financial ruin.</p>
         </div>
-
         <div class="story-card">
-          <h4>Julian (High-Income Executive)</h4>
-          <p>Schedules annual checkups effortlessly via his health pod. He receives top-quality clinical care identical to every citizen, while opting to pay out-of-pocket for non-essential private room amenities during recovery.</p>
-          <blockquote>"My tax dollars fund world-class care that keeps my workforce healthy without administrative red tape."</blockquote>
-        </div>
-
-        <div class="story-card">
-          <h4>Eleanor (90 & Memory Loss)</h4>
-          <p>Has no smartphone or digital access. Her daughter manages appointment alerts, while a community health navigator conducts bi-weekly home visits and hands Eleanor a large-print printed care summary.</p>
-          <blockquote>"The system wraps around my mother with real human care without expecting her to navigate a screen."</blockquote>
+          <h4>The patient isn't the paperwork</h4>
+          <p>If the system already has your information, it uses it. Doctors, hospitals, pharmacies, and agencies connect their systems on the backend so a sick person doesn't have to.</p>
         </div>
       </div>
     </section>
 
-    <!-- Verification of Facts & Links -->
-    <section>
-      <h2>Verification of Facts & Research Data</h2>
-      <p style="margin-bottom: 15px; color: var(--text-muted);">
-        While this blueprint is a theoretical AI model, its core design principles directly address real-world data from healthcare research institutions:
+    <!-- SECTION: WHY ARE WE EVEN CONSIDERING THIS? -->
+    <section id="why">
+      <h2>Why Are We Even Considering This?</h2>
+      <p>America's health-care problem isn't simply that care is expensive—it's also that getting care requires an extraordinary amount of unpaid personal administrative work.</p>
+
+      <div class="quote-box">
+        <p>"In a nationally representative study of insured, nonelderly Americans, 73% reported doing at least one health-care administrative task during the previous year... 24.4% said an administrative task caused them to delay or forgo care. The burden was particularly associated with disability."</p>
+        <cite>— Kyle & Frakt, Health Services Research (2021)</cite>
+      </div>
+
+      <p style="color: var(--text-muted); margin-bottom: 15px;">
+        This insight forms Aurelia's starting foundation: <strong>the person who needs the system most is often the person least capable of navigating complex bureaucracy.</strong>
       </p>
-      <ul class="sources-list">
-        <li>
-          <strong>U.S. Healthcare Costs:</strong> National health spending reached $4.8+ trillion ($13,000+ per person). Verify via the 
-          <a href="https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet" target="_blank" rel="noopener">CMS National Health Expenditure Fact Sheet</a> and 
-          <a href="https://www.healthsystemtracker.org/" target="_blank" rel="noopener">Peterson-KFF Health System Tracker</a>.
-        </li>
-        <li>
-          <strong>Administrative Overhead Waste:</strong> Studies show 25% to 31% of total U.S. health spending goes toward administrative billing and insurance claims. Research published in the 
-          <a href="https://www.nejm.org/" target="_blank" rel="noopener">New England Journal of Medicine (NEJM)</a> and 
-          <a href="https://jamanetwork.com/" target="_blank" rel="noopener">JAMA Network</a>.
-        </li>
-        <li>
-          <strong>Physician Burnout & Paperwork:</strong> Doctors spend nearly 2 hours on EHR data entry for every 1 hour of patient care. Data published by the 
-          <a href="https://www.ama-assn.org/practice-management/physician-health/physician-burnout" target="_blank" rel="noopener">American Medical Association (AMA) Physician Burnout Studies</a>.
-        </li>
-      </ul>
-    </section>
 
-    <!-- Interactive Section: How It Works For You -->
-    <section>
-      <h2>How It Works in Practice</h2>
-      <p style="margin-bottom: 20px; color: var(--text-muted);">Select a role below to see how this system functions for real people:</p>
-
-      <div class="tabs">
-        <button class="tab-btn active" onclick="showTab('tab-patient')">Everyday Citizen</button>
-        <button class="tab-btn" onclick="showTab('tab-doctor')">Doctors & Nurses</button>
-        <button class="tab-btn" onclick="showTab('tab-senior')">Seniors & Families</button>
-        <button class="tab-btn" onclick="showTab('tab-vulnerable')">Unhoused & Vulnerable</button>
-      </div>
-
-      <div id="tab-patient" class="tab-content active">
-        <p><strong>Frictionless Visits:</strong> Book an appointment online or walk into any clinic. You scan your ID or present a physical health card, get treated, and walk out. No clipboards with endless forms, no insurance checks, and no bill in the mail two weeks later.</p>
-      </div>
-
-      <div id="tab-doctor" class="tab-content">
-        <p><strong>100% Focused on Healing:</strong> Doctors spend their shifts looking patients in the eye. Ambient AI tools auto-draft notes in the background, while paper fallback kits guarantee seamless treatment even during total power outages.</p>
-      </div>
-
-      <div id="tab-senior" class="tab-content">
-        <p><strong>Zero Digital Hurdles:</strong> Seniors don't need smartphones or passwords. Dedicated community health navigators handle home visits, coordinate rides, and provide large-print physical care plans directly to caregivers.</p>
-      </div>
-
-      <div id="tab-vulnerable" class="tab-content">
-        <p><strong>Nobody Falls Through the Cracks:</strong> Mobile health vans bring primary care directly to shelters and encampments. If a patient lacks physical documents, a secure biometric scan or basic paper intake loads or creates their medical history instantly.</p>
+      <div class="story-card" style="background: #e0f2fe; border-color: #7dd3fc;">
+        <h4 style="color: #0369a1;">Aurelia's Core Human Rule</h4>
+        <p style="color: #0c4a6e; font-size: 1rem; font-weight: 500;">
+          “When the patient is too sick to navigate the system, the system must become easier—not the patient.”
+        </p>
       </div>
     </section>
 
-    <!-- Pros, Cons, and How We Fix Them -->
-    <section>
-      <h2>Pros, Cons & Structural Safeguards</h2>
+    <!-- SECTION: HOW IT WORKS -->
+    <section id="how">
+      <h2>How It Works</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <span class="step-number">1</span>
+          <h4>One Health Identity</h4>
+          <p>Your coverage, medical record, prescriptions, appointments, benefits, and appeals connect seamlessly to one lifelong identity.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">2</span>
+          <h4>One Front Door</h4>
+          <p>Access care via app, website, phone, clinic, pharmacy, or in-person navigator. Digital-first, but <em>never</em> digital-only.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">3</span>
+          <h4>Automatic Enrollment</h4>
+          <p>You never apply for basic coverage. Eligibility, contributions, and risk-pooling happen automatically behind the scenes.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">4</span>
+          <h4>Human Help on Demand</h4>
+          <p>Dedicated navigators schedule care, handle paperwork, arrange transportation, and assist with complex appeals.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">5</span>
+          <h4>Competing Providers</h4>
+          <p>Public, nonprofit, and private providers compete on quality. Government sets the standard floor; it doesn't need to own every hospital.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-number">6</span>
+          <h4>Private Extras</h4>
+          <p>People can buy concierge care, private rooms, or extra amenities. Money buys convenience—never priority for essential lifesaving care.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: PEOPLE & STORIES -->
+    <section id="people">
+      <h2>Designed for Ordinary Life</h2>
+      <p style="color: var(--text-muted); margin-bottom: 20px;">Real-life scenarios showing how Aurelia functions across different circumstances:</p>
+
+      <div class="story-grid">
+        <div class="story-card">
+          <h4>"I'm sick and I can't deal with this paperwork."</h4>
+          <p>Aurelia checks what official letters mean, handles routine tasks automatically, and routes complex problems to a human navigator. You never lose coverage simply because you couldn't finish a form.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>"I need a specialist. What now?"</h4>
+          <p>Your doctor sends the referral electronically. The system identifies available appointments, transfers relevant records securely, and arranges transportation. You don't become the project manager.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>Low-Income Residents</h4>
+          <p>Essential care is fully covered. Contributions scale smoothly with income to eliminate benefit cliffs. Additional support covers transportation, medication home delivery, and hands-on coordination.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>High-Income Earners</h4>
+          <p>You can purchase luxury accommodations or private amenities. However, everyone shares the same essential care guarantee, and money cannot buy priority for scarce, lifesaving treatments.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>Rural Residents</h4>
+          <p>Dedicated regional funding supports rural health hubs, mobile specialist units, telemedicine infrastructure, and subsidized non-emergency medical transportation.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>Doctors & Healthcare Staff</h4>
+          <p>Interoperable medical records and AI-assisted ambient documentation eliminate repetitive charting. Payment models reward quality care and access rather than raw fee-for-service volume.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: WHAT DO OTHER COUNTRIES TEACH US? -->
+    <section id="lessons">
+      <h2>What Do Other Countries Teach Us?</h2>
+      <p style="color: var(--text-muted);">Aurelia borrows individual proven concepts rather than copying any single foreign nation:</p>
+
+      <div class="country-grid">
+        <div class="country-card">
+          <h4>🇩🇪 Germany</h4>
+          <p>Uses statutory and private insurers. Caps out-of-pocket copayments at 2% of gross income (1% for chronic illnesses).</p>
+          <div class="lesson">Aurelia Lesson: Don't let medical needs become unlimited financial liabilities.</div>
+        </div>
+
+        <div class="country-card">
+          <h4>🇬🇧 United Kingdom</h4>
+          <p>The NHS provides publicly funded care with zero direct costs at care delivery, though capacity can face pressure.</p>
+          <div class="lesson">Aurelia Lesson: Universal financial protection is possible, but workforce capacity requires constant investment.</div>
+        </div>
+
+        <div class="country-card">
+          <h4>🇳🇱 Netherlands</h4>
+          <p>Uses regulated private insurers within a universal framework, showing universal access doesn't require state-owned hospitals.</p>
+          <div class="lesson">Aurelia Lesson: You can achieve universal coverage while retaining choice and private competition.</div>
+        </div>
+
+        <div class="country-card">
+          <h4>🇦🇺 Australia</h4>
+          <p>Ranked #1 overall in the Commonwealth Fund’s 2024 comparison of high-income health systems using a hybrid public-private structure.</p>
+          <div class="lesson">Aurelia Lesson: Every system has weaknesses; hybrid pragmatic models yield strong balance.</div>
+        </div>
+      </div>
+
+      <p style="margin-top: 15px; font-size: 0.9rem; color: var(--text-muted); font-style: italic;">
+        *Note: No foreign country has solved health care perfectly. Aurelia borrows proven mechanisms while tailoring them to an American scale.
+      </p>
+    </section>
+
+    <!-- SECTION: TECHNOLOGY -->
+    <section id="tech">
+      <h2>The Technology Underneath</h2>
+      <p class="lead-text">The goal isn't to make people use more technology. It's to use technology so people have to do less.</p>
+
+      <div class="story-grid">
+        <div class="story-card">
+          <h4>Your Medical Record Follows You</h4>
+          <p>If you move from Arizona to Maine, you shouldn't have to reconstruct your history from memory. Common technical standards let authorized providers exchange records effortlessly—just like email works across Gmail and Outlook.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>AI as Assistant, Not the Boss</h4>
+          <p>AI tools explain confusing letters, summarize records, find appointments, and assist clinicians with charting. However, AI never gets the final say on clinical decisions, and you can always request a human.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>Electronic Authorization & Speed</h4>
+          <p>If clinical review is required, relevant data in the patient's record populates the request automatically. Strict turnaround deadlines prevent patients from waiting in administrative limbo.</p>
+        </div>
+
+        <div class="story-card">
+          <h4>Privacy by Design & Human Fallback</h4>
+          <p>Every record access is logged for patient viewing. Sensitive data receives extra encryption. AI systems follow NIST Risk Management standards, maintaining strict human accountability throughout.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: TRADEOFFS & WHAT COULD GO WRONG -->
+    <section id="tradeoffs">
+      <h2>What Would We Give Up? (Tradeoffs)</h2>
+      <p style="color: var(--text-muted); margin-bottom: 15px;">Universal coverage solves major structural problems but introduces new challenges. Here is how Aurelia directly addresses those risks:</p>
+
       <div class="table-container">
         <table>
           <thead>
             <tr>
-              <th>Dimension</th>
-              <th>The Benefit (Pro)</th>
-              <th>The Challenge (Con)</th>
-              <th>How the System Solves It</th>
+              <th>What We Might Gain</th>
+              <th>What's the Catch? (Risk)</th>
+              <th>What Aurelia Would Do</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Universal Funding</strong></td>
-              <td>Zero out-of-pocket costs & no medical bankruptcies.</td>
-              <td>Requires public tax restructuring; displaces private insurance jobs.</td>
-              <td>Replaces private premiums with lower public contributions; funds retraining programs for insurance staff.</td>
+              <td><strong>No Medical Bankruptcy</strong></td>
+              <td>Requires public tax restructuring or mandatory contributions.</td>
+              <td>Makes total costs visible and consolidated; replaces higher private insurance premiums with lower public rates.</td>
             </tr>
             <tr>
-              <td><strong>Global Facility Budgets</strong></td>
-              <td>Caps overall national health spending and prevents overbilling.</td>
-              <td>Risk of hospital budget exhaustion late in the fiscal year.</td>
-              <td>Uses demographic-adjusted rolling budgets with national contingency reserves for unexpected surges.</td>
+              <td><strong>Universal Access</strong></td>
+              <td>Care demand can exceed facility capacity, creating wait times.</td>
+              <td>Invests heavily in clinical workforce training, publishes wait times transparently, and auto-expands regional funding.</td>
             </tr>
             <tr>
-              <td><strong>Public Drug Bounties</strong></td>
-              <td>Life-saving medicines are sold at manufacturing cost immediately.</td>
-              <td>Disrupts private venture capital for early-stage biotech research.</td>
-              <td>Provides public co-investments and milestone grants during early Phase I/II clinical trials.</td>
+              <td><strong>Less Insurance Bureaucracy</strong></td>
+              <td>Risk of centralized, rigid national rules.</td>
+              <td>Establishes national baseline standards while encouraging regional innovation and competing independent providers.</td>
+            </tr>
+            <tr>
+              <td><strong>Strong Negotiating Power</strong></td>
+              <td>Lower drug margins could weaken early biotech innovation.</td>
+              <td>Uses public research prizes, milestone co-investments, and guaranteed purchase pathways for therapeutic breakthroughs.</td>
+            </tr>
+            <tr>
+              <td><strong>More Smart Automation</strong></td>
+              <td>Algorithmic errors and privacy risks.</td>
+              <td>Enforces human accountability, regular audits, independent appeal rights, and zero-knowledge privacy controls.</td>
             </tr>
             <tr>
               <td><strong>Low-Tech Resilience</strong></td>
-              <td>System remains fully functional on paper during power failures.</td>
-              <td>Requires manual re-entry of paper charts once power returns.</td>
-              <td>Staff train routinely on standardized "downtime paper kits" to maintain quick manual triage.</td>
+              <td>Manual paper re-entry required when power returns.</td>
+              <td>Staff train routinely on standardized "downtime paper kits" so hospitals function seamlessly on paper during blackouts.</td>
             </tr>
           </tbody>
         </table>
       </div>
     </section>
 
-    <!-- FAQ Accordion -->
-    <section>
-      <h2>Frequently Asked Questions</h2>
+    <!-- SECTION: VERIFICATION OF FACTS & SOURCES (MOVED TO BOTTOM) -->
+    <section id="verification">
+      <h2>Verification of Facts & Sources</h2>
+      <p style="margin-bottom: 15px; color: var(--text-muted);">
+        Aurelia is a theoretical thought experiment (published August 20, 2026). However, its core problem statements and economic comparisons are grounded in published healthcare research:
+      </p>
 
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Is this an active real-world legal proposal?</div>
-        <div class="faq-answer">No. This page represents an AI-generated utopian thought experiment designed as an aspirational model (published August 20, 2026) to demonstrate how healthcare could function if built from scratch without legacy system friction.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Can this system function completely on paper if technology fails?</div>
-        <div class="faq-answer">Yes. Every facility maintains standardized physical downtime kits—including carbon-copy paper charts, physical triage tags, and manual inventory logs. Staff train regularly on analog clinical protocols so care continues seamlessly during long-term blackouts.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">How is this system funded compared to today?</div>
-        <div class="faq-answer">Instead of paying expensive insurance premiums, deductibles, and out-of-pocket bills, care is funded through a single public health trust. Because 25–30% of administrative waste is eliminated, total healthcare spending for the average family decreases.</div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">Where can I verify the real-world healthcare facts mentioned here?</div>
-        <div class="faq-answer">Data regarding U.S. health spending, administrative costs, and provider burnout can be verified through published reports from CMS, the Peterson-KFF Health System Tracker, NEJM, and the AMA (linked in the research section above).</div>
-      </div>
+      <ul class="sources-list">
+        <li>
+          <strong>Patient Administrative Burden:</strong> Research showing 73% of insured Americans experience administrative burden and 24.4% delay care as a result. Read the study at 
+          <a href="https://pubmed.ncbi.nlm.nih.gov/34314053/" target="_blank" rel="noopener">PubMed Central (Kyle & Frakt, 2021)</a>.
+        </li>
+        <li>
+          <strong>U.S. National Healthcare Spending:</strong> According to CMS, U.S. health spending reached ~$5.28 trillion (~18.0% of GDP, or $15,474 per person). Verify at the 
+          <a href="https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet" target="_blank" rel="noopener">CMS National Health Expenditure Fact Sheet</a>.
+        </li>
+        <li>
+          <strong>International Cost Comparisons:</strong> OECD data shows U.S. spending per person (~$14,885) is more than double the OECD average (~$5,967). Explore international data via 
+          <a href="https://www.oecd.org/health/health-at-a-glance/" target="_blank" rel="noopener">OECD Health at a Glance 2025</a>.
+        </li>
+        <li>
+          <strong>Global System Performance:</strong> The Commonwealth Fund's 2024 report ranking Australia #1 overall among 10 high-income nations. Read the full report at 
+          <a href="https://www.commonwealthfund.org/publications/fund-reports/2024/sep/mirror-mirror-2024" target="_blank" rel="noopener">Commonwealth Fund — Mirror, Mirror 2024</a>.
+        </li>
+        <li>
+          <strong>AI Safety & Governance Frameworks:</strong> Guidelines for responsible AI automation in public systems. Review standards at the 
+          <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI Risk Management Framework</a>.
+        </li>
+      </ul>
     </section>
+
   </main>
 
   <footer>
-    <p>&copy; 2026 Universal Health Framework — AI-Generated Theoretical Model for Public Discussion.</p>
+    <p>&copy; 2026 AURELIA — A Thought Experiment for American Health Care. Designed for Public Discussion.</p>
   </footer>
 
   <script>
-    function showTab(tabId) {
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-      
-      document.getElementById(tabId).classList.add('active');
-      event.currentTarget.classList.add('active');
-    }
-
     function toggleFaq(element) {
       const parent = element.parentElement;
       parent.classList.toggle('open');
