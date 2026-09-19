@@ -198,6 +198,26 @@
       text-decoration: none;
     }
 
+    .repo-link {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px dashed var(--border);
+      position: relative;
+      z-index: 2;
+    }
+
+    .repo-link a {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .repo-link a:hover {
+      color: var(--primary);
+    }
+
     footer {
       margin-top: 32px;
       padding-top: 12px;
@@ -212,7 +232,7 @@
 <body>
   <div class="container">
     <a href="../index.html" class="home-link">&#8592; Back to Main Site</a>
-    
+
     <header>
       <h1>Miscellaneous Directory</h1>
       <p class="subtitle">A collection of web tools, guides, and experiments created by Kathy using AI. You're welcome to use any of these apps—just keep in mind I'm always tweaking (and occasionally breaking!) them.</p>
@@ -235,6 +255,9 @@
             </h3>
           </div>
           <p>Created by Kathy using AI. A mobile-friendly Progressive Web App (PWA) for building customized photo collages offline without uploading images to any server.</p>
+          <div class="repo-link">
+            <a href="https://github.com/sharpkathy123/MakePhotoCollage#readme">View README on GitHub &#8594;</a>
+          </div>
         </article>
 
         <!-- Sudoku Game App -->
@@ -246,6 +269,23 @@
             </h3>
           </div>
           <p>Kathy's first successful app generation using AI—a simple offline Sudoku game.</p>
+          <div class="repo-link">
+            <a href="https://github.com/sharpkathy123/Sudoku#readme">View README on GitHub &#8594;</a>
+          </div>
+        </article>
+
+        <!-- Rep Counter App -->
+        <article class="card">
+          <div class="card-header">
+            <span class="tag tag-app">App</span>
+            <h3 class="card-title">
+              <a href="https://sharpkathy123.github.io/rep-counter/" class="main-link">Rep Counter</a>
+            </h3>
+          </div>
+          <p>Created by Kathy using AI. A voice-guided rep/set counter and exercise library for phone or iPad, with offline support and a customizable exercise list.</p>
+          <div class="repo-link">
+            <a href="https://github.com/sharpkathy123/rep-counter#readme">View README on GitHub &#8594;</a>
+          </div>
         </article>
       </div>
 
@@ -327,7 +367,7 @@
     </main>
 
     <footer>
-      Last updated: August 20, 2026
+      Last updated: September 18, 2026
     </footer>
   </div>
 </body>
