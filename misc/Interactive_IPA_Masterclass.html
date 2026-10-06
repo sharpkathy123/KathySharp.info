@@ -179,8 +179,21 @@
         <!-- TAB 2: IPA CHART -->
         <section id="tab-chart" class="hidden flex-grow flex-col">
             <div class="glass-card rounded-2xl p-4 sm:p-6 border border-slate-800">
-                <h2 class="text-lg font-bold text-white mb-1">Interactive American English Phonetic Chart</h2>
-                <p class="text-xs text-slate-400 mb-4">Click any symbol to view its articulation rules or hear standard audio.</p>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
+                    <div>
+                        <h2 class="text-lg font-bold text-white mb-0.5">Interactive American English Phonetic Chart</h2>
+                        <p class="text-xs text-slate-400">Click any symbol to view its articulation rules or hear standard audio.</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <label for="chart-sort-select" class="text-xs text-slate-400 whitespace-nowrap font-medium">Sort by:</label>
+                        <select id="chart-sort-select" onchange="renderChart(this.value)" class="bg-slate-900 text-slate-200 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs focus:outline-none focus:border-indigo-500">
+                            <option value="default">Category (Default)</option>
+                            <option value="word">Example Word (A–Z)</option>
+                            <option value="symbol">IPA Symbol (A–Z)</option>
+                            <option value="noad">NOAD Symbol (A–Z)</option>
+                        </select>
+                    </div>
+                </div>
                 <div id="chart-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 overflow-x-auto custom-scrollbar p-1">
                     <!-- Dynamic chart elements -->
                 </div>
@@ -552,10 +565,24 @@
             window.speechSynthesis.speak(utterance);
         }
 
-        function renderChart() {
+        function renderChart(sortBy = 'default') {
             const grid = document.getElementById('chart-grid');
+            if (!grid) return;
             grid.innerHTML = '';
-            ipaData.forEach(s => {
+        
+            // Create a shallow copy of ipaData to sort without mutating the main array
+            let sortedData = [...ipaData];
+        
+            if (sortBy === 'word') {
+                sortedData.sort((a, b) => a.nativeWord.localeCompare(b.nativeWord));
+            } else if (sortBy === 'symbol') {
+                sortedData.sort((a, b) => a.symbol.localeCompare(b.symbol, 'en'));
+            } else if (sortBy === 'noad') {
+                sortedData.sort((a, b) => a.noadSymbol.toLowerCase().localeCompare(b.noadSymbol.toLowerCase(), 'en'));
+            }
+            // 'default' keeps original category ordering defined in ipaData
+        
+            sortedData.forEach(s => {
                 const item = document.createElement('div');
                 item.className = "bg-slate-900 border border-slate-800 hover:border-indigo-500 rounded-xl p-2 flex flex-col items-center justify-center cursor-pointer transition transform hover:-translate-y-0.5";
                 item.onclick = () => {
