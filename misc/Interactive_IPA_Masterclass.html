@@ -449,10 +449,15 @@
         }
 
         function updateCategoryCounts() {
-            document.getElementById('count-pulmonic').textContent = ipaData.filter(s => s.cat === 'pulmonic').length;
+            const pulmonicCount = ipaData.filter(s => s.cat === 'pulmonic').length;
+            document.getElementById('count-pulmonic').textContent = pulmonicCount;
             document.getElementById('count-vowels').textContent = ipaData.filter(s => s.cat === 'vowels').length;
             document.getElementById('count-diphthongs').textContent = ipaData.filter(s => s.cat === 'diphthongs').length;
             document.getElementById('count-diacritics').textContent = ipaData.filter(s => s.cat === 'diacritics').length;
+            
+            // Update total mastered header target dynamically
+            document.getElementById('header-mastered').textContent = `${masteredIds.size} / ${ipaData.length}`;
+            document.getElementById('progress-count').textContent = `${masteredIds.size} / ${ipaData.length}`;
         }
 
         function renderLesson(triggerAutoplay = true) {
