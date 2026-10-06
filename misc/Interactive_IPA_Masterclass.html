@@ -1,937 +1,574 @@
-<!<!DOCTYPE html>
-<html lang="en" class="h-full bg-slate-950 text-slate-100">
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-950">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPA Masterclass - International Phonetic Alphabet Expert Trainer</title>
-    <!-- Tailwind CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>IPA Masterclass - Expert Phonetics Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eef2ff',
-                            100: '#e0e7ff',
-                            400: '#818cf8',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                            800: '#3730a3',
-                            900: '#312e81',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                        mono: ['Consolas', 'Monaco', 'Courier New', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
     <style>
-        .ipa-symbol {
-            font-family: "Charis SIL", "Doulos SIL", "Gentium Plus", "Lucida Sans Unicode", "Segoe UI Symbol", sans-serif;
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-        .glass-card {
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
+        .ipa-char { font-family: "Lucida Sans Unicode", "Arial Unicode MS", "Segoe UI Symbol", "Gentium Plus", "Doulos SIL", sans-serif; }
+        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(99, 102, 241, 0.5); border-radius: 4px; }
     </style>
 </head>
-<body class="h-full flex flex-col font-sans bg-slate-950 text-slate-100 antialiased selection:bg-brand-500 selection:text-white min-h-screen">
+<body class="bg-slate-950 text-slate-100 min-h-full flex flex-col font-sans antialiased selection:bg-indigo-500 selection:text-white">
 
-    <!-- Top Header Bar -->
-    <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Logo & Brand Title -->
-                <div class="flex items-center gap-3 cursor-pointer" onclick="switchTab('lessons')">
-                    <div class="bg-brand-600 p-2 rounded-xl text-white shadow-lg shadow-brand-500/20 flex items-center justify-center font-bold text-xl ipa-symbol">
-                        /ə/
-                    </div>
-                    <div>
-                        <h1 class="font-bold text-lg leading-none bg-gradient-to-r from-white via-slate-200 to-brand-400 bg-clip-text text-transparent">IPA Masterclass</h1>
-                        <p class="text-xs text-slate-400 mt-0.5">Expert International Phonetic Alphabet Guide</p>
-                    </div>
+    <!-- Header Navigation -->
+    <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur-md flex-shrink-0">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-12 sm:h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-indigo-600/30 border border-indigo-500/40 flex items-center justify-center text-indigo-400 font-bold text-base sm:text-xl ipa-char shadow-md">
+                    /ə/
                 </div>
-
-                <!-- Navigation Bar -->
-                <nav class="hidden md:flex space-x-1" id="desktop-nav">
-                    <!-- Nav items populated dynamically -->
-                </nav>
-
-                <!-- Stats summary badges -->
-                <div class="flex items-center gap-3">
-                    <div class="hidden sm:flex items-center gap-3 bg-slate-800/80 border border-slate-700/50 px-3 py-1.5 rounded-full text-xs">
-                        <div class="flex items-center gap-1.5 text-amber-400" title="Current Streak">
-                            <span>⚡</span>
-                            <span id="streak-counter" class="font-semibold">0 Streak</span>
-                        </div>
-                        <div class="h-3 w-px bg-slate-700"></div>
-                        <div class="flex items-center gap-1.5 text-emerald-400" title="Mastered Sounds">
-                            <span>🎓</span>
-                            <span id="mastered-counter" class="font-semibold">0 / 39</span>
-                        </div>
-                    </div>
-
-                    <!-- Reset Progress Button -->
-                    <button onclick="resetProgress()" class="text-slate-400 hover:text-slate-200 p-2 rounded-lg hover:bg-slate-800 transition text-xs font-semibold" title="Reset All Learning Progress">
-                        Reset
-                    </button>
+                <div>
+                    <h1 class="text-sm sm:text-lg font-bold bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent leading-tight">IPA Masterclass</h1>
+                    <p class="hidden sm:block text-xs text-slate-400">International Phonetic Alphabet Expert Guide</p>
                 </div>
             </div>
-        </div>
 
-        <!-- Mobile Navigation Tab Bar -->
-        <div class="md:hidden flex border-t border-slate-800 bg-slate-900/90 backdrop-blur" id="mobile-nav">
-            <!-- Populated dynamically -->
+            <!-- Navigation Tabs -->
+            <nav class="flex items-center space-x-1 bg-slate-950/80 p-1 rounded-lg border border-slate-800">
+                <button id="nav-lessons" onclick="switchTab('lessons')" class="px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-200 bg-indigo-600 text-white shadow">
+                    Lessons
+                </button>
+                <button id="nav-chart" onclick="switchTab('chart')" class="px-2.5 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white transition-all duration-200">
+                    Chart
+                </button>
+                <button id="nav-quizzes" onclick="switchTab('quizzes')" class="px-2.5 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white transition-all duration-200">
+                    Quizzes
+                </button>
+                <button id="nav-progress" onclick="switchTab('progress')" class="px-2.5 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white transition-all duration-200">
+                    Progress
+                </button>
+            </nav>
+
+            <!-- Header Stats -->
+            <div class="hidden md:flex items-center space-x-3 text-xs font-medium">
+                <div class="flex items-center space-x-1 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
+                    <span class="text-amber-400">⚡</span>
+                    <span id="header-streak" class="text-slate-300">0 Streak</span>
+                </div>
+                <div class="flex items-center space-x-1 bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-800">
+                    <span class="text-emerald-400">🎓</span>
+                    <span id="header-mastered" class="text-slate-300">0 / 39</span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col">
-        
-        <!-- TAB 1: LESSONS & PRESENTATION -->
-        <section id="tab-lessons" class="tab-content flex-1 flex flex-col space-y-6">
-            <div class="flex flex-col lg:flex-row gap-6">
-                <!-- Sidebar Category List -->
-                <div class="w-full lg:w-72 flex-shrink-0 space-y-2" id="module-list">
-                    <!-- Dynamic Modules List -->
-                </div>
+    <!-- Main Content Container -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-2 sm:px-6 lg:px-8 py-2 sm:py-6 flex flex-col">
 
-                <!-- Module Presentation Card -->
-                <div class="flex-1 glass-card rounded-2xl p-6 shadow-xl flex flex-col justify-between min-h-[500px]">
-                    <div id="lesson-detail-container" class="space-y-6">
-                        <!-- Dynamic Lesson Details populated by JS -->
-                    </div>
-
-                    <!-- Lesson Footer Controls -->
-                    <div class="pt-6 border-t border-slate-800/80 flex items-center justify-between mt-8">
-                        <button id="btn-prev-lesson" onclick="navigateLesson(-1)" class="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs sm:text-sm font-medium transition disabled:opacity-40 disabled:cursor-not-allowed">
-                            ← Previous Sound
-                        </button>
-                        <span id="lesson-progress-indicator" class="text-xs text-slate-400 font-mono">Sound 1 of 23</span>
-                        <button id="btn-next-lesson" onclick="navigateLesson(1)" class="flex items-center gap-2 px-4 py-2 bg-brand-600 hover:bg-brand-500 rounded-xl text-xs sm:text-sm font-medium transition disabled:opacity-40 disabled:cursor-not-allowed">
-                            Next Sound →
-                        </button>
-                    </div>
-                </div>
+        <!-- TAB 1: LESSONS -->
+        <section id="tab-lessons" class="flex-grow flex flex-col md:flex-row gap-3 sm:gap-6">
+            
+            <!-- Category Selector Toolbar for Mobile / Sidebar for Desktop -->
+            <div class="w-full md:w-60 flex-shrink-0 flex md:flex-col gap-1.5 overflow-x-auto pb-1 md:pb-0 custom-scrollbar">
+                <button onclick="selectCategory('pulmonic')" id="cat-pulmonic" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-indigo-500/40 bg-indigo-600/10 text-indigo-300 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
+                    <span>Pulmonic Consonants</span>
+                    <span id="count-pulmonic" class="ml-2 text-[10px] bg-indigo-950 px-1.5 py-0.5 rounded-full border border-indigo-800 text-indigo-300 font-mono">24</span>
+                </button>
+                <button onclick="selectCategory('vowels')" id="cat-vowels" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
+                    <span>Vowels</span>
+                    <span id="count-vowels" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">11</span>
+                </button>
+                <button onclick="selectCategory('nonpulmonic')" id="cat-nonpulmonic" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
+                    <span>Non-Pulmonic & Clicks</span>
+                    <span id="count-nonpulmonic" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">4</span>
+                </button>
             </div>
-        </section>
 
-        <!-- TAB 2: INTERACTIVE IPA CHART -->
-        <section id="tab-chart" class="tab-content hidden flex-1 space-y-6">
-            <div class="glass-card rounded-2xl p-6 shadow-xl space-y-6">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
-                    <div>
-                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                            Official IPA Reference Chart
-                        </h2>
-                        <p class="text-xs text-slate-400">Click any phoneme cell to hear its acoustic articulation or open its full lesson module.</p>
-                    </div>
-                    <!-- Chart View Switcher -->
-                    <div class="inline-flex p-1 bg-slate-950 border border-slate-800 rounded-xl text-xs font-semibold">
-                        <button onclick="switchChartCategory('pulmonic')" id="chart-btn-pulmonic" class="px-3 py-1.5 rounded-lg transition bg-brand-600 text-white">Pulmonic Consonants</button>
-                        <button onclick="switchChartCategory('vowels')" id="chart-btn-vowels" class="px-3 py-1.5 rounded-lg transition text-slate-400 hover:text-white">Vowels</button>
-                        <button onclick="switchChartCategory('nonpulmonic')" id="chart-btn-nonpulmonic" class="px-3 py-1.5 rounded-lg transition text-slate-400 hover:text-white">Non-Pulmonic</button>
-                    </div>
-                </div>
-
-                <!-- Interactive Table Grid -->
-                <div id="chart-view-container" class="overflow-x-auto min-h-[400px]">
-                    <!-- Dynamic Chart HTML -->
-                </div>
-            </div>
-        </section>
-
-        <!-- TAB 3: LISTENING QUIZZES -->
-        <section id="tab-quizzes" class="tab-content hidden flex-1 space-y-6">
-            <div id="quiz-selection-screen" class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto py-6">
-                <!-- Mode 1 -->
-                <div onclick="startQuiz('audio-recognition')" class="glass-card hover:border-brand-500/50 p-6 rounded-2xl cursor-pointer transition flex flex-col justify-between group shadow-lg space-y-4">
-                    <div class="space-y-2">
-                        <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-xl flex items-center justify-center text-2xl">
-                            🔊
+            <!-- Dense Responsive Card Area -->
+            <div class="flex-grow flex flex-col glass-card rounded-2xl p-3 sm:p-6 shadow-xl border border-slate-800 relative">
+                
+                <!-- STICKY MOBILE HEADER FOR ALWAYS-VISIBLE SYMBOL -->
+                <div class="sticky top-12 z-20 bg-slate-900/95 backdrop-blur-md p-2.5 sm:p-0 border sm:border-0 border-slate-800 rounded-xl mb-3 sm:mb-4 sm:border-b sm:border-slate-800 sm:pb-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-3">
+                            <div id="lesson-symbol" class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-300 text-2xl sm:text-3xl font-bold flex items-center justify-center ipa-char shadow-inner">
+                                /p/
+                            </div>
+                            <div class="overflow-hidden">
+                                <h2 id="lesson-name" class="text-sm sm:text-2xl font-bold text-white truncate">Voiced bilabial plosive</h2>
+                                <div class="flex items-center space-x-1.5 mt-0.5">
+                                    <span id="lesson-category-tag" class="text-[9px] sm:text-xs uppercase tracking-wider px-1.5 py-0.5 rounded bg-indigo-950 text-indigo-400 border border-indigo-800 font-semibold">Pulmonic</span>
+                                    <span id="lesson-type-tag" class="text-[10px] sm:text-xs text-slate-400 truncate">Consonant</span>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="font-bold text-lg text-white">Phonetic Ear Training</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Listen to precise phonetic acoustic audio and choose the corresponding IPA symbol.</p>
-                    </div>
-                    <div class="flex items-center text-xs font-semibold text-brand-400 gap-1">
-                        Start Drill →
+                        <button id="btn-master" onclick="toggleMastery()" class="flex-shrink-0 flex items-center space-x-1 px-2.5 py-1.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition-all">
+                            <span id="master-icon">⭕</span>
+                            <span id="master-text" class="hidden sm:inline">Mark Mastered</span>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Mode 2 -->
-                <div onclick="startQuiz('symbol-to-desc')" class="glass-card hover:border-brand-500/50 p-6 rounded-2xl cursor-pointer transition flex flex-col justify-between group shadow-lg space-y-4">
-                    <div class="space-y-2">
-                        <div class="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-xl flex items-center justify-center font-bold text-xl ipa-symbol">
-                            /p/
+                <!-- Main Details Grid (Compact Padding & Layout) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4 my-1 sm:my-2">
+                    
+                    <!-- Native Example Box -->
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">EXPERT NATIVE EXAMPLE</span>
+                                <span id="native-lang-badge" class="text-[10px] bg-indigo-950 text-indigo-300 border border-indigo-800 px-1.5 py-0.5 rounded">English</span>
+                            </div>
+                            <div class="flex items-baseline space-x-2">
+                                <span id="native-word" class="text-lg sm:text-xl font-bold text-white">"pack"</span>
+                                <span id="native-ipa" class="text-xs sm:text-sm font-mono text-indigo-400 ipa-char">/pæk/</span>
+                            </div>
                         </div>
-                        <h3 class="font-bold text-lg text-white">Symbol to Articulation</h3>
-                        <p class="text-xs text-slate-400 leading-relaxed">Match given standard IPA symbols to their precise phonetic mechanism and descriptions.</p>
+                        <button onclick="playNativeAudio()" class="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-medium flex items-center justify-center space-x-1.5 transition active:scale-95">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                            <span>Listen Sound</span>
+                        </button>
                     </div>
-                    <div class="flex items-center text-xs font-semibold text-brand-400 gap-1">
-                        Start Drill →
+
+                    <!-- Articulation & Feature Pills Box -->
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-3 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-1">ARTICULATION MECHANISM</span>
+                            <p id="articulation-text" class="text-xs text-slate-300 leading-relaxed">
+                                Formed by obstructing airflow with both lips, followed by a sudden release.
+                            </p>
+                        </div>
+                        <div id="feature-pills" class="flex flex-wrap gap-1.5 mt-2">
+                            <!-- Feature pills populate dynamically -->
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Active Quiz Drill Container -->
-            <div id="active-quiz-screen" class="hidden glass-card rounded-2xl p-6 shadow-xl space-y-6 max-w-2xl mx-auto">
-                <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-                    <button onclick="exitQuiz()" class="text-slate-400 hover:text-white text-xs font-semibold">
-                        ← Exit Quiz
+                <!-- Footer Navigation inside Lesson Card -->
+                <div class="mt-auto pt-3 border-t border-slate-800 flex justify-between items-center">
+                    <button onclick="prevSound()" class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-300 text-xs font-medium transition">
+                        ← Prev
                     </button>
-                    <div class="flex items-center gap-4 text-xs font-semibold">
-                        <span class="text-slate-400">Question <span id="quiz-current-num">1</span> / 10</span>
-                        <span class="text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">Score: <span id="quiz-score">0</span></span>
-                    </div>
-                </div>
-
-                <!-- Question Prompt -->
-                <div id="quiz-question-container" class="space-y-4 text-center py-4">
-                    <!-- Dynamic Question UI -->
-                </div>
-
-                <!-- Options -->
-                <div id="quiz-options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <!-- Dynamic Options -->
-                </div>
-
-                <!-- Feedback Footer -->
-                <div id="quiz-feedback-box" class="hidden p-4 rounded-xl border space-y-2">
-                    <div class="flex items-center gap-2 font-bold text-sm" id="feedback-title"></div>
-                    <p class="text-xs text-slate-300 leading-relaxed" id="feedback-explanation"></p>
-                    <button onclick="nextQuizQuestion()" class="mt-3 w-full py-2.5 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs font-semibold transition">
-                        Next Question →
+                    <span id="lesson-counter" class="text-[11px] text-slate-400 font-mono">Sound 1 of 24</span>
+                    <button onclick="nextSound()" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium transition">
+                        Next →
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 4: PROGRESS TRACKING -->
-        <section id="tab-progress" class="tab-content hidden flex-1 space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card rounded-2xl p-6 shadow-xl flex items-center gap-4">
-                    <div class="p-4 bg-brand-500/10 text-brand-400 rounded-2xl border border-brand-500/20 text-2xl">
-                        🎓
-                    </div>
-                    <div>
-                        <div class="text-2xl font-bold text-white" id="stat-total-mastered">0 / 39</div>
-                        <div class="text-xs text-slate-400">Phonemes Mastered</div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6 shadow-xl flex items-center gap-4">
-                    <div class="p-4 bg-emerald-500/10 text-emerald-400 rounded-2xl border border-emerald-500/20 text-2xl">
-                        🎯
-                    </div>
-                    <div>
-                        <div class="text-2xl font-bold text-white" id="stat-accuracy">0%</div>
-                        <div class="text-xs text-slate-400">Quiz Accuracy</div>
-                    </div>
-                </div>
-
-                <div class="glass-card rounded-2xl p-6 shadow-xl flex items-center gap-4">
-                    <div class="p-4 bg-amber-500/10 text-amber-400 rounded-2xl border border-amber-500/20 text-2xl">
-                        ⚡
-                    </div>
-                    <div>
-                        <div class="text-2xl font-bold text-white" id="stat-streak">0</div>
-                        <div class="text-xs text-slate-400">Current Best Streak</div>
-                    </div>
+        <!-- TAB 2: IPA CHART -->
+        <section id="tab-chart" class="hidden flex-grow flex-col">
+            <div class="glass-card rounded-2xl p-4 sm:p-6 border border-slate-800">
+                <h2 class="text-lg font-bold text-white mb-1">Interactive IPA Chart</h2>
+                <p class="text-xs text-slate-400 mb-4">Click any symbol to view its articulation rules or hear standard audio.</p>
+                <div id="chart-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 overflow-x-auto custom-scrollbar p-1">
+                    <!-- Dynamic chart elements -->
                 </div>
             </div>
+        </section>
 
-            <div class="glass-card rounded-2xl p-6 shadow-xl space-y-4">
-                <h3 class="font-bold text-lg text-white">Mastery Breakdown</h3>
-                <div id="category-progress-bars" class="space-y-4">
-                    <!-- Dynamic Progress Bars -->
+        <!-- TAB 3: QUIZZES -->
+        <section id="tab-quizzes" class="hidden flex-grow flex-col max-w-2xl mx-auto w-full">
+            <div class="glass-card rounded-2xl p-4 sm:p-6 border border-slate-800 flex flex-col items-center text-center">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-400 flex items-center justify-center text-xl font-bold mb-2">
+                    🎯
+                </div>
+                <h2 class="text-lg sm:text-xl font-bold text-white mb-1">Phonetic Ear-Training Drill</h2>
+                <p class="text-xs text-slate-400 mb-4">Listen carefully to the standard audio sound and select the corresponding IPA symbol.</p>
+
+                <div class="w-full bg-slate-900 border border-slate-800 rounded-xl p-4 mb-4">
+                    <button onclick="playQuizAudio()" class="w-16 h-16 mx-auto rounded-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center text-2xl shadow-lg transition transform active:scale-95 mb-2">
+                        🔊
+                    </button>
+                    <p class="text-[11px] text-slate-400">Tap to play sound</p>
+                </div>
+
+                <div id="quiz-options" class="grid grid-cols-2 gap-2.5 w-full mb-4">
+                    <!-- Quiz options populate dynamically -->
+                </div>
+
+                <div id="quiz-feedback" class="h-8 text-xs font-semibold flex items-center justify-center"></div>
+            </div>
+        </section>
+
+        <!-- TAB 4: PROGRESS -->
+        <section id="tab-progress" class="hidden flex-grow flex-col">
+            <div class="glass-card rounded-2xl p-4 sm:p-6 border border-slate-800">
+                <h2 class="text-lg font-bold text-white mb-3">Your Progress Tracker</h2>
+                <div class="grid grid-cols-3 gap-3 mb-4">
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 text-center sm:text-left">
+                        <div class="text-[10px] text-slate-400">Mastery</div>
+                        <div id="progress-percent" class="text-lg sm:text-2xl font-bold text-indigo-400 mt-0.5">0%</div>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 text-center sm:text-left">
+                        <div class="text-[10px] text-slate-400">Mastered</div>
+                        <div id="progress-count" class="text-lg sm:text-2xl font-bold text-emerald-400 mt-0.5">0 / 39</div>
+                    </div>
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-3 text-center sm:text-left">
+                        <div class="text-[10px] text-slate-400">Streak</div>
+                        <div id="progress-streak" class="text-lg sm:text-2xl font-bold text-amber-400 mt-0.5">0 Days</div>
+                    </div>
+                </div>
+                <div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider mb-2">Mastered Symbols</div>
+                <div id="mastered-tags" class="flex flex-wrap gap-1.5">
+                    <span class="text-xs text-slate-400 italic">No symbols mastered yet. Start learning in Lessons!</span>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Symbol Detail Modal -->
-    <div id="symbol-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl relative space-y-6">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 rounded-lg text-xl">
-                &times;
-            </button>
-            <div id="modal-body">
-                <!-- Modal Details -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Application Footer with Dynamic Automatic Timestamp -->
-    <footer class="border-t border-slate-900 bg-slate-950 py-4 px-6 text-slate-400 text-xs flex flex-col sm:flex-row justify-between items-center gap-2">
-        <div>IPA Masterclass &bull; Expert International Phonetic Alphabet Trainer</div>
-        <div id="ai-timestamp" class="text-slate-400 text-[11px] font-mono">
-            <!-- Populated dynamically via JS -->
+    <!-- Footer with Automatic Runtime Timestamp -->
+    <footer class="border-t border-slate-900 bg-slate-950 py-3 px-4 text-slate-500 text-[11px] flex flex-col sm:flex-row justify-between items-center gap-1 flex-shrink-0">
+        <div>IPA Masterclass &bull; Expert Reference Guide</div>
+        <div id="ai-timestamp" class="text-slate-400 text-[10px]">
+            Generated by AI
         </div>
     </footer>
 
-    <!-- JavaScript Application Logic -->
+    <!-- Application Script -->
     <script>
-        // Phonetic dataset using strict standard native examples and audio synthesis parameters
-        const IPA_DATA = {
-            pulmonic: [
-                { symbol: 'p', name: 'Voiceless bilabial plosive', category: 'Pulmonic Consonants', place: 'Bilabial', manner: 'Plosive', voiced: false, nativeExample: 'pack', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/pæk/', spokenText: 'pack', articulation: 'Formed by completely closing both lips, building up air pressure behind them, and releasing it without vocal fold vibration.' },
-                { symbol: 'b', name: 'Voiced bilabial plosive', category: 'Pulmonic Consonants', place: 'Bilabial', manner: 'Plosive', voiced: true, nativeExample: 'back', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/bæk/', spokenText: 'back', articulation: 'Both lips create a complete closure while vocal folds vibrate during the sudden release.' },
-                { symbol: 't', name: 'Voiceless alveolar plosive', category: 'Pulmonic Consonants', place: 'Alveolar', manner: 'Plosive', voiced: false, nativeExample: 'time', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/taɪm/', spokenText: 'time', articulation: 'The tongue tip or blade touches the alveolar ridge to block airflow before releasing without voicing.' },
-                { symbol: 'd', name: 'Voiced alveolar plosive', category: 'Pulmonic Consonants', place: 'Alveolar', manner: 'Plosive', voiced: true, nativeExample: 'door', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/dɔːr/', spokenText: 'door', articulation: 'Tongue tip seals against the alveolar ridge while vocal folds vibrate during air release.' },
-                { symbol: 'k', name: 'Voiceless velar plosive', category: 'Pulmonic Consonants', place: 'Velar', manner: 'Plosive', voiced: false, nativeExample: 'cat', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/kæt/', spokenText: 'cat', articulation: 'The back of the tongue presses against the soft palate (velum) to block and release air.' },
-                { symbol: 'g', name: 'Voiced velar plosive', category: 'Pulmonic Consonants', place: 'Velar', manner: 'Plosive', voiced: true, nativeExample: 'go', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/ɡoʊ/', spokenText: 'go', articulation: 'Back of tongue presses against soft palate accompanied by active vocal fold vibration.' },
-                { symbol: 'ʔ', name: 'Glottal stop', category: 'Pulmonic Consonants', place: 'Glottal', manner: 'Plosive', voiced: false, nativeExample: 'uh-oh', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/ˈʌʔoʊ/', spokenText: 'uh oh', articulation: 'Complete, abrupt closure of the vocal folds (glottis), momentarily stopping all airflow in the larynx.' },
-                
-                { symbol: 'm', name: 'Voiced bilabial nasal', category: 'Pulmonic Consonants', place: 'Bilabial', manner: 'Nasal', voiced: true, nativeExample: 'man', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/mæn/', spokenText: 'man', articulation: 'Lips close completely while soft palate drops, allowing air to escape through the nasal cavity with voiced vibration.' },
-                { symbol: 'n', name: 'Voiced alveolar nasal', category: 'Pulmonic Consonants', place: 'Alveolar', manner: 'Nasal', voiced: true, nativeExample: 'no', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/noʊ/', spokenText: 'no', articulation: 'Tongue touches alveolar ridge, soft palate lowers, directing airflow through the nose.' },
-                { symbol: 'ŋ', name: 'Voiced velar nasal', category: 'Pulmonic Consonants', place: 'Velar', manner: 'Nasal', voiced: true, nativeExample: 'sing', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/sɪŋ/', spokenText: 'sing', articulation: 'Back of tongue contacts the soft palate while lowering the velum so air flows out the nose.' },
-                { symbol: 'ɲ', name: 'Voiced palatal nasal', category: 'Pulmonic Consonants', place: 'Palatal', manner: 'Nasal', voiced: true, nativeExample: 'cañón', nativeLang: 'es-ES', nativeLangLabel: 'Spanish', nativeIPA: '/kaˈɲon/', spokenText: 'cañón', articulation: 'Body of tongue presses flat against hard palate with lowered velum.' },
+        // Set dynamic timestamp at runtime
+        document.getElementById('ai-timestamp').textContent = `Generated by AI | Code Updated: ${new Date().toLocaleString()}`;
 
-                { symbol: 'f', name: 'Voiceless labiodental fricative', category: 'Pulmonic Consonants', place: 'Labiodental', manner: 'Fricative', voiced: false, nativeExample: 'fan', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/fæn/', spokenText: 'fan', articulation: 'Upper front teeth touch lower lip, forcing air through a narrow gap creating friction.' },
-                { symbol: 'v', name: 'Voiced labiodental fricative', category: 'Pulmonic Consonants', place: 'Labiodental', manner: 'Fricative', voiced: true, nativeExample: 'van', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/væn/', spokenText: 'van', articulation: 'Upper teeth touch lower lip while vocal folds vibrate to produce voiced friction.' },
-                { symbol: 'θ', name: 'Voiceless dental fricative', category: 'Pulmonic Consonants', place: 'Dental', manner: 'Fricative', voiced: false, nativeExample: 'think', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/θɪŋk/', spokenText: 'think', articulation: 'Tongue tip rests against or slightly between upper front teeth, forcing air through.' },
-                { symbol: 'ð', name: 'Voiced dental fricative', category: 'Pulmonic Consonants', place: 'Dental', manner: 'Fricative', voiced: true, nativeExample: 'this', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/ðɪs/', spokenText: 'this', articulation: 'Tongue tip against upper teeth with vibrating vocal cords.' },
-                { symbol: 's', name: 'Voiceless alveolar fricative', category: 'Pulmonic Consonants', place: 'Alveolar', manner: 'Fricative', voiced: false, nativeExample: 'sip', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/sɪp/', spokenText: 'sip', articulation: 'Tongue tip approaches alveolar ridge, directing a narrow high-frequency stream of air against teeth.' },
-                { symbol: 'z', name: 'Voiced alveolar fricative', category: 'Pulmonic Consonants', place: 'Alveolar', manner: 'Fricative', voiced: true, nativeExample: 'zip', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/zɪp/', spokenText: 'zip', articulation: 'Same tongue position as /s/ accompanied by vocal fold vibration.' },
-                { symbol: 'ʃ', name: 'Voiceless postalveolar fricative', category: 'Pulmonic Consonants', place: 'Postalveolar', manner: 'Fricative', voiced: false, nativeExample: 'she', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/ʃiː/', spokenText: 'she', articulation: 'Tongue blade is positioned just behind alveolar ridge with slightly rounded lips.' },
-                { symbol: 'ʒ', name: 'Voiced postalveolar fricative', category: 'Pulmonic Consonants', place: 'Postalveolar', manner: 'Fricative', voiced: true, nativeExample: 'vision', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/ˈvɪʒən/', spokenText: 'vision', articulation: 'Voiced version of /ʃ/ articulated behind the alveolar ridge with continuous friction.' },
-                { symbol: 'x', name: 'Voiceless velar fricative', category: 'Pulmonic Consonants', place: 'Velar', manner: 'Fricative', voiced: false, nativeExample: 'loch', nativeLang: 'en-GB', nativeLangLabel: 'Scots', nativeIPA: '/lɒx/', spokenText: 'loch', articulation: 'Back of tongue approaches soft palate to generate turbulent friction.' },
-                { symbol: 'h', name: 'Voiceless glottal fricative', category: 'Pulmonic Consonants', place: 'Glottal', manner: 'Fricative', voiced: false, nativeExample: 'hat', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/hæt/', spokenText: 'hat', articulation: 'Air passes through narrowed vocal folds (glottis) creating audible friction.' },
+        // Phonetic dataset using standard expert native examples
+        const ipaData = [
+            // Pulmonic Consonants (including glottal stop [ʔ])
+            { id: "p", symbol: "p", name: "Voiceless bilabial plosive", cat: "pulmonic", nativeWord: "pack", nativeIPA: "/pæk/", nativeLang: "English", langCode: "en-US", art: "Airflow blocked with both lips, then released without vocal cord vibration.", place: "Bilabial", manner: "Plosive", voiced: false },
+            { id: "b", symbol: "b", name: "Voiced bilabial plosive", cat: "pulmonic", nativeWord: "back", nativeIPA: "/bæk/", nativeLang: "English", langCode: "en-US", art: "Airflow blocked with both lips, then released with vocal cord vibration.", place: "Bilabial", manner: "Plosive", voiced: true },
+            { id: "t", symbol: "t", name: "Voiceless alveolar plosive", cat: "pulmonic", nativeWord: "time", nativeIPA: "/taɪm/", nativeLang: "English", langCode: "en-US", art: "Tongue tip touches alveolar ridge, temporarily blocking airflow completely.", place: "Alveolar", manner: "Plosive", voiced: false },
+            { id: "d", symbol: "d", name: "Voiced alveolar plosive", cat: "pulmonic", nativeWord: "door", nativeIPA: "/dɔːr/", nativeLang: "English", langCode: "en-US", art: "Tongue tip touches alveolar ridge with vocal cord vibration during release.", place: "Alveolar", manner: "Plosive", voiced: true },
+            { id: "k", symbol: "k", name: "Voiceless velar plosive", cat: "pulmonic", nativeWord: "cat", nativeIPA: "/kæt/", nativeLang: "English", langCode: "en-US", art: "Back of tongue presses against soft palate (velum) to stop airflow.", place: "Velar", manner: "Plosive", voiced: false },
+            { id: "g", symbol: "g", name: "Voiced velar plosive", cat: "pulmonic", nativeWord: "go", nativeIPA: "/ɡoʊ/", nativeLang: "English", langCode: "en-US", art: "Back of tongue presses against soft palate while vocal cords vibrate.", place: "Velar", manner: "Plosive", voiced: true },
+            { id: "glottal", symbol: "ʔ", name: "Glottal stop", cat: "pulmonic", nativeWord: "uh-oh", nativeIPA: "/ˈʌʔoʊ/", nativeLang: "English", langCode: "en-US", art: "Vocal folds press tightly together to momentarily halt pulmonic airflow.", place: "Glottal", manner: "Plosive", voiced: false },
+            { id: "m", symbol: "m", name: "Voiced bilabial nasal", cat: "pulmonic", nativeWord: "man", nativeIPA: "/mæn/", nativeLang: "English", langCode: "en-US", art: "Lips closed tightly while velum lowers to allow air through nasal cavity.", place: "Bilabial", manner: "Nasal", voiced: true },
+            { id: "n", symbol: "n", name: "Voiced alveolar nasal", cat: "pulmonic", nativeWord: "no", nativeIPA: "/noʊ/", nativeLang: "English", langCode: "en-US", art: "Tongue tip contacts alveolar ridge while velum lowers for nasal resonance.", place: "Alveolar", manner: "Nasal", voiced: true },
+            { id: "ng", symbol: "ŋ", name: "Voiced velar nasal", cat: "pulmonic", nativeWord: "sing", nativeIPA: "/sɪŋ/", nativeLang: "English", langCode: "en-US", art: "Back of tongue contacts soft palate while air flows exclusively through nose.", place: "Velar", manner: "Nasal", voiced: true },
+            { id: "ny", symbol: "ɲ", name: "Voiced palatal nasal", cat: "pulmonic", nativeWord: "cañón", nativeIPA: "/kaˈɲon/", nativeLang: "Spanish", langCode: "es-ES", art: "Body of tongue presses flat against hard palate with lowered velum.", place: "Palatal", manner: "Nasal", voiced: true },
+            { id: "trill_r", symbol: "r", name: "Voiced alveolar trill", cat: "pulmonic", nativeWord: "perro", nativeIPA: "/ˈpero/", nativeLang: "Spanish", langCode: "es-ES", art: "Airflow causes tongue tip to vibrate rapidly against the alveolar ridge.", place: "Alveolar", manner: "Trill", voiced: true },
+            { id: "f", symbol: "f", name: "Voiceless labiodental fricative", cat: "pulmonic", nativeWord: "fan", nativeIPA: "/fæn/", nativeLang: "English", langCode: "en-US", art: "Upper front teeth touch lower lip to create continuous air friction.", place: "Labiodental", manner: "Fricative", voiced: false },
+            { id: "v", symbol: "v", name: "Voiced labiodental fricative", cat: "pulmonic", nativeWord: "van", nativeIPA: "/væn/", nativeLang: "English", langCode: "en-US", art: "Upper front teeth touch lower lip with continuous vocal cord vibration.", place: "Labiodental", manner: "Fricative", voiced: true },
+            { id: "th_thin", symbol: "θ", name: "Voiceless dental fricative", cat: "pulmonic", nativeWord: "think", nativeIPA: "/θɪŋk/", nativeLang: "English", langCode: "en-US", art: "Tongue tip placed against upper teeth forcing friction stream.", place: "Dental", manner: "Fricative", voiced: false },
+            { id: "th_this", symbol: "ð", name: "Voiced dental fricative", cat: "pulmonic", nativeWord: "this", nativeIPA: "/ðɪs/", nativeLang: "English", langCode: "en-US", art: "Tongue tip against upper teeth with vocal cords vibrating.", place: "Dental", manner: "Fricative", voiced: true },
+            { id: "s", symbol: "s", name: "Voiceless alveolar fricative", cat: "pulmonic", nativeWord: "sip", nativeIPA: "/sɪp/", nativeLang: "English", langCode: "en-US", art: "Air channeled narrow groove along tongue against alveolar ridge.", place: "Alveolar", manner: "Fricative", voiced: false },
+            { id: "z", symbol: "z", name: "Voiced alveolar fricative", cat: "pulmonic", nativeWord: "zip", nativeIPA: "/zɪp/", nativeLang: "English", langCode: "en-US", art: "Narrow groove friction against alveolar ridge with vocal cord voicing.", place: "Alveolar", manner: "Fricative", voiced: true },
+            { id: "sh", symbol: "ʃ", name: "Voiceless postalveolar fricative", cat: "pulmonic", nativeWord: "she", nativeIPA: "/ʃiː/", nativeLang: "English", langCode: "en-US", art: "Tongue blade raised just behind alveolar ridge with slight lip rounding.", place: "Postalveolar", manner: "Fricative", voiced: false },
+            { id: "zh", symbol: "ʒ", name: "Voiced postalveolar fricative", cat: "pulmonic", nativeWord: "vision", nativeIPA: "/ˈvɪʒən/", nativeLang: "English", langCode: "en-US", art: "Voiced friction generated behind alveolar ridge.", place: "Postalveolar", manner: "Fricative", voiced: true },
+            { id: "x", symbol: "x", name: "Voiceless velar fricative", cat: "pulmonic", nativeWord: "loch", nativeIPA: "/lɒx/", nativeLang: "Scots", langCode: "en-GB", art: "Back of tongue raised near velum creating turbulent friction.", place: "Velar", manner: "Fricative", voiced: false },
+            { id: "h", symbol: "h", name: "Voiceless glottal fricative", cat: "pulmonic", nativeWord: "hat", nativeIPA: "/hæt/", nativeLang: "English", langCode: "en-US", art: "Airflow passes through opening vocal folds without oral constriction.", place: "Glottal", manner: "Fricative", voiced: false },
+            { id: "l", symbol: "l", name: "Voiced alveolar lateral approximant", cat: "pulmonic", nativeWord: "light", nativeIPA: "/laɪt/", nativeLang: "English", langCode: "en-US", art: "Tongue tip contacts alveolar ridge while air flows around sides.", place: "Alveolar", manner: "Approximant", voiced: true },
+            { id: "j", symbol: "j", name: "Voiced palatal approximant", cat: "pulmonic", nativeWord: "yes", nativeIPA: "/jɛs/", nativeLang: "English", langCode: "en-US", art: "Body of tongue glides toward hard palate without creating friction.", place: "Palatal", manner: "Approximant", voiced: true },
 
-                { symbol: 'j', name: 'Voiced palatal approximant', category: 'Pulmonic Consonants', place: 'Palatal', manner: 'Approximant', voiced: true, nativeExample: 'yes', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/jɛs/', spokenText: 'yes', articulation: 'Front of tongue moves near hard palate without making sufficient contact to cause friction.' },
-                { symbol: 'r', name: 'Voiced alveolar trill', category: 'Pulmonic Consonants', place: 'Alveolar', manner: 'Trill', voiced: true, nativeExample: 'perro', nativeLang: 'es-ES', nativeLangLabel: 'Spanish', nativeIPA: '/ˈpero/', spokenText: 'perro', articulation: 'Airflow causes tongue tip to vibrate rapidly against the alveolar ridge.' },
-                { symbol: 'l', name: 'Voiced alveolar lateral approximant', category: 'Pulmonic Consonants', place: 'Alveolar', manner: 'Lateral Approximant', voiced: true, nativeExample: 'light', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/laɪt/', spokenText: 'light', articulation: 'Tongue tip touches alveolar ridge while air flows freely past the sides of the tongue.' }
-            ],
-            vowels: [
-                { symbol: 'i', name: 'Close front unrounded vowel', category: 'Vowels', height: 'Close', backness: 'Front', rounded: false, nativeExample: 'see', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/siː/', spokenText: 'see', articulation: 'Tongue raised close to front roof of mouth; lips unrounded.' },
-                { symbol: 'u', name: 'Close back rounded vowel', category: 'Vowels', height: 'Close', backness: 'Back', rounded: true, nativeExample: 'too', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/tuː/', spokenText: 'too', articulation: 'Back of tongue raised high toward soft palate; lips strongly rounded.' },
-                { symbol: 'e', name: 'Close-mid front unrounded vowel', category: 'Vowels', height: 'Close-mid', backness: 'Front', rounded: false, nativeExample: 'mate', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/meɪt/', spokenText: 'mate', articulation: 'Tongue positioned one-third of distance from top to bottom.' },
-                { symbol: 'o', name: 'Close-mid back rounded vowel', category: 'Vowels', height: 'Close-mid', backness: 'Back', rounded: true, nativeExample: 'no', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/noʊ/', spokenText: 'no', articulation: 'Tongue back positioned two-thirds high with rounded lips.' },
-                { symbol: 'æ', name: 'Near-open front unrounded vowel', category: 'Vowels', height: 'Near-open', backness: 'Front', rounded: false, nativeExample: 'cat', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/kæt/', spokenText: 'cat', articulation: 'Tongue position low in the front of mouth.' },
-                { symbol: 'a', name: 'Open front unrounded vowel', category: 'Vowels', height: 'Open', backness: 'Front', rounded: false, nativeExample: 'father', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/ˈfɑːðər/', spokenText: 'father', articulation: 'Jaws open wide, tongue low at front of mouth.' },
-                { symbol: 'ə', name: 'Mid central vowel (Schwa)', category: 'Vowels', height: 'Mid', backness: 'Central', rounded: false, nativeExample: 'about', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/əˈbaʊt/', spokenText: 'about', articulation: 'Neutral position for tongue and lips; most common vowel in English unstressed syllables.' },
-                { symbol: 'y', name: 'Close front rounded vowel', category: 'Vowels', height: 'Close', backness: 'Front', rounded: true, nativeExample: 'tu', nativeLang: 'fr-FR', nativeLangLabel: 'French', nativeIPA: '/ty/', spokenText: 'tu', articulation: 'Tongue in position for [i], but with lips rounded like [u].' },
-                { symbol: 'ɛ', name: 'Open-mid front unrounded vowel', category: 'Vowels', height: 'Open-mid', backness: 'Front', rounded: false, nativeExample: 'bed', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/bɛd/', spokenText: 'bed', articulation: 'Tongue placed two-thirds down from top roof toward open mouth position.' },
-                { symbol: 'ɔ', name: 'Open-mid back rounded vowel', category: 'Vowels', height: 'Open-mid', backness: 'Back', rounded: true, nativeExample: 'thought', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/θɔːt/', spokenText: 'thought', articulation: 'Back of tongue lowered with lip rounding.' },
-                { symbol: 'ʌ', name: 'Open-mid back unrounded vowel', category: 'Vowels', height: 'Open-mid', backness: 'Back', rounded: false, nativeExample: 'cup', nativeLang: 'en-US', nativeLangLabel: 'English', nativeIPA: '/kʌp/', spokenText: 'cup', articulation: 'Tongue back lowered with unrounded lips.' }
-            ],
-            nonpulmonic: [
-                { symbol: 'ʘ', name: 'Bilabial click', category: 'Non-Pulmonic', place: 'Bilabial', manner: 'Click', nativeExample: 'ʘoa', nativeLang: 'en-US', nativeLangLabel: 'ǂXóõ', nativeIPA: '/ʘoa/', spokenText: 'ʘoa', articulation: 'Produced by trapping air between lips and releasing suction (kissing sound).' },
-                { symbol: 'ǀ', name: 'Dental click', category: 'Non-Pulmonic', place: 'Dental', manner: 'Click', nativeExample: 'ǀXosa', nativeLang: 'en-US', nativeLangLabel: 'Xhosa', nativeIPA: '/ǀkosa/', spokenText: 'Xosa', articulation: 'Suction released at front teeth.' },
-                { symbol: 'ǃ', name: 'Alveolar click', category: 'Non-Pulmonic', place: 'Alveolar', manner: 'Click', nativeExample: 'ǃXóõ', nativeLang: 'en-US', nativeLangLabel: 'ǂXóõ', nativeIPA: '/!Xóõ/', spokenText: 'Xoo', articulation: 'Sharp popping suction sound created behind front teeth.' },
-                { symbol: 'ɓ', name: 'Voiced bilabial implosive', category: 'Non-Pulmonic', place: 'Bilabial', manner: 'Implosive', nativeExample: 'baba', nativeLang: 'sw', nativeLangLabel: 'Swahili', nativeIPA: '/ɓaɓa/', spokenText: 'baba', articulation: 'Produced by pulling larynx downward while closing lips, drawing air inward.' },
-                { symbol: 'kʼ', name: 'Velar ejective plosive', category: 'Non-Pulmonic', place: 'Velar', manner: 'Ejective', nativeExample: 'k’ari', nativeLang: 'ka', nativeLangLabel: 'Georgian', nativeIPA: '/kʼari/', spokenText: 'kari', articulation: 'Air pressure built up behind glottal closure and velum, then released abruptly.' }
-            ]
-        };
+            // Vowels
+            { id: "i", symbol: "i", name: "Close front unrounded vowel", cat: "vowels", nativeWord: "see", nativeIPA: "/siː/", nativeLang: "English", langCode: "en-US", art: "Tongue positioned high and forward in mouth with unrounded lips.", place: "Close Front", manner: "Vowel", voiced: true },
+            { id: "u", symbol: "u", name: "Close back rounded vowel", cat: "vowels", nativeWord: "too", nativeIPA: "/tuː/", nativeLang: "English", langCode: "en-US", art: "Tongue positioned high and back with tightly rounded lips.", place: "Close Back", manner: "Vowel", voiced: true },
+            { id: "e", symbol: "e", name: "Close-mid front unrounded vowel", cat: "vowels", nativeWord: "mate", nativeIPA: "/meɪt/", nativeLang: "English", langCode: "en-US", art: "Tongue positioned two-thirds of the way toward the roof of mouth.", place: "Close-mid Front", manner: "Vowel", voiced: true },
+            { id: "o", symbol: "o", name: "Close-mid back rounded vowel", cat: "vowels", nativeWord: "no", nativeIPA: "/noʊ/", nativeLang: "English", langCode: "en-US", art: "Tongue back positioned two-thirds high with rounded lips.", place: "Close-mid Back", manner: "Vowel", voiced: true },
+            { id: "ae", symbol: "æ", name: "Near-open front unrounded vowel", cat: "vowels", nativeWord: "cat", nativeIPA: "/kæt/", nativeLang: "English", langCode: "en-US", art: "Tongue lowered and forward in oral cavity.", place: "Near-open Front", manner: "Vowel", voiced: true },
+            { id: "a", symbol: "a", name: "Open front unrounded vowel", cat: "vowels", nativeWord: "father", nativeIPA: "/ˈfɑːðər/", nativeLang: "English", langCode: "en-US", art: "Jaw open, tongue flat and low in front of mouth.", place: "Open Front", manner: "Vowel", voiced: true },
+            { id: "schwa", symbol: "ə", name: "Mid-central vowel (Schwa)", cat: "vowels", nativeWord: "about", nativeIPA: "/əˈbaʊt/", nativeLang: "English", langCode: "en-US", art: "Neutral, relaxed vocal tract with tongue centrally placed.", place: "Mid Central", manner: "Vowel", voiced: true },
+            { id: "y_vowel", symbol: "y", name: "Close front rounded vowel", cat: "vowels", nativeWord: "tu", nativeIPA: "/ty/", nativeLang: "French", langCode: "fr-FR", art: "Tongue in position for [i], but with lips rounded like [u].", place: "Close Front", manner: "Vowel", voiced: true },
+            { id: "epsilon", symbol: "ɛ", name: "Open-mid front unrounded vowel", cat: "vowels", nativeWord: "bed", nativeIPA: "/bɛd/", nativeLang: "English", langCode: "en-US", art: "Tongue positioned mid-low in front of mouth.", place: "Open-mid Front", manner: "Vowel", voiced: true },
+            { id: "open_o", symbol: "ɔ", name: "Open-mid back rounded vowel", cat: "vowels", nativeWord: "thought", nativeIPA: "/θɔːt/", nativeLang: "English", langCode: "en-US", art: "Tongue positioned mid-low in back of mouth with rounded lips.", place: "Open-mid Back", manner: "Vowel", voiced: true },
+            { id: "turn_v", symbol: "ʌ", name: "Open-mid back unrounded vowel", cat: "vowels", nativeWord: "cup", nativeIPA: "/kʌp/", nativeLang: "English", langCode: "en-US", art: "Tongue back lowered with unrounded lips.", place: "Open-mid Back", manner: "Vowel", voiced: true },
 
-        const ALL_PHONEMES = [...IPA_DATA.pulmonic, ...IPA_DATA.vowels, ...IPA_DATA.nonpulmonic];
-
-        function getSafeStorage(key, fallback) {
-            try {
-                const item = localStorage.getItem(key);
-                return item ? JSON.parse(item) : fallback;
-            } catch (e) {
-                return fallback;
-            }
-        }
-
-        function setSafeStorage(key, value) {
-            try {
-                localStorage.setItem(key, JSON.stringify(value));
-            } catch (e) {}
-        }
-
-        const savedProgress = getSafeStorage('ipa_masterclass_progress', {
-            mastered: [],
-            streak: 0,
-            totalAnswers: 0,
-            correctAnswers: 0
-        });
-
-        let appState = {
-            activeTab: 'lessons',
-            activeModuleIndex: 0,
-            activeLessonIndex: 0,
-            chartCategory: 'pulmonic',
-            userProgress: {
-                mastered: new Set(savedProgress.mastered || []),
-                streak: savedProgress.streak || 0,
-                totalAnswers: savedProgress.totalAnswers || 0,
-                correctAnswers: savedProgress.correctAnswers || 0
-            },
-            quiz: {
-                active: false,
-                type: null,
-                questions: [],
-                currentIndex: 0,
-                score: 0
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', () => {
-            updateTimestampFooter();
-            setupNav();
-            renderLessonModuleList();
-            renderCurrentLesson();
-            renderChart('pulmonic');
-            updateStatsUI();
-        });
-
-        // Automatically update AI footer timestamp on runtime
-        function updateTimestampFooter() {
-            const timestampEl = document.getElementById('ai-timestamp');
-            if (timestampEl) {
-                const now = new Date();
-                const formatted = now.toLocaleString('en-US', { 
-                    month: 'short', 
-                    day: 'numeric', 
-                    year: 'numeric', 
-                    hour: 'numeric', 
-                    minute: '2-digit',
-                    timeZoneName: 'short'
-                });
-                timestampEl.textContent = `Generated by AI | Code Updated: ${formatted}`;
-            }
-        }
-
-        function setupNav() {
-            const tabs = [
-                { id: 'lessons', label: 'Lessons' },
-                { id: 'chart', label: 'IPA Chart' },
-                { id: 'quizzes', label: 'Quizzes' },
-                { id: 'progress', label: 'Progress' }
-            ];
-
-            const desktopNav = document.getElementById('desktop-nav');
-            const mobileNav = document.getElementById('mobile-nav');
-
-            desktopNav.innerHTML = tabs.map(tab => `
-                <button onclick="switchTab('${tab.id}')" id="nav-btn-${tab.id}" class="nav-link px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2 ${appState.activeTab === tab.id ? 'bg-brand-600 text-white' : 'text-slate-400 hover:text-white hover:bg-slate-800'}">
-                    ${tab.label}
-                </button>
-            `).join('');
-
-            mobileNav.innerHTML = tabs.map(tab => `
-                <button onclick="switchTab('${tab.id}')" id="mobile-nav-btn-${tab.id}" class="flex-1 py-3 text-center flex flex-col items-center justify-center text-xs font-medium ${appState.activeTab === tab.id ? 'text-brand-400 border-t-2 border-brand-500' : 'text-slate-400'}">
-                    ${tab.label}
-                </button>
-            `).join('');
-        }
-
-        function switchTab(tabId) {
-            appState.activeTab = tabId;
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-            const target = document.getElementById(`tab-${tabId}`);
-            if (target) target.classList.remove('hidden');
-
-            setupNav();
-
-            if (tabId === 'progress') {
-                renderProgressCategoryBars();
-            }
-        }
-
-        const LESSON_MODULES = [
-            { id: 'pulmonic-consonants', title: 'Pulmonic Consonants', data: IPA_DATA.pulmonic },
-            { id: 'vowels', title: 'Vowel Quadrilateral', data: IPA_DATA.vowels },
-            { id: 'non-pulmonic', title: 'Non-Pulmonic Consonants', data: IPA_DATA.nonpulmonic }
+            // Non-Pulmonic & Clicks
+            { id: "bilabial_click", symbol: "ʘ", name: "Bilabial click", cat: "nonpulmonic", nativeWord: "Kiss sound", nativeIPA: "/ʘ/", nativeLang: "ǃXóõ", langCode: "synthetic-click", art: "Suction created by lips releasing inward non-pulmonic air stream.", place: "Bilabial", manner: "Click", voiced: false },
+            { id: "dental_click", symbol: "ǀ", name: "Dental click", cat: "nonpulmonic", nativeWord: "Tsk-tsk sound", nativeIPA: "/ǀ/", nativeLang: "Xhosa", langCode: "synthetic-click", art: "Tongue pulls back from front teeth creating sharp suction release.", place: "Dental", manner: "Click", voiced: false },
+            { id: "b_implosive", symbol: "ɓ", name: "Voiced bilabial implosive", cat: "nonpulmonic", nativeWord: "ba", nativeIPA: "/ɓa/", nativeLang: "Hausa", langCode: "ha", art: "Inward airflow created by lowering larynx during bilabial closure.", place: "Bilabial", manner: "Implosive", voiced: true },
+            { id: "g_ejective", symbol: "k’", name: "Velar ejective stop", cat: "nonpulmonic", nativeWord: "k'ak'", nativeIPA: "/k’ak’/", nativeLang: "Mayan", langCode: "es-MX", art: "Non-pulmonic air driven upward by closed glottal movement.", place: "Velar", manner: "Ejective", voiced: false }
         ];
 
-        function renderLessonModuleList() {
-            const container = document.getElementById('module-list');
-            container.innerHTML = LESSON_MODULES.map((mod, idx) => {
-                const isActive = idx === appState.activeModuleIndex;
-                return `
-                    <div onclick="selectModule(${idx})" class="p-4 rounded-xl border cursor-pointer transition ${isActive ? 'bg-slate-800 border-brand-500 text-white shadow-md' : 'glass-card text-slate-400 hover:bg-slate-800/50 hover:text-slate-200'}">
-                        <div class="flex items-center justify-between">
-                            <h3 class="font-bold text-sm">${mod.title}</h3>
-                            <span class="text-xs px-2 py-0.5 rounded-full bg-slate-950/60 border border-slate-700">${mod.data.length} sounds</span>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
+        // Application State
+        let currentCategory = 'pulmonic';
+        let currentSoundIndex = 0;
+        let masteredIds = new Set();
+        let targetQuizSound = null;
 
-        function selectModule(index) {
-            appState.activeModuleIndex = index;
-            appState.activeLessonIndex = 0;
-            renderLessonModuleList();
-            renderCurrentLesson();
-        }
-
-        function renderCurrentLesson() {
-            const activeModule = LESSON_MODULES[appState.activeModuleIndex];
-            const phoneme = activeModule.data[appState.activeLessonIndex];
-            const container = document.getElementById('lesson-detail-container');
-
-            const isMastered = appState.userProgress.mastered.has(phoneme.symbol);
-
-            container.innerHTML = `
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800 pb-6">
-                    <div class="flex items-center gap-4">
-                        <div class="w-20 h-20 bg-brand-500/10 border border-brand-500/30 rounded-2xl flex items-center justify-center text-4xl font-bold text-brand-400 ipa-symbol shadow-inner">
-                            /${phoneme.symbol}/
-                        </div>
-                        <div>
-                            <h2 class="text-2xl font-bold text-white">${phoneme.name}</h2>
-                            <p class="text-xs text-brand-400 font-medium uppercase tracking-wider mt-1">${phoneme.category}</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center gap-2">
-                        <button onclick="playPhonemeAudio('${phoneme.symbol}')" class="flex items-center gap-2 bg-brand-600 hover:bg-brand-500 text-white px-4 py-2.5 rounded-xl font-semibold text-sm transition shadow-lg shadow-brand-600/30">
-                            🔊 Listen Sound
-                        </button>
-                        <button onclick="toggleMastery('${phoneme.symbol}')" class="px-4 py-2.5 rounded-xl border transition ${isMastered ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/40' : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-white'} text-xs font-semibold">
-                            ${isMastered ? '✓ Mastered' : 'Mark Mastered'}
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Pure Native Source Card -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-slate-950/60 border border-slate-800/80 p-4 rounded-xl space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">
-                                Standard Native Example
-                            </h4>
-                            <span class="text-[10px] font-semibold px-2 py-0.5 rounded bg-brand-500/10 border border-brand-500/20 text-brand-300">${phoneme.nativeLangLabel}</span>
-                        </div>
-                        <div class="flex items-center justify-between pt-1">
-                            <div>
-                                <span class="text-xl font-bold text-white">"${phoneme.nativeExample}"</span>
-                                <span class="text-sm font-mono text-brand-400 ml-2 ipa-symbol">${phoneme.nativeIPA}</span>
-                            </div>
-                            <button onclick="speakWord('${phoneme.spokenText}', '${phoneme.nativeLang}')" class="px-3 py-1.5 bg-brand-600 hover:bg-brand-500 text-white rounded-lg transition text-xs font-medium">
-                                Play Word
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="bg-slate-950/60 border border-slate-800/80 p-4 rounded-xl space-y-3">
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">
-                            Phonetic Classification
-                        </h4>
-                        <div class="flex flex-wrap gap-2 pt-1">
-                            ${phoneme.place ? `<span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-300">Place: ${phoneme.place}</span>` : ''}
-                            ${phoneme.manner ? `<span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-300">Manner: ${phoneme.manner}</span>` : ''}
-                            ${phoneme.voiced !== undefined ? `<span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-300">${phoneme.voiced ? 'Voiced' : 'Voiceless'}</span>` : ''}
-                            ${phoneme.height ? `<span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-300">Height: ${phoneme.height}</span>` : ''}
-                            ${phoneme.backness ? `<span class="bg-slate-800 border border-slate-700 px-2.5 py-1 rounded-lg text-xs font-medium text-slate-300">Backness: ${phoneme.backness}</span>` : ''}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-slate-950/60 border border-slate-800/80 p-5 rounded-xl space-y-2">
-                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">
-                        Articulation Mechanism
-                    </h4>
-                    <p class="text-sm text-slate-300 leading-relaxed">${phoneme.articulation}</p>
-                </div>
-            `;
-
-            document.getElementById('lesson-progress-indicator').textContent = `Sound ${appState.activeLessonIndex + 1} of ${activeModule.data.length}`;
-            document.getElementById('btn-prev-lesson').disabled = appState.activeLessonIndex === 0;
-            document.getElementById('btn-next-lesson').disabled = appState.activeLessonIndex === activeModule.data.length - 1;
-        }
-
-        function speakWord(text, langCode = 'en-US') {
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-
-                // Clean text to prevent TTS reading unwanted parentheticals or annotations
-                let textToSpeak = text.replace(/\s*\([^)]*\)/g, '').replace(/[^a-zA-Z\u00C0-\u024F\s]/g, '').trim();
-
-                const utterance = new SpeechSynthesisUtterance(textToSpeak);
-                utterance.rate = 0.85;
-                utterance.pitch = 1.0;
-                utterance.lang = langCode;
-
-                window.speechSynthesis.speak(utterance);
-            } else {
-                playProceduralTone();
+        window.addEventListener('DOMContentLoaded', () => {
+            try {
+                const saved = localStorage.getItem('ipa_mastered');
+                if (saved) {
+                    masteredIds = new Set(JSON.parse(saved));
+                }
+            } catch (e) {
+                console.log("Storage access restricted");
             }
-        }
+            updateCategoryCounts();
+            renderLesson();
+            renderChart();
+            setupQuiz();
+            updateProgressView();
+        });
 
-        function playPhonemeAudio(symbol) {
-            const item = ALL_PHONEMES.find(x => x.symbol === symbol);
-            if (!item) return;
-
-            // Handle glottal stops or特殊 non-pulmonic carrier speech
-            if (symbol === 'ʔ') {
-                speakWord('uh oh', 'en-US');
-            } else {
-                speakWord(item.spokenText || item.nativeExample, item.nativeLang || 'en-US');
-            }
-        }
-
-        function navigateLesson(dir) {
-            const activeModule = LESSON_MODULES[appState.activeModuleIndex];
-            const newIndex = appState.activeLessonIndex + dir;
-            if (newIndex >= 0 && newIndex < activeModule.data.length) {
-                appState.activeLessonIndex = newIndex;
-                renderCurrentLesson();
-            }
-        }
-
-        function switchChartCategory(cat) {
-            appState.chartCategory = cat;
-            ['pulmonic', 'vowels', 'nonpulmonic'].forEach(c => {
-                const btn = document.getElementById(`chart-btn-${c}`);
-                if (btn) {
-                    btn.className = c === cat ? 'px-3 py-1.5 rounded-lg transition bg-brand-600 text-white' : 'px-3 py-1.5 rounded-lg transition text-slate-400 hover:text-white';
+        function switchTab(tabId) {
+            ['lessons', 'chart', 'quizzes', 'progress'].forEach(t => {
+                const el = document.getElementById(`tab-${t}`);
+                const nav = document.getElementById(`nav-${t}`);
+                if (t === tabId) {
+                    el.classList.remove('hidden');
+                    el.classList.add('flex');
+                    nav.className = 'px-2.5 py-1 rounded-md text-xs font-medium transition-all duration-200 bg-indigo-600 text-white shadow';
+                } else {
+                    el.classList.add('hidden');
+                    el.classList.remove('flex');
+                    nav.className = 'px-2.5 py-1 rounded-md text-xs font-medium text-slate-400 hover:text-white transition-all duration-200';
                 }
             });
-            renderChart(cat);
         }
 
-        function renderChart(cat) {
-            const container = document.getElementById('chart-view-container');
+        function getFilteredSounds() {
+            return ipaData.filter(s => s.cat === currentCategory);
+        }
 
-            if (cat === 'pulmonic') {
-                const places = ['Bilabial', 'Labiodental', 'Dental', 'Alveolar', 'Postalveolar', 'Palatal', 'Velar', 'Glottal'];
-                const manners = ['Plosive', 'Nasal', 'Fricative', 'Approximant', 'Lateral Approximant'];
+        function selectCategory(cat) {
+            currentCategory = cat;
+            currentSoundIndex = 0;
 
-                let tableHtml = `
-                    <table class="w-full text-center border-collapse text-xs sm:text-sm">
-                        <thead>
-                            <tr class="bg-slate-950 border-b border-slate-800 text-slate-400">
-                                <th class="p-3 text-left font-medium">Manner \\ Place</th>
-                                ${places.map(p => `<th class="p-3 font-medium">${p}</th>`).join('')}
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-800">
-                `;
+            ['pulmonic', 'vowels', 'nonpulmonic'].forEach(c => {
+                const btn = document.getElementById(`cat-${c}`);
+                if (c === cat) {
+                    btn.className = "flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-indigo-500/40 bg-indigo-600/10 text-indigo-300 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap";
+                } else {
+                    btn.className = "flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap";
+                }
+            });
 
-                manners.forEach(m => {
-                    tableHtml += `<tr><td class="p-3 font-bold text-slate-300 text-left bg-slate-950/40">${m}</td>`;
-                    places.forEach(p => {
-                        const matches = IPA_DATA.pulmonic.filter(x => x.manner === m && x.place === p);
-                        tableHtml += `<td class="p-2 border-l border-slate-800/50">`;
-                        if (matches.length > 0) {
-                            tableHtml += `<div class="flex justify-center items-center gap-1">`;
-                            matches.forEach(item => {
-                                tableHtml += `
-                                    <button onclick="openSymbolModal('${item.symbol}')" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-600 hover:text-white font-bold text-base transition ipa-symbol flex items-center justify-center shadow-sm">
-                                        ${item.symbol}
-                                    </button>
-                                `;
-                            });
-                            tableHtml += `</div>`;
-                        } else {
-                            tableHtml += `<span class="text-slate-700">-</span>`;
-                        }
-                        tableHtml += `</td>`;
-                    });
-                    tableHtml += `</tr>`;
-                });
+            renderLesson();
+        }
 
-                tableHtml += `</tbody></table>`;
-                container.innerHTML = tableHtml;
+        function updateCategoryCounts() {
+            document.getElementById('count-pulmonic').textContent = ipaData.filter(s => s.cat === 'pulmonic').length;
+            document.getElementById('count-vowels').textContent = ipaData.filter(s => s.cat === 'vowels').length;
+            document.getElementById('count-nonpulmonic').textContent = ipaData.filter(s => s.cat === 'nonpulmonic').length;
+        }
 
-            } else if (cat === 'vowels') {
-                container.innerHTML = `
-                    <div class="space-y-4">
-                        <p class="text-xs text-slate-400">Vowels arranged according to height and backness parameters.</p>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                            ${IPA_DATA.vowels.map(v => `
-                                <div onclick="openSymbolModal('${v.symbol}')" class="p-4 bg-slate-950/60 border border-slate-800 rounded-xl hover:border-brand-500/50 cursor-pointer transition flex items-center gap-4">
-                                    <span class="text-3xl font-bold text-brand-400 ipa-symbol">${v.symbol}</span>
-                                    <div>
-                                        <div class="font-bold text-sm text-white">${v.name}</div>
-                                        <div class="text-xs text-slate-400 mt-0.5">Example: "${v.nativeExample}" <span class="ipa-symbol text-brand-300">${v.nativeIPA}</span></div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
+        function renderLesson() {
+            const list = getFilteredSounds();
+            const sound = list[currentSoundIndex];
+            if (!sound) return;
+
+            document.getElementById('lesson-symbol').textContent = `/${sound.symbol}/`;
+            document.getElementById('lesson-name').textContent = sound.name;
+            document.getElementById('lesson-category-tag').textContent = sound.cat.toUpperCase();
+            document.getElementById('lesson-type-tag').textContent = sound.manner;
+
+            document.getElementById('native-word').textContent = `"${sound.nativeWord}"`;
+            document.getElementById('native-ipa').textContent = sound.nativeIPA;
+            document.getElementById('native-lang-badge').textContent = sound.nativeLang;
+
+            document.getElementById('articulation-text').textContent = sound.art;
+
+            const pills = document.getElementById('feature-pills');
+            pills.innerHTML = `
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Place: ${sound.place}</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Manner: ${sound.manner}</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">${sound.voiced ? 'Voiced' : 'Voiceless'}</span>
+            `;
+
+            document.getElementById('lesson-counter').textContent = `Sound ${currentSoundIndex + 1} of ${list.length}`;
+
+            updateMasteryBtn(sound.id);
+        }
+
+        function updateMasteryBtn(id) {
+            const btn = document.getElementById('btn-master');
+            const icon = document.getElementById('master-icon');
+            const text = document.getElementById('master-text');
+
+            if (masteredIds.has(id)) {
+                btn.className = "flex-shrink-0 flex items-center space-x-1 px-2.5 py-1.5 rounded-lg border border-emerald-500/40 bg-emerald-950/40 text-emerald-400 text-xs font-medium transition-all";
+                icon.textContent = "✅";
+                text.textContent = "Mastered";
             } else {
-                container.innerHTML = `
-                    <div class="space-y-4">
-                        <h4 class="font-bold text-sm text-slate-300">Non-Pulmonic Consonants</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                            ${IPA_DATA.nonpulmonic.map(item => `
-                                <div onclick="openSymbolModal('${item.symbol}')" class="p-4 bg-slate-950/60 border border-slate-800 rounded-xl hover:border-brand-500/50 cursor-pointer transition flex items-center gap-4">
-                                    <span class="text-3xl font-bold text-brand-400 ipa-symbol">${item.symbol}</span>
-                                    <div>
-                                        <div class="font-bold text-sm text-white">${item.name}</div>
-                                        <div class="text-xs text-slate-400 mt-0.5">${item.articulation}</div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
+                btn.className = "flex-shrink-0 flex items-center space-x-1 px-2.5 py-1.5 rounded-lg border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition-all";
+                icon.textContent = "⭕";
+                text.textContent = "Mark Mastered";
             }
         }
 
-        function openSymbolModal(symbol) {
-            const item = ALL_PHONEMES.find(x => x.symbol === symbol);
-            if (!item) return;
+        function toggleMastery() {
+            const sound = getFilteredSounds()[currentSoundIndex];
+            if (!sound) return;
 
-            const modalBody = document.getElementById('modal-body');
-            modalBody.innerHTML = `
-                <div class="text-center space-y-3">
-                    <div class="w-20 h-20 mx-auto bg-brand-500/10 border border-brand-500/30 rounded-2xl flex items-center justify-center text-4xl font-bold text-brand-400 ipa-symbol">
-                        /${item.symbol}/
-                    </div>
-                    <h3 class="text-xl font-bold text-white">${item.name}</h3>
-                    <p class="text-xs text-brand-400 font-semibold">${item.category}</p>
-                </div>
+            if (masteredIds.has(sound.id)) {
+                masteredIds.delete(sound.id);
+            } else {
+                masteredIds.add(sound.id);
+            }
 
-                <div class="space-y-3 border-t border-b border-slate-800 py-4 my-4 text-left">
-                    <p class="text-xs text-slate-300 leading-relaxed">${item.articulation}</p>
-                    <div class="text-xs text-slate-400">Native Example: <span class="text-white font-bold">"${item.nativeExample}"</span> <span class="text-brand-400 ipa-symbol">${item.nativeIPA}</span></div>
-                </div>
+            try {
+                localStorage.setItem('ipa_mastered', JSON.stringify([...masteredIds]));
+            } catch(e){}
 
-                <div class="flex gap-3">
-                    <button onclick="playPhonemeAudio('${item.symbol}')" class="flex-1 py-2.5 bg-brand-600 hover:bg-brand-500 text-white rounded-xl text-xs font-bold transition">
-                        🔊 Play Audio
-                    </button>
-                    <button onclick="closeModal()" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-bold transition">
-                        Close
-                    </button>
-                </div>
-            `;
-
-            document.getElementById('symbol-modal').classList.remove('hidden');
-            document.getElementById('symbol-modal').classList.add('flex');
+            updateMasteryBtn(sound.id);
+            updateProgressView();
         }
 
-        function closeModal() {
-            document.getElementById('symbol-modal').classList.add('hidden');
-            document.getElementById('symbol-modal').classList.remove('flex');
+        function prevSound() {
+            const list = getFilteredSounds();
+            currentSoundIndex = (currentSoundIndex - 1 + list.length) % list.length;
+            renderLesson();
         }
 
-        function playProceduralTone() {
+        function nextSound() {
+            const list = getFilteredSounds();
+            currentSoundIndex = (currentSoundIndex + 1) % list.length;
+            renderLesson();
+        }
+
+        // Web Audio API Procedural Click Synthesizer for non-pulmonic symbols
+        function playProceduralClick(type) {
             try {
                 const AudioCtx = window.AudioContext || window.webkitAudioContext;
                 if (!AudioCtx) return;
                 const ctx = new AudioCtx();
+
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(300, ctx.currentTime);
-                gain.gain.setValueAtTime(0.2, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.4);
+
+                if (type === 'bilabial_click') {
+                    // Soft pop sound
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(350, ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.05);
+                    gain.gain.setValueAtTime(0.8, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.05);
+                } else {
+                    // Sharp dental click (tsk)
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(2200, ctx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.03);
+                    gain.gain.setValueAtTime(1.0, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.03);
+                }
+
                 osc.connect(gain);
                 gain.connect(ctx.destination);
+
                 osc.start();
-                osc.stop(ctx.currentTime + 0.4);
-            } catch (e) {}
+                osc.stop(ctx.currentTime + 0.06);
+            } catch(e) {}
         }
 
-        function startQuiz(type) {
-            appState.quiz = {
-                active: true,
-                type: type,
-                questions: generateQuizQuestions(type, 10),
-                currentIndex: 0,
-                score: 0
-            };
+        function playNativeAudio() {
+            const sound = getFilteredSounds()[currentSoundIndex];
+            if (!sound) return;
 
-            document.getElementById('quiz-selection-screen').classList.add('hidden');
-            document.getElementById('active-quiz-screen').classList.remove('hidden');
-            renderQuizQuestion();
-        }
-
-        function exitQuiz() {
-            appState.quiz.active = false;
-            document.getElementById('active-quiz-screen').classList.add('hidden');
-            document.getElementById('quiz-selection-screen').classList.remove('hidden');
-        }
-
-        function generateQuizQuestions(type, count) {
-            const questions = [];
-            const shuffled = [...ALL_PHONEMES].sort(() => 0.5 - Math.random());
-
-            for (let i = 0; i < count; i++) {
-                const target = shuffled[i % shuffled.length];
-                const distractors = ALL_PHONEMES.filter(x => x.symbol !== target.symbol).sort(() => 0.5 - Math.random()).slice(0, 3);
-                const options = [...distractors, target].sort(() => 0.5 - Math.random());
-
-                questions.push({
-                    target: target,
-                    options: options,
-                    type: type
-                });
+            if (sound.langCode === 'synthetic-click') {
+                playProceduralClick(sound.id);
+            } else {
+                speakWord(sound.nativeWord, sound.langCode);
             }
-            return questions;
         }
 
-        function renderQuizQuestion() {
-            const q = appState.quiz.questions[appState.quiz.currentIndex];
-            document.getElementById('quiz-current-num').textContent = appState.quiz.currentIndex + 1;
-            document.getElementById('quiz-score').textContent = appState.quiz.score;
+        function speakWord(text, lang = 'en-US') {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const cleanText = text.replace(/\s*\([^)]*\)/g, '').replace(/[^a-zA-Z\u00C0-\u024F\s]/g, '').trim();
+                const utterance = new SpeechSynthesisUtterance(cleanText);
+                utterance.lang = lang;
+                utterance.rate = 0.85;
+                window.speechSynthesis.speak(utterance);
+            }
+        }
 
-            const qContainer = document.getElementById('quiz-question-container');
-            const optsContainer = document.getElementById('quiz-options-container');
-            const feedbackBox = document.getElementById('quiz-feedback-box');
-
-            feedbackBox.classList.add('hidden');
-
-            if (q.type === 'symbol-to-desc') {
-                qContainer.innerHTML = `
-                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Which sound corresponds to this symbol?</div>
-                    <div class="text-5xl font-bold text-brand-400 ipa-symbol my-2">/${q.target.symbol}/</div>
+        function renderChart() {
+            const grid = document.getElementById('chart-grid');
+            grid.innerHTML = '';
+            ipaData.forEach(s => {
+                const item = document.createElement('div');
+                item.className = "bg-slate-900 border border-slate-800 hover:border-indigo-500 rounded-xl p-2 flex flex-col items-center justify-center cursor-pointer transition transform hover:-translate-y-0.5";
+                item.onclick = () => {
+                    currentCategory = s.cat;
+                    selectCategory(s.cat);
+                    const list = getFilteredSounds();
+                    currentSoundIndex = list.findIndex(item => item.id === s.id);
+                    switchTab('lessons');
+                    renderLesson();
+                };
+                item.innerHTML = `
+                    <span class="text-xl font-bold text-indigo-400 ipa-char">/${s.symbol}/</span>
+                    <span class="text-[9px] text-slate-400 mt-0.5 truncate w-full text-center">${s.name}</span>
                 `;
-                optsContainer.innerHTML = q.options.map(opt => `
-                    <button onclick="handleAnswer('${opt.symbol}')" class="p-4 bg-slate-950/60 hover:bg-slate-800 border border-slate-800 hover:border-brand-500 rounded-xl text-left transition font-medium text-sm text-slate-200">
-                        ${opt.name}
-                    </button>
-                `).join('');
-            } else {
-                qContainer.innerHTML = `
-                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Listen & Identify Phoneme:</div>
-                    <button onclick="playPhonemeAudio('${q.target.symbol}')" class="my-4 mx-auto px-6 py-3 bg-brand-600 hover:bg-brand-500 text-white rounded-2xl font-bold transition flex items-center gap-2 text-sm shadow-lg shadow-brand-600/30">
-                        🔊 Play Audio
-                    </button>
-                `;
-                optsContainer.innerHTML = q.options.map(opt => `
-                    <button onclick="handleAnswer('${opt.symbol}')" class="p-4 bg-slate-950/60 hover:bg-slate-800 border border-slate-800 hover:border-brand-500 rounded-xl text-center transition font-bold text-2xl text-brand-400 ipa-symbol">
-                        /${opt.symbol}/
-                    </button>
-                `).join('');
-                playPhonemeAudio(q.target.symbol);
-            }
-        }
-
-        function handleAnswer(selectedSymbol) {
-            const q = appState.quiz.questions[appState.quiz.currentIndex];
-            const isCorrect = selectedSymbol === q.target.symbol;
-
-            appState.userProgress.totalAnswers++;
-            if (isCorrect) {
-                appState.userProgress.correctAnswers++;
-                appState.quiz.score += 10;
-                appState.userProgress.streak++;
-                appState.userProgress.mastered.add(q.target.symbol);
-            } else {
-                appState.userProgress.streak = 0;
-            }
-
-            saveProgress();
-            updateStatsUI();
-
-            const feedbackBox = document.getElementById('quiz-feedback-box');
-            const feedbackTitle = document.getElementById('feedback-title');
-            const feedbackExplanation = document.getElementById('feedback-explanation');
-
-            feedbackBox.classList.remove('hidden');
-            if (isCorrect) {
-                feedbackBox.className = 'p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 space-y-2';
-                feedbackTitle.className = 'flex items-center gap-2 font-bold text-sm text-emerald-400';
-                feedbackTitle.innerHTML = `✓ Correct Answer!`;
-            } else {
-                feedbackBox.className = 'p-4 rounded-xl border border-rose-500/30 bg-rose-500/10 space-y-2';
-                feedbackTitle.className = 'flex items-center gap-2 font-bold text-sm text-rose-400';
-                feedbackTitle.innerHTML = `&times; Incorrect. Correct symbol is /${q.target.symbol}/.`;
-            }
-
-            feedbackExplanation.textContent = `Expert Note: ${q.target.name} - ${q.target.articulation}`;
-        }
-
-        function nextQuizQuestion() {
-            appState.quiz.currentIndex++;
-            if (appState.quiz.currentIndex < appState.quiz.questions.length) {
-                renderQuizQuestion();
-            } else {
-                alert(`Quiz Session Complete! Final Score: ${appState.quiz.score}`);
-                exitQuiz();
-            }
-        }
-
-        function toggleMastery(symbol) {
-            if (appState.userProgress.mastered.has(symbol)) {
-                appState.userProgress.mastered.delete(symbol);
-            } else {
-                appState.userProgress.mastered.add(symbol);
-            }
-            saveProgress();
-            updateStatsUI();
-            renderCurrentLesson();
-        }
-
-        function saveProgress() {
-            setSafeStorage('ipa_masterclass_progress', {
-                mastered: Array.from(appState.userProgress.mastered),
-                streak: appState.userProgress.streak,
-                totalAnswers: appState.userProgress.totalAnswers,
-                correctAnswers: appState.userProgress.correctAnswers
+                grid.appendChild(item);
             });
         }
 
-        function resetProgress() {
-            if (confirm("Reset all stored learning progress and mastered stats?")) {
-                appState.userProgress = {
-                    mastered: new Set(),
-                    streak: 0,
-                    totalAnswers: 0,
-                    correctAnswers: 0
-                };
-                saveProgress();
-                updateStatsUI();
-                renderCurrentLesson();
-                if (appState.activeTab === 'progress') renderProgressCategoryBars();
+        function setupQuiz() {
+            targetQuizSound = ipaData[Math.floor(Math.random() * ipaData.length)];
+            const options = [targetQuizSound];
+
+            while (options.length < 4) {
+                const rand = ipaData[Math.floor(Math.random() * ipaData.length)];
+                if (!options.some(o => o.id === rand.id)) {
+                    options.push(rand);
+                }
+            }
+
+            options.sort(() => Math.random() - 0.5);
+
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            document.getElementById('quiz-feedback').textContent = '';
+
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500 text-lg font-bold text-slate-200 hover:text-white ipa-char transition flex flex-col items-center";
+                btn.innerHTML = `
+                    <span>/${opt.symbol}/</span>
+                    <span class="text-[10px] font-normal text-slate-400 mt-0.5 truncate w-full text-center">${opt.name}</span>
+                `;
+                btn.onclick = () => checkQuizAnswer(opt.id, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function playQuizAudio() {
+            if (!targetQuizSound) return;
+            if (targetQuizSound.langCode === 'synthetic-click') {
+                playProceduralClick(targetQuizSound.id);
+            } else {
+                speakWord(targetQuizSound.nativeWord, targetQuizSound.langCode);
             }
         }
 
-        function updateStatsUI() {
-            document.getElementById('streak-counter').textContent = `${appState.userProgress.streak} Streak`;
-            document.getElementById('mastered-counter').textContent = `${appState.userProgress.mastered.size} / ${ALL_PHONEMES.length}`;
-
-            document.getElementById('stat-total-mastered').textContent = `${appState.userProgress.mastered.size} / ${ALL_PHONEMES.length}`;
-            const acc = appState.userProgress.totalAnswers > 0 ? Math.round((appState.userProgress.correctAnswers / appState.userProgress.totalAnswers) * 100) : 0;
-            document.getElementById('stat-accuracy').textContent = `${acc}%`;
-            document.getElementById('stat-streak').textContent = appState.userProgress.streak;
+        function checkQuizAnswer(selectedId, element) {
+            const feedback = document.getElementById('quiz-feedback');
+            if (selectedId === targetQuizSound.id) {
+                feedback.className = "h-8 text-xs font-semibold flex items-center justify-center text-emerald-400";
+                feedback.textContent = " Correct! Well done.";
+                masteredIds.add(targetQuizSound.id);
+                try { localStorage.setItem('ipa_mastered', JSON.stringify([...masteredIds])); } catch(e){}
+                updateProgressView();
+                setTimeout(setupQuiz, 1200);
+            } else {
+                feedback.className = "h-8 text-xs font-semibold flex items-center justify-center text-rose-400";
+                feedback.textContent = "❌ Incorrect. Try listening again!";
+            }
         }
 
-        function renderProgressCategoryBars() {
-            const container = document.getElementById('category-progress-bars');
-            const categories = [
-                { title: 'Pulmonic Consonants', list: IPA_DATA.pulmonic },
-                { title: 'Vowels', list: IPA_DATA.vowels },
-                { title: 'Non-Pulmonic Consonants', list: IPA_DATA.nonpulmonic }
-            ];
+        function updateProgressView() {
+            const total = ipaData.length;
+            const count = masteredIds.size;
+            const percent = Math.round((count / total) * 100);
 
-            container.innerHTML = categories.map(cat => {
-                const masteredCount = cat.list.filter(x => appState.userProgress.mastered.has(x.symbol)).length;
-                const pct = Math.round((masteredCount / cat.list.length) * 100);
+            document.getElementById('header-mastered').textContent = `${count} / ${total}`;
+            document.getElementById('progress-percent').textContent = `${percent}%`;
+            document.getElementById('progress-count').textContent = `${count} / ${total}`;
+            document.getElementById('progress-streak').textContent = count > 0 ? "1 Day" : "0 Days";
 
-                return `
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-xs font-semibold">
-                            <span class="text-slate-300">${cat.title}</span>
-                            <span class="text-brand-400">${masteredCount} / ${cat.list.length} (${pct}%)</span>
-                        </div>
-                        <div class="w-full bg-slate-950 rounded-full h-2.5 overflow-hidden border border-slate-800">
-                            <div class="bg-brand-500 h-2.5 rounded-full transition-all duration-500" style="width: ${pct}%"></div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+            const tagsContainer = document.getElementById('mastered-tags');
+            if (count === 0) {
+                tagsContainer.innerHTML = `<span class="text-xs text-slate-400 italic">No symbols mastered yet. Start learning in Lessons!</span>`;
+            } else {
+                tagsContainer.innerHTML = '';
+                masteredIds.forEach(id => {
+                    const sound = ipaData.find(s => s.id === id);
+                    if (sound) {
+                        const tag = document.createElement('span');
+                        tag.className = "px-2.5 py-1 bg-emerald-950/60 border border-emerald-800 text-emerald-300 rounded-lg text-xs font-mono flex items-center space-x-1";
+                        tag.innerHTML = `<span class="ipa-char font-bold">/${sound.symbol}/</span> <span class="text-slate-400">(${sound.nativeWord})</span>`;
+                        tagsContainer.appendChild(tag);
+                    }
+                });
+            }
         }
     </script>
 </body>
