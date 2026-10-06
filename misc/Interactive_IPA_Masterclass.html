@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>IPA Masterclass - Complete English Phoneme Guide</title>
+    <title>IPA Masterclass - Expert Phonetics Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .ipa-char { font-family: "Lucida Sans Unicode", "Arial Unicode MS", "Segoe UI Symbol", "Gentium Plus", "Doulos SIL", sans-serif; }
@@ -15,6 +15,7 @@
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-full flex flex-col font-sans antialiased selection:bg-indigo-500 selection:text-white">
 
+    <!-- Header Navigation -->
     <header class="border-b border-slate-800 bg-slate-900/90 sticky top-0 z-50 backdrop-blur-md flex-shrink-0">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-12 sm:h-16 flex items-center justify-between">
             <div class="flex items-center space-x-2">
@@ -23,7 +24,7 @@
                 </div>
                 <div>
                     <h1 class="text-sm sm:text-lg font-bold bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent leading-tight">IPA Masterclass</h1>
-                    <p class="hidden sm:block text-xs text-slate-400">Complete English Phoneme Reference (GA & RP)</p>
+                    <p class="hidden sm:block text-xs text-slate-400">IPA & NOAD Phonetic Guide</p>
                 </div>
             </div>
 
@@ -57,20 +58,17 @@
         </div>
     </header>
 
+    <!-- Main Content Container -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-2 sm:px-6 lg:px-8 py-2 sm:py-6 flex flex-col">
 
         <!-- TAB 1: LESSONS -->
         <section id="tab-lessons" class="flex-grow flex flex-col md:flex-row gap-3 sm:gap-6">
             
             <!-- Category Selector Toolbar -->
-            <div class="w-full md:w-64 flex-shrink-0 flex md:flex-col gap-1.5 overflow-x-auto pb-1 md:pb-0 custom-scrollbar">
-                <button onclick="selectCategory('consonants')" id="cat-consonants" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-indigo-500/40 bg-indigo-600/10 text-indigo-300 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
+            <div class="w-full md:w-60 flex-shrink-0 flex md:flex-col gap-1.5 overflow-x-auto pb-1 md:pb-0 custom-scrollbar">
+                <button onclick="selectCategory('pulmonic')" id="cat-pulmonic" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-indigo-500/40 bg-indigo-600/10 text-indigo-300 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
                     <span>Consonants</span>
-                    <span id="count-consonants" class="ml-2 text-[10px] bg-indigo-950 px-1.5 py-0.5 rounded-full border border-indigo-800 text-indigo-300 font-mono">24</span>
-                </button>
-                <button onclick="selectCategory('allophones')" id="cat-allophones" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
-                    <span>Allophones & Variants</span>
-                    <span id="count-allophones" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">2</span>
+                    <span id="count-pulmonic" class="ml-2 text-[10px] bg-indigo-950 px-1.5 py-0.5 rounded-full border border-indigo-800 text-indigo-300 font-mono">25</span>
                 </button>
                 <button onclick="selectCategory('vowels')" id="cat-vowels" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
                     <span>Monophthongs</span>
@@ -78,7 +76,7 @@
                 </button>
                 <button onclick="selectCategory('diphthongs')" id="cat-diphthongs" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
                     <span>Diphthongs</span>
-                    <span id="count-diphthongs" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">8</span>
+                    <span id="count-diphthongs" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">7</span>
                 </button>
                 <button onclick="selectCategory('diacritics')" id="cat-diacritics" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
                     <span>Diacritics & Stress</span>
@@ -89,7 +87,7 @@
             <!-- Dense Responsive Card Area -->
             <div class="flex-grow flex flex-col glass-card rounded-2xl p-3 sm:p-6 shadow-xl border border-slate-800 relative">
                 
-                <!-- STICKY MOBILE HEADER FOR ALWAYS-VISIBLE SYMBOL -->
+                <!-- STICKY MOBILE HEADER -->
                 <div class="sticky top-12 z-20 bg-slate-900/95 backdrop-blur-md p-2.5 sm:p-0 border sm:border-0 border-slate-800 rounded-xl mb-3 sm:mb-4 sm:border-b sm:border-slate-800 sm:pb-4">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-3">
@@ -99,8 +97,8 @@
                             <div class="overflow-hidden">
                                 <h2 id="lesson-name" class="text-sm sm:text-2xl font-bold text-white truncate">Voiced bilabial plosive</h2>
                                 <div class="flex items-center space-x-1.5 mt-0.5">
-                                    <span id="lesson-category-tag" class="text-[9px] sm:text-xs uppercase tracking-wider px-1.5 py-0.5 rounded bg-indigo-950 text-indigo-400 border border-indigo-800 font-semibold">Consonants</span>
-                                    <span id="lesson-type-tag" class="text-[10px] sm:text-xs text-slate-400 truncate">Plosive</span>
+                                    <span id="lesson-category-tag" class="text-[9px] sm:text-xs uppercase tracking-wider px-1.5 py-0.5 rounded bg-indigo-950 text-indigo-400 border border-indigo-800 font-semibold">Consonant</span>
+                                    <span id="lesson-noad-tag" class="text-[10px] sm:text-xs bg-slate-800 text-amber-300 border border-slate-700 px-1.5 py-0.5 rounded font-mono">NOAD: p</span>
                                 </div>
                             </div>
                         </div>
@@ -111,6 +109,7 @@
                     </div>
                 </div>
 
+                <!-- Main Details Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-4 my-1 sm:my-2">
                     
                     <!-- Native Example Box -->
@@ -118,11 +117,15 @@
                         <div>
                             <div class="flex justify-between items-center mb-1">
                                 <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">EXPERT NATIVE EXAMPLE</span>
-                                <span id="native-lang-badge" class="text-[10px] bg-indigo-950 text-indigo-300 border border-indigo-800 px-1.5 py-0.5 rounded">GA & RP</span>
+                                <span id="native-lang-badge" class="text-[10px] bg-indigo-950 text-indigo-300 border border-indigo-800 px-1.5 py-0.5 rounded">English</span>
                             </div>
                             <div class="flex items-baseline space-x-2">
                                 <span id="native-word" class="text-lg sm:text-xl font-bold text-white">"pack"</span>
-                                <span id="native-ipa" class="text-xs sm:text-sm font-mono text-indigo-400 ipa-char">/pæk/</span>
+                            </div>
+                            <div class="flex items-center space-x-2 mt-1 text-xs font-mono">
+                                <span id="native-ipa" class="text-indigo-400 ipa-char">IPA: /pæk/</span>
+                                <span class="text-slate-600">|</span>
+                                <span id="native-noad" class="text-amber-300">NOAD: pak</span>
                             </div>
                         </div>
                         <button onclick="playNativeAudio()" class="mt-3 w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-medium flex items-center justify-center space-x-1.5 transition active:scale-95">
@@ -150,7 +153,7 @@
                     <button onclick="prevSound()" class="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 hover:bg-slate-800 text-slate-300 text-xs font-medium transition">
                         ← Prev
                     </button>
-                    <span id="lesson-counter" class="text-[11px] text-slate-400 font-mono">Sound 1 of 24</span>
+                    <span id="lesson-counter" class="text-[11px] text-slate-400 font-mono">Sound 1 of 25</span>
                     <button onclick="nextSound()" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-medium transition">
                         Next →
                     </button>
@@ -158,29 +161,31 @@
             </div>
         </section>
 
+        <!-- TAB 2: IPA CHART -->
         <section id="tab-chart" class="hidden flex-grow flex-col">
             <div class="glass-card rounded-2xl p-4 sm:p-6 border border-slate-800">
-                <h2 class="text-lg font-bold text-white mb-1">Interactive English IPA Chart</h2>
-                <p class="text-xs text-slate-400 mb-4">Click any phoneme to explore its articulation mechanics or practice pronunciation.</p>
+                <h2 class="text-lg font-bold text-white mb-1">Interactive English Phonetic Chart</h2>
+                <p class="text-xs text-slate-400 mb-4">Click any symbol to view its articulation rules or hear standard audio.</p>
                 <div id="chart-grid" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2 overflow-x-auto custom-scrollbar p-1">
                     <!-- Dynamic chart elements -->
                 </div>
             </div>
         </section>
 
+        <!-- TAB 3: QUIZZES -->
         <section id="tab-quizzes" class="hidden flex-grow flex-col max-w-2xl mx-auto w-full">
             <div class="glass-card rounded-2xl p-4 sm:p-6 border border-slate-800 flex flex-col items-center text-center">
                 <div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-400 flex items-center justify-center text-xl font-bold mb-2">
                     🎯
                 </div>
                 <h2 class="text-lg sm:text-xl font-bold text-white mb-1">Phonetic Ear-Training Drill</h2>
-                <p class="text-xs text-slate-400 mb-4">Listen to the target phoneme sound and select its exact IPA symbol.</p>
+                <p class="text-xs text-slate-400 mb-4">Listen to the target audio sound and select its exact IPA symbol.</p>
 
                 <div class="w-full bg-slate-900 border border-slate-800 rounded-xl p-4 mb-4 flex flex-col items-center justify-center">
                     <button onclick="playQuizAudio()" class="w-16 h-16 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white flex items-center justify-center text-2xl shadow-lg transition transform active:scale-95 mb-2">
                         🔊
                     </button>
-                    <div id="quiz-carrier-hint" class="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-2.5 py-1 rounded border border-indigo-800/50">Target sound in context</div>
+                    <div id="quiz-carrier-hint" class="text-xs font-mono text-indigo-300 bg-indigo-950/60 px-2.5 py-1.5 rounded border border-indigo-800/50">Target sound context</div>
                 </div>
 
                 <div id="quiz-options" class="grid grid-cols-2 gap-2.5 w-full mb-4">
@@ -191,6 +196,7 @@
             </div>
         </section>
 
+        <!-- TAB 4: PROGRESS -->
         <section id="tab-progress" class="hidden flex-grow flex-col">
             <div class="glass-card rounded-2xl p-4 sm:p-6 border border-slate-800">
                 <h2 class="text-lg font-bold text-white mb-3">Your Progress Tracker</h2>
@@ -216,82 +222,79 @@
         </section>
     </main>
 
+    <!-- Footer with Automatic Runtime Timestamp -->
     <footer class="border-t border-slate-900 bg-slate-950 py-3 px-4 text-slate-500 text-[11px] flex flex-col sm:flex-row justify-between items-center gap-1 flex-shrink-0">
-        <div>IPA Masterclass &bull; Complete English Phoneme Reference</div>
+        <div>IPA Masterclass &bull; Complete English Reference Guide</div>
         <div id="ai-timestamp" class="text-slate-400 text-[10px]">
             Generated by AI
         </div>
     </footer>
 
+    <!-- Application Script -->
     <script>
         document.getElementById('ai-timestamp').textContent = `Generated by AI | Code Updated: ${new Date().toLocaleString()}`;
 
-        // FULL COMPREHENSIVE SET OF 50 ENGLISH IPA SYMBOLS (Consonants, Monophthongs, Diphthongs, Allophones & Suprasegmentals)
         const ipaData = [
-            // --- 24 CONSONANTS ---
-            { id: "p", symbol: "p", name: "Voiceless bilabial plosive", cat: "consonants", nativeWord: "pack", targetFocus: "p", speechCarrier: "pack", nativeIPA: "/pæk/", nativeLang: "GA & RP", langCode: "en-US", art: "Airflow blocked with both lips, then released without vocal cord vibration.", place: "Bilabial", manner: "Plosive", voiced: false },
-            { id: "b", symbol: "b", name: "Voiced bilabial plosive", cat: "consonants", nativeWord: "back", targetFocus: "b", speechCarrier: "back", nativeIPA: "/bæk/", nativeLang: "GA & RP", langCode: "en-US", art: "Airflow blocked with both lips, then released with vocal cord vibration.", place: "Bilabial", manner: "Plosive", voiced: true },
-            { id: "t", symbol: "t", name: "Voiceless alveolar plosive", cat: "consonants", nativeWord: "time", targetFocus: "t", speechCarrier: "time", nativeIPA: "/taɪm/", nativeLang: "GA & RP", langCode: "en-US", art: "Tongue tip touches alveolar ridge, temporarily blocking airflow completely.", place: "Alveolar", manner: "Plosive", voiced: false },
-            { id: "d", symbol: "d", name: "Voiced alveolar plosive", cat: "consonants", nativeWord: "door", targetFocus: "d", speechCarrier: "door", nativeIPA: "/dɔːr/", nativeLang: "GA & RP", langCode: "en-US", art: "Tongue tip touches alveolar ridge with vocal cord vibration during release.", place: "Alveolar", manner: "Plosive", voiced: true },
-            { id: "k", symbol: "k", name: "Voiceless velar plosive", cat: "consonants", nativeWord: "cat", targetFocus: "c", speechCarrier: "cat", nativeIPA: "/kæt/", nativeLang: "GA & RP", langCode: "en-US", art: "Back of tongue presses against soft palate (velum) to stop airflow.", place: "Velar", manner: "Plosive", voiced: false },
-            { id: "g", symbol: "g", name: "Voiced velar plosive", cat: "consonants", nativeWord: "go", targetFocus: "g", speechCarrier: "go", nativeIPA: "/ɡoʊ/", nativeLang: "GA & RP", langCode: "en-US", art: "Back of tongue presses against soft palate while vocal cords vibrate.", place: "Velar", manner: "Plosive", voiced: true },
-            { id: "m", symbol: "m", name: "Voiced bilabial nasal", cat: "consonants", nativeWord: "man", targetFocus: "m", speechCarrier: "man", nativeIPA: "/mæn/", nativeLang: "GA & RP", langCode: "en-US", art: "Lips closed tightly while velum lowers to allow air through nasal cavity.", place: "Bilabial", manner: "Nasal", voiced: true },
-            { id: "n", symbol: "n", name: "Voiced alveolar nasal", cat: "consonants", nativeWord: "no", targetFocus: "n", speechCarrier: "no", nativeIPA: "/noʊ/", nativeLang: "GA & RP", langCode: "en-US", art: "Tongue tip contacts alveolar ridge while velum lowers for nasal resonance.", place: "Alveolar", manner: "Nasal", voiced: true },
-            { id: "ng", symbol: "ŋ", name: "Voiced velar nasal", cat: "consonants", nativeWord: "sing", targetFocus: "ng", speechCarrier: "sing", nativeIPA: "/sɪŋ/", nativeLang: "GA & RP", langCode: "en-US", art: "Back of tongue contacts soft palate while air flows exclusively through nose.", place: "Velar", manner: "Nasal", voiced: true },
-            { id: "f", symbol: "f", name: "Voiceless labiodental fricative", cat: "consonants", nativeWord: "fan", targetFocus: "f", speechCarrier: "fan", nativeIPA: "/fæn/", nativeLang: "GA & RP", langCode: "en-US", art: "Upper front teeth touch lower lip to create continuous air friction.", place: "Labiodental", manner: "Fricative", voiced: false },
-            { id: "v", symbol: "v", name: "Voiced labiodental fricative", cat: "consonants", nativeWord: "van", targetFocus: "v", speechCarrier: "a van", nativeIPA: "/væn/", nativeLang: "GA & RP", langCode: "en-US", art: "Upper front teeth touch lower lip with continuous vocal cord vibration.", place: "Labiodental", manner: "Fricative", voiced: true },
-            { id: "th_thin", symbol: "θ", name: "Voiceless dental fricative", cat: "consonants", nativeWord: "think", targetFocus: "th", speechCarrier: "think", nativeIPA: "/θɪŋk/", nativeLang: "GA & RP", langCode: "en-US", art: "Tongue tip placed against upper teeth forcing friction stream.", place: "Dental", manner: "Fricative", voiced: false },
-            { id: "th_this", symbol: "ð", name: "Voiced dental fricative", cat: "consonants", nativeWord: "this", targetFocus: "th", speechCarrier: "this", nativeIPA: "/ðɪs/", nativeLang: "GA & RP", langCode: "en-US", art: "Tongue tip against upper teeth with vocal cords vibrating.", place: "Dental", manner: "Fricative", voiced: true },
-            { id: "s", symbol: "s", name: "Voiceless alveolar fricative", cat: "consonants", nativeWord: "sip", targetFocus: "s", speechCarrier: "sip", nativeIPA: "/sɪp/", nativeLang: "GA & RP", langCode: "en-US", art: "Air channeled narrow groove along tongue against alveolar ridge.", place: "Alveolar", manner: "Fricative", voiced: false },
-            { id: "z", symbol: "z", name: "Voiced alveolar fricative", cat: "consonants", nativeWord: "zip", targetFocus: "z", speechCarrier: "is zip", nativeIPA: "/zɪp/", nativeLang: "GA & RP", langCode: "en-US", art: "Narrow groove friction against alveolar ridge with vocal cord voicing.", place: "Alveolar", manner: "Fricative", voiced: true },
-            { id: "sh", symbol: "ʃ", name: "Voiceless postalveolar fricative", cat: "consonants", nativeWord: "she", targetFocus: "sh", speechCarrier: "she", nativeIPA: "/ʃiː/", nativeLang: "GA & RP", langCode: "en-US", art: "Tongue blade raised just behind alveolar ridge with slight lip rounding.", place: "Postalveolar", manner: "Fricative", voiced: false },
-            { id: "zh", symbol: "ʒ", name: "Voiced postalveolar fricative", cat: "consonants", nativeWord: "vision", targetFocus: "s", speechCarrier: "vision", nativeIPA: "/ˈvɪʒən/", nativeLang: "GA & RP", langCode: "en-US", art: "Voiced friction generated behind alveolar ridge.", place: "Postalveolar", manner: "Fricative", voiced: true },
-            { id: "h", symbol: "h", name: "Voiceless glottal fricative", cat: "consonants", nativeWord: "hat", targetFocus: "h", speechCarrier: "hat", nativeIPA: "/hæt/", nativeLang: "GA & RP", langCode: "en-US", art: "Airflow passes through opening vocal folds without oral constriction.", place: "Glottal", manner: "Fricative", voiced: false },
-            { id: "ch", symbol: "t͡ʃ", name: "Voiceless postalveolar affricate", cat: "consonants", nativeWord: "church", targetFocus: "ch", speechCarrier: "church", nativeIPA: "/t͡ʃɜːrt͡ʃ/", nativeLang: "GA & RP", langCode: "en-US", art: "Combines a plosive stop [t] with a fricative release [ʃ].", place: "Postalveolar", manner: "Affricate", voiced: false },
-            { id: "j_affricate", symbol: "d͡ʒ", name: "Voiced postalveolar affricate", cat: "consonants", nativeWord: "judge", targetFocus: "j", speechCarrier: "judge", nativeIPA: "/d͡ʒʌd͡ʒ/", nativeLang: "GA & RP", langCode: "en-US", art: "Combines a voiced stop [d] with a voiced fricative release [ʒ].", place: "Postalveolar", manner: "Affricate", voiced: true },
-            { id: "l", symbol: "l", name: "Voiced alveolar lateral approximant", cat: "consonants", nativeWord: "light", targetFocus: "l", speechCarrier: "light", nativeIPA: "/laɪt/", nativeLang: "GA & RP", langCode: "en-US", art: "Tongue tip contacts alveolar ridge while air flows around sides.", place: "Alveolar", manner: "Approximant", voiced: true },
-            { id: "r_approximant", symbol: "ɹ", name: "Voiced alveolar approximant", cat: "consonants", nativeWord: "red", targetFocus: "r", speechCarrier: "red", nativeIPA: "/ɹɛd/", nativeLang: "GA & RP", langCode: "en-US", art: "Tongue curled back (retroflex) or bunched near alveolar ridge without contact.", place: "Alveolar", manner: "Approximant", voiced: true },
-            { id: "j", symbol: "j", name: "Voiced palatal approximant", cat: "consonants", nativeWord: "yes", targetFocus: "y", speechCarrier: "yes", nativeIPA: "/jɛs/", nativeLang: "GA & RP", langCode: "en-US", art: "Body of tongue glides toward hard palate without creating friction.", place: "Palatal", manner: "Approximant", voiced: true },
-            { id: "w", symbol: "w", name: "Voiced labial-velar approximant", cat: "consonants", nativeWord: "wet", targetFocus: "w", speechCarrier: "wet", nativeIPA: "/wɛt/", nativeLang: "GA & RP", langCode: "en-US", art: "Lips rounded while back of tongue glides toward soft palate.", place: "Labial-velar", manner: "Approximant", voiced: true },
+            // Consonants
+            { id: "p", symbol: "p", noadSymbol: "p", name: "Voiceless bilabial plosive", cat: "pulmonic", nativeWord: "pack", highlightSub: "p", speechCarrier: "pack", nativeIPA: "/pæk/", nativeNOAD: "pak", nativeLang: "English", langCode: "en-US", art: "Airflow blocked with both lips, then released without vocal cord vibration.", place: "Bilabial", manner: "Plosive" },
+            { id: "b", symbol: "b", noadSymbol: "b", name: "Voiced bilabial plosive", cat: "pulmonic", nativeWord: "back", highlightSub: "b", speechCarrier: "back", nativeIPA: "/bæk/", nativeNOAD: "bak", nativeLang: "English", langCode: "en-US", art: "Airflow blocked with both lips, then released with vocal cord vibration.", place: "Bilabial", manner: "Plosive" },
+            { id: "t", symbol: "t", noadSymbol: "t", name: "Voiceless alveolar plosive", cat: "pulmonic", nativeWord: "time", highlightSub: "t", speechCarrier: "time", nativeIPA: "/taɪm/", nativeNOAD: "tīm", nativeLang: "English", langCode: "en-US", art: "Tongue tip touches alveolar ridge, temporarily blocking airflow completely.", place: "Alveolar", manner: "Plosive" },
+            { id: "d", symbol: "d", noadSymbol: "d", name: "Voiced alveolar plosive", cat: "pulmonic", nativeWord: "door", highlightSub: "d", speechCarrier: "door", nativeIPA: "/dɔːr/", nativeNOAD: "dôr", nativeLang: "English", langCode: "en-US", art: "Tongue tip touches alveolar ridge with vocal cord vibration during release.", place: "Alveolar", manner: "Plosive" },
+            { id: "k", symbol: "k", noadSymbol: "k", name: "Voiceless velar plosive", cat: "pulmonic", nativeWord: "cat", highlightSub: "c", speechCarrier: "cat", nativeIPA: "/kæt/", nativeNOAD: "kat", nativeLang: "English", langCode: "en-US", art: "Back of tongue presses against soft palate (velum) to stop airflow.", place: "Velar", manner: "Plosive" },
+            { id: "g", symbol: "g", noadSymbol: "g", name: "Voiced velar plosive", cat: "pulmonic", nativeWord: "go", highlightSub: "g", speechCarrier: "go", nativeIPA: "/ɡoʊ/", nativeNOAD: "gō", nativeLang: "English", langCode: "en-US", art: "Back of tongue presses against soft palate while vocal cords vibrate.", place: "Velar", manner: "Plosive" },
+            { id: "ch", symbol: "t͡ʃ", noadSymbol: "CH", name: "Voiceless postalveolar affricate", cat: "pulmonic", nativeWord: "church", highlightSub: "ch", speechCarrier: "church", nativeIPA: "/t͡ʃɜːrt͡ʃ/", nativeNOAD: "CHərCH", nativeLang: "English", langCode: "en-US", art: "Starts as a stop [t] behind alveolar ridge and releases into fricative [ʃ].", place: "Postalveolar", manner: "Affricate" },
+            { id: "jh", symbol: "d͡ʒ", noadSymbol: "j", name: "Voiced postalveolar affricate", cat: "pulmonic", nativeWord: "judge", highlightSub: "j", speechCarrier: "judge", nativeIPA: "/d͡ʒʌd͡ʒ/", nativeNOAD: "jəj", nativeLang: "English", langCode: "en-US", art: "Starts as voiced stop [d] behind alveolar ridge releasing into voiced fricative [ʒ].", place: "Postalveolar", manner: "Affricate" },
+            { id: "f", symbol: "f", noadSymbol: "f", name: "Voiceless labiodental fricative", cat: "pulmonic", nativeWord: "fan", highlightSub: "f", speechCarrier: "fan", nativeIPA: "/fæn/", nativeNOAD: "fan", nativeLang: "English", langCode: "en-US", art: "Upper front teeth touch lower lip to create continuous air friction.", place: "Labiodental", manner: "Fricative" },
+            { id: "v", symbol: "v", noadSymbol: "v", name: "Voiced labiodental fricative", cat: "pulmonic", nativeWord: "van", highlightSub: "v", speechCarrier: "a van", nativeIPA: "/væn/", nativeNOAD: "van", nativeLang: "English", langCode: "en-US", art: "Upper front teeth touch lower lip with continuous vocal cord vibration.", place: "Labiodental", manner: "Fricative" },
+            { id: "th_thin", symbol: "θ", noadSymbol: "TH", name: "Voiceless dental fricative", cat: "pulmonic", nativeWord: "think", highlightSub: "th", speechCarrier: "think", nativeIPA: "/θɪŋk/", nativeNOAD: "THiNGk", nativeLang: "English", langCode: "en-US", art: "Tongue tip placed against upper teeth forcing friction stream.", place: "Dental", manner: "Fricative" },
+            { id: "th_this", symbol: "ð", noadSymbol: "T͟H", name: "Voiced dental fricative", cat: "pulmonic", nativeWord: "this", highlightSub: "th", speechCarrier: "this", nativeIPA: "/ðɪs/", nativeNOAD: "T͟His", nativeLang: "English", langCode: "en-US", art: "Tongue tip against upper teeth with vocal cords vibrating.", place: "Dental", manner: "Fricative" },
+            { id: "s", symbol: "s", noadSymbol: "s", name: "Voiceless alveolar fricative", cat: "pulmonic", nativeWord: "sip", highlightSub: "s", speechCarrier: "sip", nativeIPA: "/sɪp/", nativeNOAD: "sip", nativeLang: "English", langCode: "en-US", art: "Air channeled narrow groove along tongue against alveolar ridge.", place: "Alveolar", manner: "Fricative" },
+            { id: "z", symbol: "z", noadSymbol: "z", name: "Voiced alveolar fricative", cat: "pulmonic", nativeWord: "zip", highlightSub: "z", speechCarrier: "is zip", nativeIPA: "/zɪp/", nativeNOAD: "zip", nativeLang: "English", langCode: "en-US", art: "Narrow groove friction against alveolar ridge with vocal cord voicing.", place: "Alveolar", manner: "Fricative" },
+            { id: "sh", symbol: "ʃ", noadSymbol: "sH", name: "Voiceless postalveolar fricative", cat: "pulmonic", nativeWord: "she", highlightSub: "sh", speechCarrier: "she", nativeIPA: "/ʃiː/", nativeNOAD: "sHē", nativeLang: "English", langCode: "en-US", art: "Tongue blade raised just behind alveolar ridge with slight lip rounding.", place: "Postalveolar", manner: "Fricative" },
+            { id: "zh", symbol: "ʒ", noadSymbol: "zH", name: "Voiced postalveolar fricative", cat: "pulmonic", nativeWord: "vision", highlightSub: "si", speechCarrier: "vision", nativeIPA: "/ˈvɪʒən/", nativeNOAD: "ˈvizHən", nativeLang: "English", langCode: "en-US", art: "Voiced friction generated behind alveolar ridge.", place: "Postalveolar", manner: "Fricative" },
+            { id: "h", symbol: "h", noadSymbol: "h", name: "Voiceless glottal fricative", cat: "pulmonic", nativeWord: "hat", highlightSub: "h", speechCarrier: "hat", nativeIPA: "/hæt/", nativeNOAD: "hat", nativeLang: "English", langCode: "en-US", art: "Airflow passes through opening vocal folds without oral constriction.", place: "Glottal", manner: "Fricative" },
+            { id: "m", symbol: "m", noadSymbol: "m", name: "Voiced bilabial nasal", cat: "pulmonic", nativeWord: "man", highlightSub: "m", speechCarrier: "man", nativeIPA: "/mæn/", nativeNOAD: "man", nativeLang: "English", langCode: "en-US", art: "Lips closed tightly while velum lowers to allow air through nasal cavity.", place: "Bilabial", manner: "Nasal" },
+            { id: "n", symbol: "n", noadSymbol: "n", name: "Voiced alveolar nasal", cat: "pulmonic", nativeWord: "no", highlightSub: "n", speechCarrier: "no", nativeIPA: "/noʊ/", nativeNOAD: "nō", nativeLang: "English", langCode: "en-US", art: "Tongue tip contacts alveolar ridge while velum lowers for nasal resonance.", place: "Alveolar", manner: "Nasal" },
+            { id: "ng", symbol: "ŋ", noadSymbol: "NG", name: "Voiced velar nasal", cat: "pulmonic", nativeWord: "sing", highlightSub: "ng", speechCarrier: "sing", nativeIPA: "/sɪŋ/", nativeNOAD: "siNG", nativeLang: "English", langCode: "en-US", art: "Back of tongue contacts soft palate while air flows exclusively through nose.", place: "Velar", manner: "Nasal" },
+            { id: "l", symbol: "l", noadSymbol: "l", name: "Voiced alveolar lateral approximant", cat: "pulmonic", nativeWord: "light", highlightSub: "l", speechCarrier: "light", nativeIPA: "/laɪt/", nativeNOAD: "līt", nativeLang: "English", langCode: "en-US", art: "Tongue tip contacts alveolar ridge while air flows around sides.", place: "Alveolar", manner: "Approximant" },
+            { id: "r_english", symbol: "ɹ", noadSymbol: "r", name: "Voiced alveolar approximant", cat: "pulmonic", nativeWord: "red", highlightSub: "r", speechCarrier: "red", nativeIPA: "/ɹɛd/", nativeNOAD: "red", nativeLang: "English", langCode: "en-US", art: "Tongue curled slightly back or bunched toward alveolar ridge without touching.", place: "Alveolar", manner: "Approximant" },
+            { id: "j", symbol: "j", noadSymbol: "y", name: "Voiced palatal approximant", cat: "pulmonic", nativeWord: "yes", highlightSub: "y", speechCarrier: "yes", nativeIPA: "/jɛs/", nativeNOAD: "yes", nativeLang: "English", langCode: "en-US", art: "Body of tongue glides toward hard palate without creating friction.", place: "Palatal", manner: "Approximant" },
+            { id: "w", symbol: "w", noadSymbol: "w", name: "Voiced labial-velar approximant", cat: "pulmonic", nativeWord: "wet", highlightSub: "w", speechCarrier: "wet", nativeIPA: "/wɛt/", nativeNOAD: "wet", nativeLang: "English", langCode: "en-US", art: "Lips rounded while back of tongue rises toward soft palate.", place: "Labial-Velar", manner: "Approximant" },
+            { id: "glottal", symbol: "ʔ", noadSymbol: "-", name: "Glottal stop", cat: "pulmonic", nativeWord: "uh-oh", highlightSub: "-", speechCarrier: "uh-oh", nativeIPA: "/ˈʌʔoʊ/", nativeNOAD: "ˈəˌō", nativeLang: "English", langCode: "en-US", art: "Vocal folds press tightly together to momentarily halt pulmonic airflow.", place: "Glottal", manner: "Plosive" },
 
-            // --- ALLOPHONES & VARIANTS (2 total) ---
-            { id: "tap_flap", symbol: "ɾ", name: "Voiced alveolar flap/tap", cat: "allophones", nativeWord: "butter", targetFocus: "tt", speechCarrier: "butter", nativeIPA: "/ˈbʌɾər/", nativeLang: "General American", langCode: "en-US", art: "Tongue tip taps alveolar ridge rapidly between vowels (American 'butter').", place: "Alveolar", manner: "Flap/Tap", voiced: true },
-            { id: "glottal", symbol: "ʔ", name: "Glottal stop", cat: "allophones", nativeWord: "button / uh-oh", targetFocus: "tt", speechCarrier: "uh-oh", nativeIPA: "/ˈbʌʔn̩/", nativeLang: "GA & RP", langCode: "en-US", art: "Vocal folds press tightly together to momentarily halt pulmonic airflow.", place: "Glottal", manner: "Plosive", voiced: false },
+            // Monophthong Vowels
+            { id: "i", symbol: "iː", noadSymbol: "ē", name: "Close front unrounded vowel (Fleece)", cat: "vowels", nativeWord: "see", highlightSub: "ee", speechCarrier: "see", nativeIPA: "/siː/", nativeNOAD: "sē", nativeLang: "English", langCode: "en-US", art: "Tongue positioned high and forward in mouth with unrounded lips.", place: "Close Front", manner: "Long Vowel" },
+            { id: "small_i", symbol: "ɪ", noadSymbol: "i", name: "Near-close near-front unrounded vowel (Kit)", cat: "vowels", nativeWord: "sit", highlightSub: "i", speechCarrier: "sit", nativeIPA: "/sɪt/", nativeNOAD: "sit", nativeLang: "English", langCode: "en-US", art: "Tongue positioned high-mid near front with relaxed unrounded lips.", place: "Near-close Front", manner: "Short Vowel" },
+            { id: "u_long", symbol: "uː", noadSymbol: "ōō", name: "Close back rounded vowel (Goose)", cat: "vowels", nativeWord: "too", highlightSub: "oo", speechCarrier: "too", nativeIPA: "/tuː/", nativeNOAD: "tōō", nativeLang: "English", langCode: "en-US", art: "Tongue positioned high and back with tightly rounded lips.", place: "Close Back", manner: "Long Vowel" },
+            { id: "upsilon", symbol: "ʊ", noadSymbol: "o͝o", name: "Near-close near-back rounded vowel (Foot)", cat: "vowels", nativeWord: "put", highlightSub: "u", speechCarrier: "put", nativeIPA: "/pʊt/", nativeNOAD: "po͝ot", nativeLang: "English", langCode: "en-US", art: "Tongue positioned high-mid near back with relaxed rounded lips.", place: "Near-close Back", manner: "Short Vowel" },
+            { id: "epsilon", symbol: "ɛ", noadSymbol: "e", name: "Open-mid front unrounded vowel (Dress)", cat: "vowels", nativeWord: "bed", highlightSub: "e", speechCarrier: "bed", nativeIPA: "/bɛd/", nativeNOAD: "bed", nativeLang: "English", langCode: "en-US", art: "Tongue positioned mid-low in front of mouth.", place: "Open-mid Front", manner: "Short Vowel" },
+            { id: "schwa", symbol: "ə", noadSymbol: "ə", name: "Mid-central vowel (Schwa)", cat: "vowels", nativeWord: "about", highlightSub: "a", speechCarrier: "about", nativeIPA: "/əˈbaʊt/", nativeNOAD: "əˈbout", nativeLang: "English", langCode: "en-US", art: "Neutral, relaxed vocal tract with tongue centrally placed in unstressed syllables.", place: "Mid Central", manner: "Unstressed Vowel" },
+            { id: "er_nurse", symbol: "ɜː", noadSymbol: "ər", name: "Open-mid central unrounded vowel (Nurse)", cat: "vowels", nativeWord: "bird", highlightSub: "ir", speechCarrier: "bird", nativeIPA: "/bɜːrd/", nativeNOAD: "bərd", nativeLang: "English", langCode: "en-US", art: "Mid-low central vowel position held long in stressed syllables.", place: "Open-mid Central", manner: "Long Vowel" },
+            { id: "open_o", symbol: "ɔː", noadSymbol: "ô", name: "Open-mid back rounded vowel (Thought)", cat: "vowels", nativeWord: "thought", highlightSub: "ough", speechCarrier: "thought", nativeIPA: "/θɔːt/", nativeNOAD: "THôt", nativeLang: "English", langCode: "en-US", art: "Tongue positioned mid-low in back of mouth with rounded lips.", place: "Open-mid Back", manner: "Long Vowel" },
+            { id: "ae", symbol: "æ", noadSymbol: "a", name: "Near-open front unrounded vowel (Trap)", cat: "vowels", nativeWord: "cat", highlightSub: "a", speechCarrier: "cat", nativeIPA: "/kæt/", nativeNOAD: "kat", nativeLang: "English", langCode: "en-US", art: "Tongue lowered and forward in oral cavity.", place: "Near-open Front", manner: "Short Vowel" },
+            { id: "turn_v", symbol: "ʌ", noadSymbol: "ə", name: "Open-mid back unrounded vowel (Strut)", cat: "vowels", nativeWord: "cup", highlightSub: "u", speechCarrier: "cup", nativeIPA: "/kʌp/", nativeNOAD: "kəp", nativeLang: "English", langCode: "en-US", art: "Tongue back lowered with unrounded relaxed lips.", place: "Open-mid Back", manner: "Short Vowel" },
+            { id: "a_long", symbol: "ɑː", noadSymbol: "ä", name: "Open back unrounded vowel (Palm/Father)", cat: "vowels", nativeWord: "father", highlightSub: "a", speechCarrier: "father", nativeIPA: "/ˈfɑːðər/", nativeNOAD: "ˈfät͟Hər", nativeLang: "English", langCode: "en-US", art: "Jaw open, tongue flat and low in back of mouth.", place: "Open Back", manner: "Long Vowel" },
+            { id: "lot_vowel", symbol: "ɒ", noadSymbol: "ä / o", name: "Open back rounded vowel (Lot - RP)", cat: "vowels", nativeWord: "lot", highlightSub: "o", speechCarrier: "lot", nativeIPA: "/lɒt/", nativeNOAD: "lät", nativeLang: "English (RP)", langCode: "en-GB", art: "Jaw open low in back of mouth with slight lip rounding.", place: "Open Back", manner: "Short Vowel" },
 
-            // --- 12 MONOPHTHONGS (Vowels) ---
-            { id: "i_lax", symbol: "ɪ", name: "Near-close near-front unrounded vowel", cat: "vowels", nativeWord: "kit", targetFocus: "i", speechCarrier: "kit", nativeIPA: "/kɪt/", nativeLang: "GA & RP", langCode: "en-US", art: "Short, relaxed vowel with tongue positioned slightly lower than [i].", place: "Near-close Front", manner: "Short Vowel", voiced: true },
-            { id: "e_dress", symbol: "ɛ", name: "Open-mid front unrounded vowel", cat: "vowels", nativeWord: "dress", targetFocus: "e", speechCarrier: "dress", nativeIPA: "/drɛs/", nativeLang: "GA & RP", langCode: "en-US", art: "Tongue positioned mid-low in front of mouth with unrounded lips.", place: "Open-mid Front", manner: "Short Vowel", voiced: true },
-            { id: "ae", symbol: "æ", name: "Near-open front unrounded vowel", cat: "vowels", nativeWord: "trap", targetFocus: "a", speechCarrier: "trap", nativeIPA: "/træp/", nativeLang: "GA & RP", langCode: "en-US", art: "Tongue lowered and forward in oral cavity.", place: "Near-open Front", manner: "Short Vowel", voiced: true },
-            { id: "lot_vowel", symbol: "ɒ", name: "Open back rounded vowel (RP)", cat: "vowels", nativeWord: "lot", targetFocus: "o", speechCarrier: "lot", nativeIPA: "/lɒt/", nativeLang: "RP (British)", langCode: "en-GB", art: "Short open back vowel with slight lip rounding common in British RP.", place: "Open Back", manner: "Short Vowel", voiced: true },
-            { id: "turn_v", symbol: "ʌ", name: "Open-mid back unrounded vowel", cat: "vowels", nativeWord: "strut", targetFocus: "u", speechCarrier: "strut", nativeIPA: "/strʌt/", nativeLang: "GA & RP", langCode: "en-US", art: "Short unrounded vowel with back of tongue lowered.", place: "Open-mid Back", manner: "Short Vowel", voiced: true },
-            { id: "foot_vowel", symbol: "ʊ", name: "Near-close near-back rounded vowel", cat: "vowels", nativeWord: "foot", targetFocus: "oo", speechCarrier: "foot", nativeIPA: "/fʊt/", nativeLang: "GA & RP", langCode: "en-US", art: "Short, relaxed vowel with tongue slightly lower than [u].", place: "Near-close Back", manner: "Short Vowel", voiced: true },
-            { id: "schwa", symbol: "ə", name: "Mid-central vowel (Schwa)", cat: "vowels", nativeWord: "about", targetFocus: "a", speechCarrier: "about", nativeIPA: "/əˈbaʊt/", nativeLang: "GA & RP", langCode: "en-US", art: "Neutral, relaxed vocal tract with tongue centrally placed in unstressed syllables.", place: "Mid Central", manner: "Short Vowel", voiced: true },
-            { id: "i_long", symbol: "iː", name: "Close front unrounded vowel", cat: "vowels", nativeWord: "fleece", targetFocus: "ee", speechCarrier: "fleece", nativeIPA: "/fliːs/", nativeLang: "GA & RP", langCode: "en-US", art: "Long tense vowel with tongue positioned high and forward.", place: "Close Front", manner: "Long Vowel", voiced: true },
-            { id: "a_long", symbol: "ɑː", name: "Open back unrounded vowel", cat: "vowels", nativeWord: "palm / father", targetFocus: "a", speechCarrier: "father", nativeIPA: "/ˈfɑːðər/", nativeLang: "GA & RP", langCode: "en-US", art: "Long open vowel with tongue flat and low in back of mouth.", place: "Open Back", manner: "Long Vowel", voiced: true },
-            { id: "open_o_long", symbol: "ɔː", name: "Open-mid back rounded vowel", cat: "vowels", nativeWord: "thought", targetFocus: "ough", speechCarrier: "thought", nativeIPA: "/θɔːt/", nativeLang: "GA & RP", langCode: "en-US", art: "Long rounded vowel held longer in duration.", place: "Open-mid Back", manner: "Long Vowel", voiced: true },
-            { id: "u_long", symbol: "uː", name: "Close back rounded vowel", cat: "vowels", nativeWord: "goose", targetFocus: "oo", speechCarrier: "goose", nativeIPA: "/ɡuːs/", nativeLang: "GA & RP", langCode: "en-US", art: "Long tense vowel with tongue high in back and rounded lips.", place: "Close Back", manner: "Long Vowel", voiced: true },
-            { id: "nurse_vowel", symbol: "ɜː", name: "Open-mid central unrounded vowel", cat: "vowels", nativeWord: "nurse", targetFocus: "ur", speechCarrier: "nurse", nativeIPA: "/nɜːs/", nativeLang: "GA & RP", langCode: "en-US", art: "Long central vowel; rhotacized [ɝ] in General American.", place: "Mid Central", manner: "Long Vowel", voiced: true },
+            // Diphthongs
+            { id: "ei_diphthong", symbol: "eɪ", noadSymbol: "ā", name: "Close-mid front to near-close front (Face)", cat: "diphthongs", nativeWord: "mate", highlightSub: "a", speechCarrier: "mate", nativeIPA: "/meɪt/", nativeNOAD: "māt", nativeLang: "English", langCode: "en-US", art: "Vowel glides from mid-front [e] to close-front [ɪ] ('ay' sound).", place: "Diphthong", manner: "Glide Vowel" },
+            { id: "ou_diphthong", symbol: "oʊ", noadSymbol: "ō", name: "Close-mid back to near-close back (Go)", cat: "diphthongs", nativeWord: "no", highlightSub: "o", speechCarrier: "no", nativeIPA: "/noʊ/", nativeNOAD: "nō", nativeLang: "English", langCode: "en-US", art: "Vowel glides from rounded mid-back [o] to close rounded [ʊ] ('oh' sound).", place: "Diphthong", manner: "Glide Vowel" },
+            { id: "ai_diphthong", symbol: "aɪ", noadSymbol: "ī", name: "Open front to near-close front (Price)", cat: "diphthongs", nativeWord: "time", highlightSub: "i", speechCarrier: "time", nativeIPA: "/taɪm/", nativeNOAD: "tīm", nativeLang: "English", langCode: "en-US", art: "Vowel glides smoothly from open [a] toward close unrounded [ɪ] ('eye' sound).", place: "Diphthong", manner: "Glide Vowel" },
+            { id: "au_diphthong", symbol: "aʊ", noadSymbol: "ou", name: "Open front to near-close back (Mouth)", cat: "diphthongs", nativeWord: "about", highlightSub: "ou", speechCarrier: "about", nativeIPA: "/əˈbaʊt/", nativeNOAD: "əˈbout", nativeLang: "English", langCode: "en-US", art: "Vowel glides from open front [a] toward near-close rounded [ʊ] ('ow' sound).", place: "Diphthong", manner: "Glide Vowel" },
+            { id: "oi_diphthong", symbol: "ɔɪ", noadSymbol: "oi", name: "Open-mid back to near-close front (Choice)", cat: "diphthongs", nativeWord: "boy", highlightSub: "oy", speechCarrier: "boy", nativeIPA: "/bɔɪ/", nativeNOAD: "boi", nativeLang: "English", langCode: "en-US", art: "Vowel glides from open-mid rounded [ɔ] toward close unrounded [ɪ] ('oy' sound).", place: "Diphthong", manner: "Glide Vowel" },
+            { id: "ear_diphthong", symbol: "ɪə", noadSymbol: "iər", name: "Near-close front to central schwa (Near - RP)", cat: "diphthongs", nativeWord: "near", highlightSub: "ear", speechCarrier: "near", nativeIPA: "/nɪə/", nativeNOAD: "niər", nativeLang: "English (RP)", langCode: "en-GB", art: "Centering diphthong gliding from close [ɪ] into relaxed schwa [ə].", place: "Centering Diphthong", manner: "Glide Vowel" },
+            { id: "air_diphthong", symbol: "eə", noadSymbol: "eər", name: "Close-mid front to central schwa (Square - RP)", cat: "diphthongs", nativeWord: "square", highlightSub: "are", speechCarrier: "square", nativeIPA: "/skweə/", nativeNOAD: "skweər", nativeLang: "English (RP)", langCode: "en-GB", art: "Centering diphthong gliding from mid-front [e] into relaxed schwa [ə].", place: "Centering Diphthong", manner: "Glide Vowel" },
 
-            // --- 8 DIPHTHONGS ---
-            { id: "face_diphthong", symbol: "eɪ", name: "Close-mid front to near-close front diphthong", cat: "diphthongs", nativeWord: "face", targetFocus: "a", speechCarrier: "face", nativeIPA: "/feɪs/", nativeLang: "GA & RP", langCode: "en-US", art: "Glides from close-mid [e] toward close front [ɪ].", place: "Diphthong", manner: "Glide Vowel", voiced: true },
-            { id: "ai_diphthong", symbol: "aɪ", name: "Open front to near-close front diphthong", cat: "diphthongs", nativeWord: "price / my", targetFocus: "i", speechCarrier: "price", nativeIPA: "/praɪs/", nativeLang: "GA & RP", langCode: "en-US", art: "Vowel glides smoothly from open [a] toward close [ɪ] ('eye' sound).", place: "Diphthong", manner: "Glide Vowel", voiced: true },
-            { id: "oi_diphthong", symbol: "ɔɪ", name: "Open-mid back to near-close front diphthong", cat: "diphthongs", nativeWord: "boy", targetFocus: "oy", speechCarrier: "boy", nativeIPA: "/bɔɪ/", nativeLang: "GA & RP", langCode: "en-US", art: "Vowel glides from open-mid rounded [ɔ] toward close unrounded [ɪ].", place: "Diphthong", manner: "Glide Vowel", voiced: true },
-            { id: "au_diphthong", symbol: "aʊ", name: "Open front to near-close back diphthong", cat: "diphthongs", nativeWord: "mouth / about", targetFocus: "ou", speechCarrier: "about", nativeIPA: "/əˈbaʊt/", nativeLang: "GA & RP", langCode: "en-US", art: "Vowel glides from open front [a] toward rounded [ʊ] ('ow' sound).", place: "Diphthong", manner: "Glide Vowel", voiced: true },
-            { id: "goat_diphthong", symbol: "oʊ", name: "Close-mid back to near-close back diphthong", cat: "diphthongs", nativeWord: "goat / no", targetFocus: "oa", speechCarrier: "goat", nativeIPA: "/ɡoʊt/", nativeLang: "GA & RP", langCode: "en-US", art: "Glides from mid-back [o] toward rounded [ʊ] ([əʊ] in RP).", place: "Diphthong", manner: "Glide Vowel", voiced: true },
-            { id: "near_diphthong", symbol: "ɪə", name: "Near-close front to mid-central diphthong", cat: "diphthongs", nativeWord: "near", targetFocus: "ear", speechCarrier: "near", nativeIPA: "/nɪə/", nativeLang: "GA & RP", langCode: "en-GB", art: "Glides from near-close [ɪ] toward central schwa [ə] ([ɪr] in GA).", place: "Diphthong", manner: "Centering Glide", voiced: true },
-            { id: "square_diphthong", symbol: "eə", name: "Open-mid front to mid-central diphthong", cat: "diphthongs", nativeWord: "square", targetFocus: "are", speechCarrier: "square", nativeIPA: "/skweə/", nativeLang: "GA & RP", langCode: "en-GB", art: "Glides from open-mid [e] toward schwa [ə] ([ɛr] in GA).", place: "Diphthong", manner: "Centering Glide", voiced: true },
-            { id: "cure_diphthong", symbol: "ʊə", name: "Near-close back to mid-central diphthong", cat: "diphthongs", nativeWord: "cure", targetFocus: "ure", speechCarrier: "cure", nativeIPA: "/kjʊə/", nativeLang: "GA & RP", langCode: "en-GB", art: "Glides from rounded [ʊ] toward central schwa [ə] ([ʊr] in GA).", place: "Diphthong", manner: "Centering Glide", voiced: true },
-
-            // --- 6 SUPRASEGMENTALS & DIACRITICS ---
-            { id: "primary_stress", symbol: "ˈ", name: "Primary stress mark", cat: "diacritics", nativeWord: "about", targetFocus: "ˈ", speechCarrier: "about", nativeIPA: "/əˈbaʊt/", nativeLang: "IPA Stress", langCode: "en-US", art: "Placed before the syllable that receives primary emphasis/loudness.", place: "Suprasegmental", manner: "Stress Mark", voiced: true },
-            { id: "secondary_stress", symbol: "ˌ", name: "Secondary stress mark", cat: "diacritics", nativeWord: "pronunciation", targetFocus: "ˌ", speechCarrier: "pronunciation", nativeIPA: "/prəˌnʌnsiˈeɪʃn̩/", nativeLang: "IPA Stress", langCode: "en-US", art: "Placed before a syllable receiving secondary stress emphasis.", place: "Suprasegmental", manner: "Stress Mark", voiced: true },
-            { id: "length_mark", symbol: "ː", name: "Length mark (long vowel)", cat: "diacritics", nativeWord: "thought", targetFocus: "ː", speechCarrier: "thought", nativeIPA: "/θɔːt/", nativeLang: "IPA Diacritic", langCode: "en-US", art: "Indicates that the preceding vowel sound is held for a longer duration.", place: "Suprasegmental", manner: "Length Mark", voiced: true },
-            { id: "syllabic_mark", symbol: "̩", name: "Syllabic mark", cat: "diacritics", nativeWord: "button", targetFocus: "n̩", speechCarrier: "button", nativeIPA: "/ˈbʌtn̩/", nativeLang: "IPA Diacritic", langCode: "en-US", art: "Indicates a consonant acts as the core syllable nucleus without a vowel.", place: "Diacritic", manner: "Syllabic Mark", voiced: true },
-            { id: "tie_bar", symbol: "͡", name: "Tie bar (affricate)", cat: "diacritics", nativeWord: "church", targetFocus: "t͡ʃ", speechCarrier: "church", nativeIPA: "/t͡ʃɜːrt͡ʃ/", nativeLang: "IPA Diacritic", langCode: "en-US", art: "Links two symbols into a single affricate sound (e.g., [t] + [ʃ] = [t͡ʃ]).", place: "Diacritic", manner: "Tie Bar", voiced: false },
-            { id: "nasal_tilde", symbol: "˜", name: "Nasalized vowel tilde", cat: "diacritics", nativeWord: "man (nasalized)", targetFocus: "æ̃", speechCarrier: "man", nativeIPA: "/mæ̃n/", nativeLang: "IPA Diacritic", langCode: "en-US", art: "Placed above a vowel indicating air flows simultaneously through the nose.", place: "Diacritic", manner: "Nasalization", voiced: true }
+            // Diacritics & Suprasegmentals
+            { id: "primary_stress", symbol: "ˈ", noadSymbol: "ˈ", name: "Primary stress mark", cat: "diacritics", nativeWord: "about", highlightSub: "bout", speechCarrier: "about", nativeIPA: "/əˈbaʊt/", nativeNOAD: "əˈbout", nativeLang: "IPA Stress", langCode: "en-US", art: "Placed before the syllable receiving main primary loudness emphasis.", place: "Suprasegmental", manner: "Stress Mark" },
+            { id: "secondary_stress", symbol: "ˌ", noadSymbol: "ˌ", name: "Secondary stress mark", cat: "diacritics", nativeWord: "pronunciation", highlightSub: "pro", speechCarrier: "pronunciation", nativeIPA: "/prəˌnʌnsiˈeɪʃn/", nativeNOAD: "prəˌnənsēˈāSHən", nativeLang: "IPA Stress", langCode: "en-US", art: "Placed before a syllable receiving secondary stress emphasis.", place: "Suprasegmental", manner: "Stress Mark" },
+            { id: "length_mark", symbol: "ː", noadSymbol: "-", name: "Length mark (long vowel)", cat: "diacritics", nativeWord: "thought", highlightSub: "ough", speechCarrier: "thought", nativeIPA: "/θɔːt/", nativeNOAD: "THôt", nativeLang: "IPA Diacritic", langCode: "en-US", art: "Indicates that the preceding vowel sound is held for a longer duration.", place: "Suprasegmental", manner: "Length Mark" },
+            { id: "tie_bar", symbol: "͡", noadSymbol: "-", name: "Tie bar (affricate link)", cat: "diacritics", nativeWord: "church", highlightSub: "ch", speechCarrier: "church", nativeIPA: "/t͡ʃɜːrt͡ʃ/", nativeNOAD: "CHərCH", nativeLang: "IPA Diacritic", langCode: "en-US", art: "Links two symbols into a single affricate sound (e.g., [t] + [ʃ] = [t͡ʃ]).", place: "Diacritic", manner: "Tie Bar" },
+            { id: "nasal_tilde", symbol: "˜", noadSymbol: "-", name: "Nasalized vowel tilde", cat: "diacritics", nativeWord: "bon", highlightSub: "on", speechCarrier: "bon", nativeIPA: "/bɔ̃/", nativeNOAD: "bôN", nativeLang: "French Expert Example", langCode: "fr-FR", art: "Placed above a vowel indicating air flows simultaneously through nose and mouth.", place: "Diacritic", manner: "Nasalization" },
+            { id: "syllabic_mark", symbol: "̩", noadSymbol: "-", name: "Syllabic mark", cat: "diacritics", nativeWord: "button", highlightSub: "on", speechCarrier: "button", nativeIPA: "/ˈbʌtn̩/", nativeNOAD: "ˈbətn", nativeLang: "English", langCode: "en-US", art: "Indicates a consonant acts as the core syllable nucleus without a vowel.", place: "Diacritic", manner: "Syllabic" }
         ];
 
-        let currentCategory = 'consonants';
+        let currentCategory = 'pulmonic';
         let currentSoundIndex = 0;
         let masteredIds = new Set();
         let targetQuizSound = null;
@@ -336,14 +339,12 @@
             currentCategory = cat;
             currentSoundIndex = 0;
 
-            ['consonants', 'allophones', 'vowels', 'diphthongs', 'diacritics'].forEach(c => {
+            ['pulmonic', 'vowels', 'diphthongs', 'diacritics'].forEach(c => {
                 const btn = document.getElementById(`cat-${c}`);
-                if (btn) {
-                    if (c === cat) {
-                        btn.className = "flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-indigo-500/40 bg-indigo-600/10 text-indigo-300 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap";
-                    } else {
-                        btn.className = "flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap";
-                    }
+                if (c === cat) {
+                    btn.className = "flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-indigo-500/40 bg-indigo-600/10 text-indigo-300 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap";
+                } else {
+                    btn.className = "flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap";
                 }
             });
 
@@ -351,8 +352,7 @@
         }
 
         function updateCategoryCounts() {
-            document.getElementById('count-consonants').textContent = ipaData.filter(s => s.cat === 'consonants').length;
-            document.getElementById('count-allophones').textContent = ipaData.filter(s => s.cat === 'allophones').length;
+            document.getElementById('count-pulmonic').textContent = ipaData.filter(s => s.cat === 'pulmonic').length;
             document.getElementById('count-vowels').textContent = ipaData.filter(s => s.cat === 'vowels').length;
             document.getElementById('count-diphthongs').textContent = ipaData.filter(s => s.cat === 'diphthongs').length;
             document.getElementById('count-diacritics').textContent = ipaData.filter(s => s.cat === 'diacritics').length;
@@ -366,10 +366,11 @@
             document.getElementById('lesson-symbol').textContent = `/${sound.symbol}/`;
             document.getElementById('lesson-name').textContent = sound.name;
             document.getElementById('lesson-category-tag').textContent = sound.cat.toUpperCase();
-            document.getElementById('lesson-type-tag').textContent = sound.manner;
+            document.getElementById('lesson-noad-tag').textContent = `NOAD: ${sound.noadSymbol}`;
 
             document.getElementById('native-word').textContent = `"${sound.nativeWord}"`;
-            document.getElementById('native-ipa').textContent = sound.nativeIPA;
+            document.getElementById('native-ipa').textContent = `IPA: ${sound.nativeIPA}`;
+            document.getElementById('native-noad').textContent = `NOAD: ${sound.nativeNOAD}`;
             document.getElementById('native-lang-badge').textContent = sound.nativeLang;
 
             document.getElementById('articulation-text').textContent = sound.art;
@@ -431,46 +432,10 @@
             renderLesson();
         }
 
-        function playProceduralClick(type) {
-            try {
-                const AudioCtx = window.AudioContext || window.webkitAudioContext;
-                if (!AudioCtx) return;
-                const ctx = new AudioCtx();
-
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-
-                if (type === 'tap_flap') {
-                    osc.type = 'sine';
-                    osc.frequency.setValueAtTime(500, ctx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(150, ctx.currentTime + 0.04);
-                    gain.gain.setValueAtTime(0.7, ctx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.04);
-                } else {
-                    osc.type = 'triangle';
-                    osc.frequency.setValueAtTime(2200, ctx.currentTime);
-                    osc.frequency.exponentialRampToValueAtTime(400, ctx.currentTime + 0.03);
-                    gain.gain.setValueAtTime(1.0, ctx.currentTime);
-                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.03);
-                }
-
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-
-                osc.start();
-                osc.stop(ctx.currentTime + 0.05);
-            } catch(e) {}
-        }
-
         function playNativeAudio() {
             const sound = getFilteredSounds()[currentSoundIndex];
             if (!sound) return;
-
-            if (sound.langCode === 'synthetic-click') {
-                playProceduralClick(sound.id);
-            } else {
-                speakWord(sound.speechCarrier, sound.langCode);
-            }
+            speakWord(sound.speechCarrier, sound.langCode);
         }
 
         function speakWord(text, lang = 'en-US') {
@@ -500,6 +465,7 @@
                 };
                 item.innerHTML = `
                     <span class="text-xl font-bold text-indigo-400 ipa-char">/${s.symbol}/</span>
+                    <span class="text-[9px] text-amber-300/80 font-mono">NOAD: ${s.noadSymbol}</span>
                     <span class="text-[9px] text-slate-400 mt-0.5 truncate w-full text-center">${s.name}</span>
                 `;
                 grid.appendChild(item);
@@ -527,11 +493,16 @@
 
             options.sort(() => Math.random() - 0.5);
 
-            const hintText = targetQuizSound.targetFocus && targetQuizSound.targetFocus !== '-' 
-                ? `Word context: "${targetQuizSound.nativeWord}" (testing "${targetQuizSound.targetFocus}")`
-                : `Word context: "${targetQuizSound.nativeWord}"`;
+            const word = targetQuizSound.nativeWord;
+            const sub = targetQuizSound.highlightSub;
+            let formattedWord = word;
+            if (sub && sub !== '-' && word.toLowerCase().includes(sub.toLowerCase())) {
+                const idx = word.toLowerCase().indexOf(sub.toLowerCase());
+                const matchStr = word.substring(idx, idx + sub.length);
+                formattedWord = word.substring(0, idx) + `<u class="text-amber-400 font-bold decoration-amber-400 underline-offset-4">${matchStr}</u>` + word.substring(idx + sub.length);
+            }
 
-            document.getElementById('quiz-carrier-hint').textContent = hintText;
+            document.getElementById('quiz-carrier-hint').innerHTML = `Target sound in: "<span class="text-slate-100 font-semibold">${formattedWord}</span>"`;
 
             const optionsContainer = document.getElementById('quiz-options');
             optionsContainer.innerHTML = '';
@@ -541,7 +512,10 @@
                 const btn = document.createElement('button');
                 btn.className = "quiz-opt-btn p-3 rounded-xl bg-slate-900 border border-slate-800 hover:border-indigo-500 text-lg font-bold text-slate-200 hover:text-white ipa-char transition flex flex-col items-center focus:outline-none";
                 btn.innerHTML = `
-                    <span class="text-indigo-400">/${opt.symbol}/</span>
+                    <div class="flex items-baseline space-x-1">
+                        <span class="text-indigo-400">/${opt.symbol}/</span>
+                        <span class="text-[10px] text-amber-300 font-mono font-normal">(NOAD: ${opt.noadSymbol})</span>
+                    </div>
                     <span class="text-[10px] font-normal text-slate-400 mt-0.5 truncate w-full text-center">${opt.name}</span>
                 `;
                 btn.onclick = () => checkQuizAnswer(opt.id, btn);
@@ -551,11 +525,7 @@
 
         function playQuizAudio() {
             if (!targetQuizSound) return;
-            if (targetQuizSound.langCode === 'synthetic-click') {
-                playProceduralClick(targetQuizSound.id);
-            } else {
-                speakWord(targetQuizSound.speechCarrier, targetQuizSound.langCode);
-            }
+            speakWord(targetQuizSound.speechCarrier, targetQuizSound.langCode);
         }
 
         function checkQuizAnswer(selectedId, element) {
@@ -601,7 +571,7 @@
                     if (sound) {
                         const tag = document.createElement('span');
                         tag.className = "px-2.5 py-1 bg-emerald-950/60 border border-emerald-800 text-emerald-300 rounded-lg text-xs font-mono flex items-center space-x-1";
-                        tag.innerHTML = `<span class="ipa-char font-bold">/${sound.symbol}/</span> <span class="text-slate-400">(${sound.nativeWord})</span>`;
+                        tag.innerHTML = `<span class="ipa-char font-bold">/${sound.symbol}/</span> <span class="text-amber-300 text-[10px]">(${sound.noadSymbol})</span> <span class="text-slate-400">(${sound.nativeWord})</span>`;
                         tagsContainer.appendChild(tag);
                     }
                 });
@@ -610,3 +580,4 @@
     </script>
 </body>
 </html>
+
