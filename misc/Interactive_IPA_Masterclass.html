@@ -64,40 +64,39 @@
         <!-- TAB 1: LESSONS -->
         <section id="tab-lessons" class="flex-grow flex flex-col md:flex-row gap-3 sm:gap-6">
             
-            <!-- Category Selector Toolbar -->
-            <div class="w-full md:w-60 flex-shrink-0 flex md:flex-col gap-1.5 overflow-x-auto pb-1 md:pb-0 custom-scrollbar">
-                <button onclick="selectCategory('pulmonic')" id="cat-pulmonic" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-indigo-500/40 bg-indigo-600/10 text-indigo-300 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
-                    <span>Consonants</span>
-                    <span id="count-pulmonic" class="ml-2 text-[10px] bg-indigo-950 px-1.5 py-0.5 rounded-full border border-indigo-800 text-indigo-300 font-mono">25</span>
-                </button>
-                <button onclick="selectCategory('vowels')" id="cat-vowels" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
-                    <span>Monophthongs</span>
-                    <span id="count-vowels" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">12</span>
-                </button>
-                <button onclick="selectCategory('diphthongs')" id="cat-diphthongs" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
-                    <span>Diphthongs</span>
-                    <span id="count-diphthongs" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">7</span>
-                </button>
-                <button onclick="selectCategory('diacritics')" id="cat-diacritics" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
-                    <span>Diacritics & Stress</span>
-                    <span id="count-diacritics" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">6</span>
-                </button>
+            <!-- Category Selector & Audio Settings Sidebar -->
+            <div class="w-full md:w-64 flex-shrink-0 flex flex-col gap-2">
+                <div class="flex md:flex-col gap-1.5 overflow-x-auto pb-1 md:pb-0 custom-scrollbar">
+                    <button onclick="selectCategory('pulmonic')" id="cat-pulmonic" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-indigo-500/40 bg-indigo-600/10 text-indigo-300 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
+                        <span>Consonants</span>
+                        <span id="count-pulmonic" class="ml-2 text-[10px] bg-indigo-950 px-1.5 py-0.5 rounded-full border border-indigo-800 text-indigo-300 font-mono">25</span>
+                    </button>
+                    <button onclick="selectCategory('vowels')" id="cat-vowels" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
+                        <span>Monophthongs</span>
+                        <span id="count-vowels" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">12</span>
+                    </button>
+                    <button onclick="selectCategory('diphthongs')" id="cat-diphthongs" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
+                        <span>Diphthongs</span>
+                        <span id="count-diphthongs" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">7</span>
+                    </button>
+                    <button onclick="selectCategory('diacritics')" id="cat-diacritics" class="flex-1 md:w-full text-left px-3 py-2 rounded-xl border border-slate-800 hover:border-slate-700 bg-slate-900 text-slate-400 hover:text-slate-200 font-medium text-xs sm:text-sm flex justify-between items-center whitespace-nowrap">
+                        <span>Diacritics & Stress</span>
+                        <span id="count-diacritics" class="ml-2 text-[10px] bg-slate-950 px-1.5 py-0.5 rounded-full border border-slate-800 text-slate-400 font-mono">6</span>
+                    </button>
+                </div>
 
-                <!-- Auto-Play Audio Checkbox Option -->
-                <div class="mt-auto pt-2 hidden md:block">
-                    <label class="flex items-center space-x-2 px-3 py-2 bg-slate-900 border border-slate-800 rounded-xl cursor-pointer hover:border-slate-700 transition">
-                        <input type="checkbox" id="autoplay-checkbox" onchange="toggleAutoplay(this.checked)" class="w-4 h-4 rounded text-indigo-600 bg-slate-950 border-slate-700 focus:ring-indigo-500 focus:ring-offset-slate-900">
-                        <span class="text-xs text-slate-300 font-medium select-none">Auto-play audio on load</span>
+                <!-- Audio Settings Panel -->
+                <div class="p-3 bg-slate-900/90 border border-slate-800 rounded-xl flex flex-col gap-2">
+                    <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block">AUDIO ENGINE VOICE</span>
+                    <select id="voice-select" onchange="onVoiceChange(this.value)" class="w-full bg-slate-950 text-slate-200 border border-slate-800 rounded-lg p-1.5 text-xs focus:outline-none focus:border-indigo-500">
+                        <option value="">Default System Voice</option>
+                    </select>
+
+                    <label class="flex items-center space-x-2 cursor-pointer mt-1">
+                        <input type="checkbox" id="autoplay-checkbox" onchange="toggleAutoplay(this.checked)" class="w-3.5 h-3.5 rounded text-indigo-600 bg-slate-950 border-slate-700">
+                        <span class="text-[11px] text-slate-300 font-medium select-none">Auto-play audio on navigation</span>
                     </label>
                 </div>
-            </div>
-
-            <!-- Mobile Autoplay Bar -->
-            <div class="block md:hidden mb-1">
-                <label class="flex items-center space-x-2 px-3 py-1.5 bg-slate-900/80 border border-slate-800 rounded-xl cursor-pointer">
-                    <input type="checkbox" id="autoplay-checkbox-mobile" onchange="toggleAutoplay(this.checked)" class="w-3.5 h-3.5 rounded text-indigo-600 bg-slate-950 border-slate-700">
-                    <span class="text-[11px] text-slate-300 font-medium select-none">Auto-play audio when navigating sounds</span>
-                </label>
             </div>
 
             <!-- Dense Responsive Card Area -->
@@ -315,6 +314,8 @@
         let masteredIds = new Set();
         let targetQuizSound = null;
         let isAutoplayEnabled = false;
+        let selectedVoiceURI = '';
+        let availableVoices = [];
 
         window.addEventListener('DOMContentLoaded', () => {
             try {
@@ -327,22 +328,71 @@
                 if (savedAutoplay !== null) {
                     isAutoplayEnabled = JSON.parse(savedAutoplay);
                     document.getElementById('autoplay-checkbox').checked = isAutoplayEnabled;
-                    document.getElementById('autoplay-checkbox-mobile').checked = isAutoplayEnabled;
+                }
+
+                const savedVoice = localStorage.getItem('ipa_selected_voice');
+                if (savedVoice) {
+                    selectedVoiceURI = savedVoice;
                 }
             } catch (e) {
                 console.log("Storage access restricted");
             }
+
+            initVoices();
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.onvoiceschanged = initVoices;
+            }
+
             updateCategoryCounts();
-            renderLesson(false); // don't autoplay on initial page load to comply with browser audio policies
+            renderLesson(false);
             renderChart();
             setupQuiz();
             updateProgressView();
         });
 
+        function initVoices() {
+            if (!('speechSynthesis' in window)) return;
+            availableVoices = window.speechSynthesis.getVoices();
+            const selectEl = document.getElementById('voice-select');
+            if (!selectEl || availableVoices.length === 0) return;
+
+            selectEl.innerHTML = '<option value="">Default System Voice</option>';
+
+            // Filter for English voices first, then others
+            availableVoices.forEach(v => {
+                const option = document.createElement('option');
+                option.value = v.voiceURI;
+                option.textContent = `${v.name} (${v.lang})`;
+                if (v.voiceURI === selectedVoiceURI) {
+                    option.selected = true;
+                }
+                selectEl.appendChild(option);
+            });
+
+            // Auto-select enhanced/premium voice if user hasn't manually chosen one
+            if (!selectedVoiceURI) {
+                const bestVoice = availableVoices.find(v => 
+                    v.lang.startsWith('en') && 
+                    (v.name.includes('Enhanced') || v.name.includes('Premium') || v.name.includes('Natural'))
+                );
+                if (bestVoice) {
+                    selectedVoiceURI = bestVoice.voiceURI;
+                    selectEl.value = selectedVoiceURI;
+                }
+            }
+        }
+
+        function onVoiceChange(uri) {
+            selectedVoiceURI = uri;
+            try {
+                localStorage.setItem('ipa_selected_voice', uri);
+            } catch (e) {}
+            playNativeAudio();
+        }
+
         function toggleAutoplay(enabled) {
             isAutoplayEnabled = enabled;
             document.getElementById('autoplay-checkbox').checked = enabled;
-            document.getElementById('autoplay-checkbox-mobile').checked = enabled;
             try {
                 localStorage.setItem('ipa_autoplay', JSON.stringify(enabled));
             } catch (e) {}
@@ -480,7 +530,17 @@
                 window.speechSynthesis.cancel();
                 const cleanText = text.trim();
                 const utterance = new SpeechSynthesisUtterance(cleanText);
-                utterance.lang = lang;
+                
+                // Assign user-selected voice if available
+                if (selectedVoiceURI && availableVoices.length > 0) {
+                    const matchedVoice = availableVoices.find(v => v.voiceURI === selectedVoiceURI);
+                    if (matchedVoice) {
+                        utterance.voice = matchedVoice;
+                    }
+                } else {
+                    utterance.lang = lang;
+                }
+
                 utterance.rate = 0.85;
                 window.speechSynthesis.speak(utterance);
             }
@@ -617,3 +677,4 @@
     </script>
 </body>
 </html>
+
